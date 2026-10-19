@@ -1,8 +1,9 @@
-# Website-Prototyp: Beratung Informationssicherheit
+# Website-Prototyp: CyberRisikoCheck
 
-Statische Landingpage für die Beratung (Kristian Dabic) mit eingebautem Cyber-Check für KMU.
-Eine Datei, kein Build: `index.html` im Browser öffnen.
+Statische Landingpage für die Beratung (Kristian Dabić) mit eingebautem CyberRisikoCheck
+nach DIN SPEC 27076 für kleine Unternehmen. Eine Datei, kein Build: `index.html` im Browser öffnen.
 
-- Der Cyber-Check (12 Fragen, gewichtet) wird nur im Browser ausgewertet, nichts wird übertragen.
-- Das Kontaktformular ist noch nicht angebunden.
-- Preise, Foto, Impressum und Datenschutzerklärung sind Platzhalter.
+- 27 Fragen in sechs Themenfeldern, sechs TOP-Anforderungen zählen doppelt. Die Fragen sind eine
+  eigene Kurzfassung und vor dem Livegang gegen den Text der DIN SPEC 27076 zu prüfen.
+- Die Auswertung läuft nur im Browser, nichts wird übertragen.
+- Formular, Foto, Impressum und Datenschutzerklärung sind Platzhalter.
