@@ -1,187 +1,99 @@
-<title>CyberRisikoCheck Kristian Dabić</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Kostenloser CyberRisikoCheck nach DIN SPEC 27076 für kleine Unternehmen und Mittelstand. Ergebnis sofort, Förder-Check inklusive.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap">
-<style>
-/* Layout nach dem Lovable-Muster: dunkles Navy-Band mit Teal-Akzent oben und unten,
-   dazwischen helle, ruhige Flächen. Der Check ist der Mittelpunkt, alles andere ist knapp.
-   Bewusst ein einziges Erscheinungsbild (kein Dunkelmodus), alle Farben explizit gesetzt. */
-:root {
-  --navy-900: #081326;
-  --navy-800: #0c1d38;
-  --navy-700: #12305a;
-  --teal: #12b39a;
-  --teal-strong: #0e9a85;
-  --teal-soft: #e3f7f3;
-  --ink: #0f1b2d;
-  --muted: #5b6b7f;
-  --line: #e1e7ef;
-  --paper: #ffffff;
-  --mist: #f3f6fa;
-  --on-dark: #eef4fb;
-  --on-dark-muted: #a8b8cc;
-  --ok: #138a5b; --ok-soft: #e2f5ec;
-  --warn: #b26b00; --warn-soft: #fdf1dc;
-  --crit: #c0352b; --crit-soft: #fde8e6;
-  --shadow: 0 2px 6px rgba(15,27,45,.05), 0 20px 40px -20px rgba(15,27,45,.25);
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CyberRisikoCheck für KMU nach DIN SPEC 27076 | Kristian Dabić, München</title>
+  <meta name="description" content="Kostenloser CyberRisikoCheck für kleine Unternehmen: 27 Fragen nach DIN SPEC 27076, Ergebnis in 5 Minuten, Förder-Check inklusive. IT-Sicherheitsberatung aus München.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Kristian Dabić">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#081326">
+  <!-- Ersatz-CSP für Hosts ohne eigene Header. Maßgeblich sind die HTTP-Header aus _headers. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <!-- Vom Server pro Sitzung zu füllen (Double-Submit-Token), siehe server/lead-endpoint.example.mjs -->
+  <meta name="csrf-token" content="">
+  <meta name="lead-endpoint" content="/api/lead">
 
-  --f-head: "Sora", "Segoe UI", system-ui, sans-serif;
-  --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
-  --wrap: 70rem;
-  color-scheme: light;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--navy-900); }
-h1, h2, h3 { font-family: var(--f-head); margin: 0; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
-p { margin: 0; }
-a { color: inherit; }
-:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
-.wrap { max-width: var(--wrap); margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  <!-- TODO vor dem Livegang: ihre-domain.de durch die echte Domain ersetzen (hier, in JSON-LD, sitemap.xml, robots.txt, llms.txt) -->
+  <link rel="canonical" href="https://www.ihre-domain.de/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/sora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
 
-.btn { display: inline-flex; align-items: center; gap: .6rem; font: 700 1rem/1 var(--f-body); padding: 1rem 1.6rem; border-radius: 8px; border: 0; cursor: pointer; text-decoration: none; background: var(--teal); color: var(--navy-900); transition: background .15s, transform .15s; }
-.btn:hover { background: #22c7ad; }
-.btn:active { transform: translateY(1px); }
-.btn-sm { padding: .6rem .9rem; font-size: .85rem; }
-.btn svg { width: 1.1em; height: 1.1em; }
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Kristian Dabić · Cyber Security &amp; GRC">
+  <meta property="og:title" content="Kostenloser CyberRisikoCheck für KMU nach DIN SPEC 27076">
+  <meta property="og:description" content="27 Fragen, 5 Minuten, sofort ein klares Ergebnis mit den wichtigsten nächsten Schritten.">
+  <meta property="og:url" content="https://www.ihre-domain.de/">
+  <meta property="og:image" content="https://www.ihre-domain.de/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
-/* Dunkles Band */
-.dark { background: radial-gradient(1200px 600px at 85% 20%, #0f3a5e 0%, transparent 60%), linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 55%, #0b2d4f 100%); color: var(--on-dark); }
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(8,19,38,.85); backdrop-filter: blur(10px); }
-.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 4rem; }
-.brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; color: #fff; min-width: 0; }
-.brand svg { width: 1.3rem; height: 1.3rem; flex: none; color: var(--teal); }
-.brand b { font-family: var(--f-head); font-weight: 700; font-size: 1.02rem; white-space: nowrap; }
-.brand span { color: var(--on-dark-muted); font-weight: 600; font-size: .98rem; white-space: nowrap; }
-@media (max-width: 520px) { .brand span { display: none; } }
+  <!-- Strukturierte Daten: Datenblock, wird nicht ausgeführt und fällt nicht unter script-src. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.ihre-domain.de/#business",
+        "name": "Kristian Dabić · Cyber Security & GRC",
+        "description": "IT-Sicherheitsberatung für kleine und mittlere Unternehmen: CyberRisikoCheck nach DIN SPEC 27076, ISO 27001, NIS2 und BSI IT-Grundschutz.",
+        "url": "https://www.ihre-domain.de/",
+        "email": "kristian95@gmx.de",
+        "image": "https://www.ihre-domain.de/assets/img/og-image.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "München", "addressRegion": "Bayern", "addressCountry": "DE" },
+        "areaServed": [{ "@type": "City", "name": "München" }, { "@type": "State", "name": "Bayern" }, { "@type": "Country", "name": "Deutschland" }],
+        "knowsAbout": ["DIN SPEC 27076", "CyberRisikoCheck", "ISO/IEC 27001", "NIS2", "BSI IT-Grundschutz", "Informationssicherheit", "Risikomanagement", "Notfallmanagement"],
+        "founder": { "@id": "https://www.ihre-domain.de/#person" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Leistungen",
+          "itemListElement": [
+            { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "CyberRisikoCheck online", "description": "Selbsteinschätzung mit 27 Fragen nach DIN SPEC 27076 und sofortiger Auswertung." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Umsetzung und Fördermittel", "description": "Schließen der gefundenen Lücken nach Dringlichkeit, Prüfung passender Förderprogramme." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 27001 ISMS", "description": "Schlanker Aufbau eines ISMS bis zur Zertifizierung, mit lizenzfreier ISMS-Software." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "NIS2 und BSI IT-Grundschutz", "description": "Betroffenheitsprüfung, Registrierung, Meldeprozess und Maßnahmen nach BSI-Gesetz." } }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.ihre-domain.de/#person",
+        "name": "Kristian Dabić",
+        "jobTitle": "Berater für Informationssicherheit",
+        "worksFor": { "@id": "https://www.ihre-domain.de/#business" },
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "ISO/IEC 27001 Implementer" },
+          { "@type": "EducationalOccupationalCredential", "name": "ISO/IEC 27005 Risk Manager" }
+        ],
+        "sameAs": ["https://github.com/Kico-bot"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Was ist der CyberRisikoCheck nach DIN SPEC 27076?", "acceptedAnswer": { "@type": "Answer", "text": "Ein standardisiertes Verfahren, mit dem kleine Unternehmen ihr IT-Sicherheitsniveau bewerten lassen. Es prüft 27 Anforderungen in sechs Themenfeldern und liefert einen Risikostatus mit priorisierten Empfehlungen. Die DIN SPEC 27076 entstand unter Federführung des BSI und richtet sich vor allem an Betriebe mit weniger als 50 Mitarbeitenden." } },
+          { "@type": "Question", "name": "Wie lange dauert der Online-Check?", "acceptedAnswer": { "@type": "Answer", "text": "Rund fünf Minuten. Das Ergebnis sehen Sie sofort. Der vollständige CyberRisikoCheck ist ein begleitetes Gespräch von wenigen Stunden mit schriftlichem Bericht." } },
+          { "@type": "Question", "name": "Was kostet der CyberRisikoCheck?", "acceptedAnswer": { "@type": "Answer", "text": "Der Online-Check und das 30-minütige Erstgespräch sind kostenlos. Für die Umsetzung erhalten Sie vorab ein Angebot zum Festpreis." } },
+          { "@type": "Question", "name": "Gibt es Fördermittel für IT-Sicherheit in kleinen Unternehmen?", "acceptedAnswer": { "@type": "Answer", "text": "Bund und Länder fördern Beratung und Maßnahmen zur IT-Sicherheit für kleine und mittlere Unternehmen immer wieder mit eigenen Programmen. Welches Programm aktuell für Sie passt, prüfe ich im Erstgespräch." } },
+          { "@type": "Question", "name": "Betrifft NIS2 mein Unternehmen?", "acceptedAnswer": { "@type": "Answer", "text": "Seit dem 6. Dezember 2025 gilt in Deutschland das neue BSI-Gesetz zur Umsetzung von NIS2. Betroffen sind in der Regel Unternehmen ab 50 Mitarbeitenden oder mehr als 10 Millionen Euro Jahresumsatz in bestimmten Branchen. Kleinere Betriebe spüren die Anforderungen oft als Lieferant ihrer Kunden." } },
+          { "@type": "Question", "name": "Was passiert mit meinen Antworten im Check?", "acceptedAnswer": { "@type": "Answer", "text": "Die Auswertung läuft vollständig in Ihrem Browser. Es wird nichts übertragen, solange Sie nicht selbst das Formular für den ausführlichen Bericht absenden." } }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#check">Zum Risiko-Check springen</a>
 
-.hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem); }
-@media (max-width: 880px) { .hero .wrap { grid-template-columns: 1fr; } }
-.hero-copy { display: grid; gap: 1.6rem; justify-items: start; min-width: 0; }
-.pill { font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--teal); border: 1px solid rgba(18,179,154,.45); background: rgba(18,179,154,.08); padding: .4rem .8rem; border-radius: 999px; }
-.hero h1 { font-size: clamp(2.2rem, 1.4rem + 3vw, 3.4rem); font-weight: 700; color: #fff; }
-.hero-sub { font-size: 1.15rem; color: var(--on-dark-muted); max-width: 32rem; }
-.ticks { display: flex; flex-wrap: wrap; gap: .6rem 1.8rem; list-style: none; padding: 0; margin: 0; color: var(--on-dark-muted); font-size: .95rem; font-weight: 500; }
-.ticks li { display: flex; align-items: center; gap: .45rem; }
-.ticks svg { width: 1.05rem; height: 1.05rem; color: var(--teal); flex: none; }
-.visual { position: relative; aspect-ratio: 3 / 2; max-width: 100%; border-radius: 18px; overflow: hidden; background: radial-gradient(80% 90% at 50% 40%, #0d3557 0%, #091a33 70%); box-shadow: 0 30px 60px -30px rgba(0,0,0,.7), inset 0 0 0 1px rgba(255,255,255,.06); }
-.visual canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-
-/* Helle Abschnitte */
-.section { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
-.mist { background: var(--mist); }
-.head-c { text-align: center; display: grid; gap: .6rem; justify-items: center; margin-bottom: 2.5rem; }
-.head-c h2, .head-l h2 { font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.2rem); font-weight: 700; }
-.head-c p, .head-l p { color: var(--muted); max-width: 42rem; }
-.head-l { display: grid; gap: .5rem; margin-bottom: 2.2rem; }
-
-/* Check-Karte */
-.check { max-width: 48rem; margin-inline: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: clamp(1.25rem, 3vw, 2.25rem); display: grid; gap: 1.25rem; }
-.check-top { display: flex; justify-content: space-between; gap: 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
-.bar { height: 7px; border-radius: 99px; background: var(--mist); overflow: hidden; }
-.bar > i { display: block; height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, var(--teal-strong), var(--teal)); transition: width .3s ease; }
-.chips { display: flex; flex-wrap: wrap; gap: .45rem; }
-.chip { font: 600 .8rem var(--f-body); color: var(--muted); background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: .35rem .75rem; cursor: pointer; display: inline-flex; align-items: center; gap: .35rem; }
-.chip:hover { border-color: var(--teal); color: var(--ink); }
-.chip.on { color: var(--teal-strong); background: var(--teal-soft); border-color: var(--teal); }
-.chip.done::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--teal); }
-.q-ref { font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--navy-700); display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
-.top-tag { font-size: .68rem; color: var(--warn); background: var(--warn-soft); padding: .15rem .45rem; border-radius: 4px; letter-spacing: .06em; }
-.q-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-.q-text { font-family: var(--f-head); font-size: clamp(1.25rem, 1.05rem + .8vw, 1.6rem); font-weight: 700; line-height: 1.3; min-width: 0; }
-.help-btn { flex: none; display: inline-flex; align-items: center; gap: .35rem; font: 600 .85rem var(--f-body); color: var(--teal-strong); background: var(--teal-soft); border: 1px solid rgba(18,179,154,.4); border-radius: 999px; padding: .35rem .75rem; cursor: pointer; }
-.help-btn svg { width: 1rem; height: 1rem; }
-.q-sub { color: var(--muted); font-size: .98rem; }
-.help { background: var(--mist); border-radius: 10px; padding: .9rem 1rem; font-size: .95rem; color: var(--ink); }
-.answers { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
-@media (max-width: 480px) { .answers { grid-template-columns: 1fr; } }
-.answer { font: 700 1.05rem var(--f-body); color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px; padding: 1.1rem .8rem; cursor: pointer; transition: border-color .12s, background .12s; }
-.answer:hover { border-color: var(--teal); }
-.answer[aria-pressed="true"] { border-color: var(--teal); background: var(--teal-soft); }
-.back { justify-self: start; display: inline-flex; align-items: center; gap: .5rem; background: none; border: 0; font: 600 .95rem var(--f-body); color: var(--ink); cursor: pointer; padding: .3rem .2rem; }
-.back[disabled] { opacity: .35; cursor: default; }
-.back svg { width: 1.1rem; height: 1.1rem; }
-
-/* Ergebnis */
-.result { display: grid; gap: 1.6rem; }
-.res-head { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center; }
-@media (max-width: 520px) { .res-head { grid-template-columns: 1fr; justify-items: start; } }
-.ring { width: 8.5rem; height: 8.5rem; position: relative; }
-.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.ring div { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
-.ring b { font-family: var(--f-head); font-size: 2.2rem; line-height: 1; font-variant-numeric: tabular-nums; }
-.ring small { color: var(--muted); font-size: .78rem; }
-.status { display: inline-flex; align-items: center; gap: .45rem; font-weight: 700; font-size: .9rem; padding: .3rem .75rem; border-radius: 999px; }
-.status::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: currentColor; }
-.s-ok { color: var(--ok); background: var(--ok-soft); }
-.s-warn { color: var(--warn); background: var(--warn-soft); }
-.s-crit { color: var(--crit); background: var(--crit-soft); }
-.res-head h3 { font-size: 1.35rem; margin-block: .5rem .35rem; }
-.res-head p { color: var(--muted); }
-.fields { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem 1.5rem; }
-@media (max-width: 560px) { .fields { grid-template-columns: 1fr; } }
-.field-row { display: grid; gap: .3rem; min-width: 0; }
-.field-row div { display: flex; justify-content: space-between; gap: .75rem; font-size: .9rem; font-weight: 600; }
-.field-row div span:last-child { font-variant-numeric: tabular-nums; color: var(--muted); }
-.field-row .bar { height: 6px; }
-.gaps { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
-.gaps li { display: flex; gap: .7rem; align-items: baseline; padding: .7rem .9rem; border-radius: 10px; background: var(--mist); font-size: .95rem; }
-.gaps li b { font-size: .72rem; letter-spacing: .04em; color: var(--navy-700); white-space: nowrap; }
-.lead { background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); color: var(--on-dark); border-radius: 14px; padding: 1.4rem; display: grid; gap: 1rem; }
-.lead h3 { font-size: 1.15rem; color: #fff; }
-.lead p { color: var(--on-dark-muted); font-size: .95rem; }
-.lead-form { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
-@media (max-width: 560px) { .lead-form { grid-template-columns: 1fr; } }
-.lead-form input { font: inherit; font-size: .98rem; padding: .8rem .9rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06); color: #fff; width: 100%; }
-.lead-form input::placeholder { color: var(--on-dark-muted); }
-.lead-form input:focus { outline: none; border-color: var(--teal); }
-.lead-form .btn { justify-content: center; }
-.lead-msg { font-size: .9rem; color: var(--on-dark); background: rgba(18,179,154,.15); border-radius: 8px; padding: .7rem .9rem; }
-.restart { justify-self: start; background: none; border: 0; color: var(--muted); font: 600 .9rem var(--f-body); cursor: pointer; text-decoration: underline; padding: 0; }
-.fine { font-size: .82rem; color: var(--muted); text-align: center; max-width: 44rem; margin: 1.5rem auto 0; }
-
-/* Nächste Schritte */
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-@media (max-width: 880px) { .cards { grid-template-columns: 1fr; } }
-.card { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 1.8rem; display: grid; gap: .9rem; align-content: start; box-shadow: 0 1px 2px rgba(15,27,45,.04); }
-.icon { width: 2.75rem; height: 2.75rem; border-radius: 10px; background: var(--navy-800); color: var(--teal); display: grid; place-items: center; }
-.icon svg { width: 1.3rem; height: 1.3rem; }
-.card h3 { font-size: 1.15rem; font-weight: 700; }
-.card p { color: var(--muted); font-size: .97rem; }
-.card a.more { color: var(--teal-strong); font-weight: 700; font-size: .92rem; text-decoration: none; }
-.card a.more:hover { text-decoration: underline; }
-
-/* Ansprechpartner */
-.person { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1.8rem; align-items: center; max-width: 52rem; }
-@media (max-width: 560px) { .person { grid-template-columns: 1fr; } }
-.avatar { width: 7.5rem; height: 7.5rem; border-radius: 50%; background: linear-gradient(135deg, var(--navy-800), var(--navy-700)); color: var(--teal); display: grid; place-items: center; font-family: var(--f-head); font-weight: 700; font-size: 2rem; }
-.person-copy { display: grid; gap: .7rem; min-width: 0; }
-.person-copy h2 { font-size: 1.5rem; }
-.person-copy p { color: var(--muted); max-width: 38rem; }
-.badges { display: flex; flex-wrap: wrap; gap: .45rem; }
-.badges span { font-size: .8rem; font-weight: 700; padding: .3rem .7rem; border-radius: 999px; background: var(--mist); border: 1px solid var(--line); }
-
-/* Abschluss */
-.final .wrap { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding-block: clamp(3rem, 6vw, 4.5rem); }
-@media (max-width: 760px) { .final .wrap { grid-template-columns: 1fr; } }
-.final h2 { color: #fff; font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); }
-.final p { color: var(--on-dark-muted); margin-top: .6rem; }
-.final-actions { display: grid; gap: .8rem; justify-items: start; }
-.mail { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; color: var(--on-dark); font-weight: 600; }
-.mail span { user-select: all; }
-.copy { font: 600 .78rem var(--f-body); color: var(--on-dark); background: transparent; border: 1px solid rgba(255,255,255,.25); border-radius: 6px; padding: .25rem .55rem; cursor: pointer; }
-footer { border-top: 1px solid rgba(255,255,255,.08); }
-footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-block: 1.4rem; font-size: .88rem; color: var(--on-dark-muted); }
-footer nav { display: flex; gap: 1.2rem; }
-footer a { color: var(--on-dark-muted); text-decoration: none; }
-footer a:hover { color: #fff; }
-</style>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- Icon-Sprite: einmal definiert, überall per <use> referenziert -->
+<svg class="sprite" aria-hidden="true" focusable="false">
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.6-3 8.3-7 9.5-4-1.2-7-4.9-7-9.5V6l7-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-tick" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.2l2.4 2.3 4.6-4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -195,61 +107,84 @@ footer a:hover { color: #fff; }
 <div class="dark">
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="#start"><svg><use href="#i-shield"/></svg><b>Kristian Dabić</b><span>· Cyber Security &amp; GRC</span></a>
-      <a class="btn btn-sm" href="#check">Risiko-Check</a>
+      <a class="brand" href="#start" aria-label="Kristian Dabić, Cyber Security und GRC, zum Seitenanfang"><svg aria-hidden="true"><use href="#i-shield"/></svg><b>Kristian Dabić</b><span>· Cyber Security &amp; GRC</span></a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#ablauf">Ablauf</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#faq">Fragen</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="btn btn-sm" href="#check">Risiko-Check</a>
+      </nav>
     </div>
   </header>
 
-  <section class="hero" id="start">
+  <section class="hero" id="start" aria-labelledby="hero-title">
     <div class="wrap">
       <div class="hero-copy">
         <span class="pill">Für kleine Unternehmen und Mittelstand</span>
-        <h1>CyberRisikoCheck nach DIN SPEC 27076: Wie sicher ist Ihr Unternehmen?</h1>
+        <h1 id="hero-title">CyberRisikoCheck nach DIN SPEC 27076: Wie sicher ist Ihr Unternehmen?</h1>
         <p class="hero-sub">Testen Sie Ihr IT-Sicherheitsniveau in rund fünf Minuten. Sie sehen sofort, wo Ihre größten Lücken liegen und welche Förderung für die Umsetzung infrage kommt.</p>
-        <a class="btn" href="#check">Jetzt kostenlosen Risiko-Check starten <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn" href="#check">Jetzt kostenlosen Risiko-Check starten <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <ul class="ticks">
-          <li><svg><use href="#i-tick"/></svg>5 Minuten</li>
-          <li><svg><use href="#i-tick"/></svg>Kostenlos und anonym</li>
-          <li><svg><use href="#i-tick"/></svg>Förder-Check inklusive</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>5 Minuten</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Kostenlos und anonym</li>
+          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Förder-Check inklusive</li>
         </ul>
       </div>
-      <div class="visual" aria-hidden="true"><canvas id="shield"></canvas></div>
+      <figure class="visual" aria-hidden="true"><canvas id="shield"></canvas></figure>
     </div>
   </section>
+
+  <div class="trust" aria-label="Qualifikation und Erfahrung">
+    <ul class="wrap">
+      <li><b>ISO/IEC 27001</b>Zertifizierter Implementer</li>
+      <li><b>ISO/IEC 27005</b>Zertifizierter Risk Manager</li>
+      <li><b>6+ Jahre Praxis</b>in Informationssicherheit</li>
+      <li><b>Bank · Behörde · Industrie</b>Erfahrung aus regulierten Branchen</li>
+    </ul>
+  </div>
 </div>
 
-<main>
-  <section class="section" id="check">
+<main id="inhalt">
+  <section class="section" id="check" aria-labelledby="check-title">
     <div class="wrap">
       <div class="head-c">
-        <h2>Ihr CyberRisikoCheck</h2>
+        <h2 id="check-title">Ihr CyberRisikoCheck</h2>
         <p>Alle 27 Anforderungen der DIN SPEC 27076 in sechs Themenfeldern. Ihre Antworten bleiben in Ihrem Browser.</p>
       </div>
-      <div class="check" id="card" aria-live="polite"></div>
+      <div class="check" id="check-card" aria-live="polite">
+        <noscript><p>Der Check benötigt JavaScript. Schreiben Sie mir gern direkt, dann gehen wir die Fragen gemeinsam durch.</p></noscript>
+      </div>
       <p class="fine">Selbsteinschätzung auf Grundlage der DIN SPEC 27076. Der vollständige CyberRisikoCheck ist ein begleitetes Gespräch mit schriftlichem Bericht, den Sie im Anschluss bei mir anfragen können.</p>
     </div>
   </section>
 
-  <section class="section mist" id="leistungen">
+  <section class="section mist" id="ablauf" aria-labelledby="ablauf-title">
     <div class="wrap">
       <div class="head-l">
-        <h2>Ihre nächsten Schritte</h2>
+        <h2 id="ablauf-title">So geht es weiter</h2>
         <p>Vom Check zur belastbaren Sicherheitsorganisation, begleitet und gefördert.</p>
       </div>
-      <div class="cards">
+      <ol class="steps">
+        <li><div><h3>Check machen</h3><p>Fünf Minuten online. Sie sehen sofort Ihren Risikostatus.</p></div></li>
+        <li><div><h3>Ergebnis besprechen</h3><p>30 Minuten, kostenlos. Ich sage Ihnen, was zuerst kommt und was es kostet.</p></div></li>
+        <li><div><h3>Lücken schließen</h3><p>Zum Festpreis und, wo möglich, mit Fördermitteln.</p></div></li>
+      </ol>
+
+      <div class="cards" id="leistungen">
         <article class="card">
-          <span class="icon"><svg><use href="#i-euro"/></svg></span>
+          <span class="icon" aria-hidden="true"><svg><use href="#i-euro"/></svg></span>
           <h3>Fördermittel und Umsetzung</h3>
           <p>Ich schließe mit Ihnen die gefundenen Lücken, nach Dringlichkeit sortiert. Und ich prüfe, welche Förderprogramme von Bund und Land Sie dafür nutzen können.</p>
         </article>
         <article class="card">
-          <span class="icon"><svg><use href="#i-doc"/></svg></span>
+          <span class="icon" aria-hidden="true"><svg><use href="#i-doc"/></svg></span>
           <h3>ISO 27001 ISMS</h3>
           <p>Wenn Kunden ein Zertifikat verlangen: schlanker Aufbau bis zur Zertifizierung, mit meiner eigenen ISMS-Software ohne Lizenzkosten.</p>
-          <a class="more" href="https://github.com/Kico-bot/ISMS_SaaS" target="_blank" rel="noopener">Software ansehen →</a>
+          <a class="link-arrow" href="https://github.com/Kico-bot/ISMS_SaaS" target="_blank" rel="noopener noreferrer">Software ansehen →</a>
         </article>
         <article class="card">
-          <span class="icon"><svg><use href="#i-bank"/></svg></span>
+          <span class="icon" aria-hidden="true"><svg><use href="#i-bank"/></svg></span>
           <h3>NIS2 und BSI IT-Grundschutz</h3>
           <p>Für Betriebe, die unter das neue BSI-Gesetz fallen oder für öffentliche Auftraggeber arbeiten. Registrierung, Meldeprozess und Maßnahmen aus einer Hand.</p>
         </article>
@@ -257,266 +192,93 @@ footer a:hover { color: #fff; }
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
+  <section class="section" id="ueber-mich" aria-labelledby="about-title">
+    <div class="wrap about">
       <div class="person">
         <div class="avatar" role="img" aria-label="Platzhalter für Porträtfoto">KD</div>
         <div class="person-copy">
-          <h2>Ihr Ansprechpartner</h2>
+          <h2 id="about-title">Ihr Ansprechpartner</h2>
           <p>Ich bin Kristian Dabić aus München. Ich habe das Sicherheitsmanagement einer Bank verantwortet und große Unternehmen beraten. Heute helfe ich kleinen Betrieben, sich mit vernünftigem Aufwand zu schützen.</p>
-          <div class="badges"><span>ISO 27001 Implementer</span><span>ISO 27005 Risk Manager</span><span>Persönlich vor Ort in München</span></div>
+          <ul class="badges"><li>ISO 27001 Implementer</li><li>ISO 27005 Risk Manager</li><li>Persönlich vor Ort in München</li></ul>
         </div>
+      </div>
+      <!-- Social Proof: Platzhalter. Nur echte Stimmen mit schriftlicher Freigabe einsetzen (UWG). -->
+      <figure class="quote">
+        <span class="placeholder-note">Platzhalter für Kundenstimme</span>
+        <blockquote><p>„Hier steht später ein kurzes Zitat eines Kunden, zum Beispiel was sich nach dem Check verändert hat.“</p></blockquote>
+        <figcaption>Name, Funktion, Unternehmen (Branche, Mitarbeiterzahl)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section mist" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="head-c">
+        <h2 id="faq-title">Häufige Fragen</h2>
+      </div>
+      <!-- Gleicher Wortlaut wie im FAQPage-JSON-LD oben: Suchmaschinen und KI-Systeme lesen beides. -->
+      <div class="faq">
+        <details><summary>Was ist der CyberRisikoCheck nach DIN SPEC 27076?</summary><div><p>Ein standardisiertes Verfahren, mit dem kleine Unternehmen ihr IT-Sicherheitsniveau bewerten lassen. Es prüft 27 Anforderungen in sechs Themenfeldern und liefert einen Risikostatus mit priorisierten Empfehlungen. Die DIN SPEC 27076 entstand unter Federführung des BSI und richtet sich vor allem an Betriebe mit weniger als 50 Mitarbeitenden.</p></div></details>
+        <details><summary>Wie lange dauert der Online-Check?</summary><div><p>Rund fünf Minuten. Das Ergebnis sehen Sie sofort. Der vollständige CyberRisikoCheck ist ein begleitetes Gespräch von wenigen Stunden mit schriftlichem Bericht.</p></div></details>
+        <details><summary>Was kostet der CyberRisikoCheck?</summary><div><p>Der Online-Check und das 30-minütige Erstgespräch sind kostenlos. Für die Umsetzung erhalten Sie vorab ein Angebot zum Festpreis.</p></div></details>
+        <details><summary>Gibt es Fördermittel für IT-Sicherheit in kleinen Unternehmen?</summary><div><p>Bund und Länder fördern Beratung und Maßnahmen zur IT-Sicherheit für kleine und mittlere Unternehmen immer wieder mit eigenen Programmen. Welches Programm aktuell für Sie passt, prüfe ich im Erstgespräch.</p></div></details>
+        <details><summary>Betrifft NIS2 mein Unternehmen?</summary><div><p>Seit dem 6. Dezember 2025 gilt in Deutschland das neue BSI-Gesetz zur Umsetzung von NIS2. Betroffen sind in der Regel Unternehmen ab 50 Mitarbeitenden oder mehr als 10 Millionen Euro Jahresumsatz in bestimmten Branchen. Kleinere Betriebe spüren die Anforderungen oft als Lieferant ihrer Kunden.</p></div></details>
+        <details><summary>Was passiert mit meinen Antworten im Check?</summary><div><p>Die Auswertung läuft vollständig in Ihrem Browser. Es wird nichts übertragen, solange Sie nicht selbst das Formular für den ausführlichen Bericht absenden.</p></div></details>
       </div>
     </div>
   </section>
 </main>
 
-<div class="dark final">
-  <div class="wrap">
-    <div>
-      <h2>Lieber gleich sprechen?</h2>
-      <p>30 Minuten, kostenlos und unverbindlich.</p>
+<div class="dark">
+  <section class="contact" id="kontakt" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-copy">
+        <h2 id="contact-title">Lieber gleich sprechen?</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Sie erzählen mir, was Sie beschäftigt, ich sage Ihnen ehrlich, ob und wie ich helfen kann.</p>
+        <ul class="contact-facts">
+          <li><small>E-Mail</small><span><span id="mail">kristian95@gmx.de</span><button class="copy" type="button" data-copy="mail">Kopieren</button></span></li>
+          <li><small>Standort</small><span>München, bundesweit per Video</span></li>
+        </ul>
+      </div>
+      <div class="lead">
+        <form class="form on-dark" id="contact-form" novalidate>
+          <label class="lbl" for="c-name">Name<input id="c-name" name="name" autocomplete="name" required maxlength="80"></label>
+          <label class="lbl" for="c-company">Unternehmen<input id="c-company" name="company" autocomplete="organization" maxlength="120"></label>
+          <label class="lbl full" for="c-email">E-Mail<input id="c-email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254"></label>
+          <label class="lbl full" for="c-message">Worum geht es?<textarea id="c-message" name="message" maxlength="2000" rows="4" placeholder="Zum Beispiel: Ein Kunde verlangt einen Nachweis zur IT-Sicherheit."></textarea></label>
+          <div class="hp" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <label class="consent full" for="c-consent"><input id="c-consent" name="consent" type="checkbox" required> Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+          <button class="btn full" type="submit">Anfrage senden <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="form-msg full" data-status role="status" hidden></p>
+        </form>
+      </div>
     </div>
-    <div class="final-actions">
-      <a class="btn" href="#check">Risiko-Check starten <svg><use href="#i-arrow"/></svg></a>
-      <div class="mail"><span id="mail">kristian95@gmx.de</span><button class="copy" type="button" id="copy-mail">Kopieren</button></div>
-    </div>
-  </div>
+  </section>
   <footer>
     <div class="wrap">
       <span>© 2026 Kristian Dabić · Cyber Security &amp; GRC</span>
-      <nav aria-label="Rechtliches"><a href="#start">Impressum</a><a href="#start">Datenschutz</a></nav>
+      <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
     </div>
   </footer>
 </div>
 
-<script>
-(function () {
-  // 27 Anforderungen in sechs Themenfeldern, eigene Kurzfassung angelehnt an DIN SPEC 27076.
-  // top: TOP-Anforderung, zählt doppelt; eine offene TOP-Anforderung hebt das Risiko an.
-  var FIELDS = [
-    { key: "ORG", name: "Organisation & Sensibilisierung" },
-    { key: "IDM", name: "Identitäts- & Berechtigungsmanagement" },
-    { key: "DS", name: "Datensicherung & Protokollierung" },
-    { key: "PAT", name: "Patch- & Änderungsmanagement" },
-    { key: "SCH", name: "Schutz vor Schadprogrammen" },
-    { key: "NET", name: "IT-Systeme & Netzwerke" }
-  ];
-  var Q = [
-    ["ORG", "Gibt es eine benannte Person, die für IT-Sicherheit verantwortlich ist?", "Intern oder extern, mit Zeit und Rückendeckung der Geschäftsführung.", "Ohne klare Zuständigkeit bleibt IT-Sicherheit liegen. Das kann auch ein externer Dienstleister sein, wichtig ist, dass jemand es als Aufgabe hat."],
-    ["ORG", "Gibt es schriftliche Regeln zur Nutzung der IT, die alle Mitarbeitenden kennen?", "Zum Beispiel zu Passwörtern, E-Mail, privaten Geräten und Homeoffice.", "Zwei Seiten reichen. Entscheidend ist, dass alle die Regeln kennen und bestätigt haben."],
-    ["ORG", "Haben Sie eine aktuelle Übersicht über Ihre IT-Geräte, Programme und Cloud-Dienste?", "Inkl. der Dienstleister, die darauf Zugriff haben.", "Was Sie nicht kennen, können Sie nicht schützen. Eine gepflegte Tabelle ist ein guter Anfang."],
-    ["ORG", "Werden Mitarbeitende regelmäßig zu Phishing und Betrugsmaschen geschult?", "Mindestens einmal im Jahr, auch neue Kolleginnen und Kollegen.", "Die meisten Angriffe beginnen mit einer E-Mail oder einem Anruf. Kurze, regelmäßige Schulungen wirken am besten."],
-    ["ORG", "Sind externe IT-Dienstleister vertraglich zu Sicherheit und Vertraulichkeit verpflichtet?", "Inkl. Regelungen für Fernwartung und Datenschutz.", "Viele Angriffe laufen über Dienstleister mit Fernzugriff. Der Vertrag sollte Sicherheitspflichten und Meldewege regeln."],
-    ["ORG", "Existiert ein dokumentierter Notfallplan für IT-Sicherheitsvorfälle (z. B. Ransomware)?", "Inkl. Meldeketten, Kontaktlisten und Wiederanlaufreihenfolge.", "Im Ernstfall zählt jede Stunde. Ein Plan auf Papier sagt, wer was tut, wen Sie anrufen und welche Systeme zuerst zurückkommen."],
-    ["ORG", "Sind Laptops, Smartphones und mobile Datenträger verschlüsselt?", "Inkl. Regeln für den Verlust eines Geräts.", "Ein verlorener, unverschlüsselter Laptop kann eine meldepflichtige Datenpanne nach DSGVO sein."],
-    ["IDM", "Hat jede Person ein eigenes Benutzerkonto, ohne geteilte Zugänge?", "Auch für Kasse, Maschinen und Cloud-Dienste.", "Geteilte Konten machen es unmöglich nachzuvollziehen, wer was getan hat, und sie werden selten geändert."],
-    ["IDM", "Gibt es Vorgaben für sichere Passwörter oder einen Passwortmanager?", "Lange Passwörter, keine Mehrfachnutzung.", "Ein Passwortmanager ist der einfachste Weg zu langen, einzigartigen Passwörtern für jeden Dienst."],
-    ["IDM", "Ist für E-Mail, Fernzugriff und Cloud-Dienste eine Mehrfaktor-Anmeldung aktiv?", "Zum Beispiel per App oder Sicherheitsschlüssel.", "Gestohlene Passwörter sind einer der häufigsten Einstiege. Ein zweiter Faktor stoppt die meisten dieser Angriffe.", true],
-    ["IDM", "Werden Administratorrechte nur für Verwaltungsaufgaben und mit eigenen Konten genutzt?", "Im Alltag wird mit normalen Rechten gearbeitet.", "Wer mit Adminrechten im Internet surft, gibt Schadsoftware im Ernstfall die Schlüssel zum ganzen Netz."],
-    ["IDM", "Werden Zugänge beim Austritt sofort entzogen und Berechtigungen regelmäßig geprüft?", "Inkl. Cloud-Konten und Fernzugänge.", "Vergessene Konten ehemaliger Mitarbeitender sind offene Türen, die niemand beobachtet."],
-    ["DS", "Werden alle wichtigen Daten regelmäßig und automatisch gesichert?", "Server, Cloud-Daten, E-Mails und Buchhaltung.", "Ohne Backup kann ein Defekt oder ein Angriff Ihre Daten endgültig zerstören.", true],
-    ["DS", "Wird mindestens eine Sicherung getrennt vom Netz oder unveränderbar aufbewahrt?", "Zum Beispiel offline, außer Haus oder in einem unveränderbaren Speicher.", "Ransomware verschlüsselt alles, was sie erreichen kann, auch Backups im selben Netz.", true],
-    ["DS", "Wird die Wiederherstellung aus der Sicherung regelmäßig getestet?", "Mindestens einmal im Jahr.", "Viele merken erst im Ernstfall, dass ihr Backup unvollständig ist oder die Wiederherstellung Tage dauert."],
-    ["DS", "Werden Protokolle wichtiger Systeme gespeichert und bei Auffälligkeiten ausgewertet?", "Zum Beispiel Anmeldeversuche an Firewall, Server und Cloud.", "Ohne Protokolle bleibt ein Angriff oft wochenlang unbemerkt und lässt sich später nicht aufklären."],
-    ["PAT", "Werden Betriebssysteme und Programme zeitnah, möglichst automatisch aktualisiert?", "Kritische Sicherheitslücken innerhalb weniger Tage.", "Angreifer nutzen bekannte Lücken oft schon wenige Tage nach Veröffentlichung automatisiert aus.", true],
-    ["PAT", "Werden Geräte und Programme ersetzt, für die es keine Sicherheitsupdates mehr gibt?", "Zum Beispiel alte Windows-Versionen oder Router.", "Für veraltete Systeme werden Lücken nicht mehr geschlossen. Sie sind ein dauerhaftes Einfallstor."],
-    ["PAT", "Werden Änderungen an der IT geplant, getestet und dokumentiert?", "Zum Beispiel neue Software, Umbauten im Netz.", "Ungeplante Änderungen sind eine häufige Ursache für Ausfälle und Sicherheitslücken."],
-    ["SCH", "Ist auf allen Geräten ein aktueller Virenschutz aktiv?", "Inkl. Servern und Laptops im Homeoffice.", "Ein aktueller Virenschutz erkennt bekannte Schadsoftware, bevor sie Schaden anrichtet.", true],
-    ["SCH", "Werden E-Mails auf Spam, Phishing und gefährliche Anhänge gefiltert?", "Beim Anbieter oder auf dem eigenen Server.", "Ein guter Filter hält einen Großteil der gefährlichen E-Mails ab, bevor jemand darauf klicken kann."],
-    ["SCH", "Ist das Ausführen von Makros und unbekannten Programmen eingeschränkt?", "Zum Beispiel Office-Makros aus dem Internet blockiert.", "Makros in Office-Dokumenten sind ein klassischer Weg, Schadsoftware einzuschleusen."],
-    ["NET", "Schützt eine Firewall Ihr Netz zum Internet, mit nur den nötigen Freigaben?", "Regeln werden regelmäßig überprüft.", "Die Firewall ist die Haustür Ihres Netzes. Jede unnötige Freigabe ist ein offenes Fenster.", true],
-    ["NET", "Ist Ihr WLAN verschlüsselt und ein Gästenetz vom Firmennetz getrennt?", "Mindestens WPA2, besser WPA3.", "Gäste und private Geräte gehören nicht ins selbe Netz wie Ihre Server und Buchhaltung."],
-    ["NET", "Erfolgt Fernzugriff nur über eine gesicherte Verbindung (VPN)?", "Kein direkt erreichbarer Remote-Desktop.", "Offen erreichbarer Remote-Desktop ist eines der häufigsten Ziele automatisierter Angriffe."],
-    ["NET", "Wurden Standardpasswörter geändert und nicht benötigte Dienste abgeschaltet?", "Bei Routern, Druckern, Kameras und Servern.", "Standardpasswörter stehen öffentlich im Handbuch und werden automatisiert ausprobiert."],
-    ["NET", "Sind Server und Netzwerktechnik vor unbefugtem Zugang geschützt?", "Zum Beispiel ein abschließbarer Raum oder Schrank.", "Wer physisch an den Server kommt, kann fast jede technische Schutzmaßnahme umgehen."]
-  ].map(function (r, i, all) {
-    var n = all.slice(0, i + 1).filter(function (x) { return x[0] === r[0]; }).length;
-    return { field: r[0], id: r[0] + "." + n, text: r[1], sub: r[2], help: r[3], top: !!r[4] };
-  });
-  var ANS = [{ v: 2, label: "Ja" }, { v: 1, label: "Teilweise" }, { v: 0, label: "Nein" }];
+<div class="sticky-cta" id="sticky-cta"><a class="btn" href="#check">Kostenlosen Risiko-Check starten</a></div>
 
-  var st = { i: 0, a: {}, done: false, help: false };
-  try { var s = JSON.parse(localStorage.getItem("crc") || "null"); if (s && typeof s.i === "number") st = s; } catch (e) {}
-  function save() { try { localStorage.setItem("crc", JSON.stringify(st)); } catch (e) {} }
-  var card = document.getElementById("card");
-  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-  function fieldName(k) { return FIELDS.filter(function (f) { return f.key === k; })[0].name; }
-
-  function render() {
-    save();
-    if (st.done) return renderResult();
-    var q = Q[st.i];
-    var answered = Object.keys(st.a).length;
-    card.innerHTML =
-      '<div class="check-top"><span>CyberRisikoCheck · DIN SPEC 27076</span><span>Frage ' + (st.i + 1) + ' von ' + Q.length + '</span></div>' +
-      '<div class="bar"><i style="width:' + (answered / Q.length * 100) + '%"></i></div>' +
-      '<div class="chips">' + FIELDS.map(function (f) {
-        var qs = Q.filter(function (x) { return x.field === f.key; });
-        var complete = qs.every(function (x) { return x.id in st.a; });
-        return '<button type="button" class="chip' + (f.key === q.field ? " on" : "") + (complete ? " done" : "") + '" data-f="' + f.key + '">' + f.name + '</button>';
-      }).join("") + '</div>' +
-      '<div class="q-ref">' + q.id + ' · ' + fieldName(q.field) + (q.top ? ' <span class="top-tag">TOP-Anforderung</span>' : '') + '</div>' +
-      '<div class="q-row"><p class="q-text" id="qt">' + esc(q.text) + '</p><button type="button" class="help-btn" id="help-btn" aria-expanded="' + st.help + '"><svg><use href="#i-help"/></svg>Hilfe</button></div>' +
-      '<p class="q-sub">' + esc(q.sub) + '</p>' +
-      '<p class="help" id="help"' + (st.help ? "" : " hidden") + '>' + esc(q.help) + '</p>' +
-      '<div class="answers" role="group" aria-labelledby="qt">' + ANS.map(function (a) {
-        return '<button type="button" class="answer" data-v="' + a.v + '" aria-pressed="' + (st.a[q.id] === a.v) + '">' + a.label + '</button>';
-      }).join("") + '</div>' +
-      '<button type="button" class="back" id="back"' + (st.i === 0 ? " disabled" : "") + '><svg><use href="#i-back"/></svg>Zurück</button>';
-    card.querySelectorAll(".answer").forEach(function (b) { b.onclick = function () { pick(+b.dataset.v); }; });
-    card.querySelectorAll(".chip").forEach(function (b) {
-      b.onclick = function () { for (var k = 0; k < Q.length; k++) if (Q[k].field === b.dataset.f) { st.i = k; break; } st.help = false; render(); };
-    });
-    document.getElementById("help-btn").onclick = function () { st.help = !st.help; render(); document.getElementById("help-btn").focus(); };
-    document.getElementById("back").onclick = function () { if (st.i > 0) { st.i--; st.help = false; render(); } };
-  }
-
-  function pick(v) {
-    var q = Q[st.i];
-    st.a[q.id] = v;
-    card.querySelectorAll(".answer").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.v === v)); });
-    setTimeout(function () {
-      st.help = false;
-      var next = -1;
-      for (var k = st.i + 1; k < Q.length; k++) if (!(Q[k].id in st.a)) { next = k; break; }
-      if (next < 0) for (var j = 0; j < Q.length; j++) if (!(Q[j].id in st.a)) { next = j; break; }
-      if (next < 0) st.done = true; else st.i = next;
-      render();
-      card.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }, 160);
-  }
-
-  document.addEventListener("keydown", function (e) {
-    if (st.done || /^(INPUT|TEXTAREA)$/.test((document.activeElement || {}).tagName)) return;
-    var n = { "1": 2, "2": 1, "3": 0 }[e.key];
-    var r = card.getBoundingClientRect();
-    if (n !== undefined && r.top < innerHeight && r.bottom > 0) pick(n);
-  });
-
-  function evaluate() {
-    var got = 0, max = 0, per = {}, gaps = [], topOpen = 0;
-    FIELDS.forEach(function (f) { per[f.key] = { got: 0, max: 0 }; });
-    Q.forEach(function (q) {
-      var w = q.top ? 2 : 1, v = st.a[q.id] || 0;
-      got += v * w; max += 2 * w; per[q.field].got += v * w; per[q.field].max += 2 * w;
-      if (v < 2) gaps.push({ q: q, loss: (2 - v) * w });
-      if (q.top && v === 0) topOpen++;
-    });
-    gaps.sort(function (a, b) { return b.loss - a.loss; });
-    var score = Math.round(got / max * 100);
-    var lvl = score >= 80 && topOpen === 0 ? "ok" : score >= 50 && topOpen <= 1 ? "warn" : "crit";
-    return { score: score, per: per, gaps: gaps, topOpen: topOpen, lvl: lvl };
-  }
-  var LVL = {
-    ok: { c: "s-ok", t: "Niedriges Risiko", d: "Die Grundlagen stehen. Der nächste Schritt ist, das nachweisbar zu machen, etwa für Kunden oder Versicherer." },
-    warn: { c: "s-warn", t: "Erhöhtes Risiko", d: "Einiges ist umgesetzt, aber es gibt Lücken, die Angreifer typischerweise ausnutzen. Die wichtigsten lassen sich meist in wenigen Wochen schließen." },
-    crit: { c: "s-crit", t: "Hohes Risiko", d: "Grundlegende Schutzmaßnahmen fehlen. Ein Angriff könnte Ihren Betrieb tagelang lahmlegen. Fangen Sie mit den Punkten unten an." }
-  };
-  function col(p) { return p >= 80 ? "var(--ok)" : p >= 50 ? "var(--warn)" : "var(--crit)"; }
-
-  function renderResult() {
-    var r = evaluate(), l = LVL[r.lvl], C = 2 * Math.PI * 42;
-    card.innerHTML =
-      '<div class="check-top"><span>CyberRisikoCheck · Ergebnis</span><span>27 von 27 beantwortet</span></div>' +
-      '<div class="result">' +
-        '<div class="res-head">' +
-          '<div class="ring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--mist)" stroke-width="10"/><circle cx="50" cy="50" r="42" fill="none" stroke="' + col(r.score) + '" stroke-width="10" stroke-linecap="round" stroke-dasharray="' + (C * r.score / 100) + ' ' + C + '"/></svg><div><b>' + r.score + '</b><small>von 100</small></div></div>' +
-          '<div><span class="status ' + l.c + '">' + l.t + '</span><h3>Ihr Sicherheitsniveau</h3><p>' + l.d + (r.topOpen ? ' Offene TOP-Anforderungen: ' + r.topOpen + '.' : '') + '</p></div>' +
-        '</div>' +
-        '<div class="fields">' + FIELDS.map(function (f) {
-          var p = Math.round(r.per[f.key].got / r.per[f.key].max * 100);
-          return '<div class="field-row"><div><span>' + f.name + '</span><span>' + p + ' %</span></div><div class="bar"><i style="width:' + p + '%;background:' + col(p) + '"></i></div></div>';
-        }).join("") + '</div>' +
-        (r.gaps.length ? '<div><h3 style="font-size:1.05rem;margin-bottom:.7rem">Zuerst angehen</h3><ul class="gaps">' + r.gaps.slice(0, 3).map(function (g) {
-          return '<li><b>' + g.q.id + (g.q.top ? " · TOP" : "") + '</b><span>' + esc(g.q.text) + '</span></li>';
-        }).join("") + '</ul></div>' : '') +
-        '<div class="lead">' +
-          '<h3>Ausführlichen Bericht und Förder-Check anfordern</h3>' +
-          '<p>Ich melde mich innerhalb von zwei Werktagen, bespreche Ihr Ergebnis in 30 Minuten und prüfe, welche Förderung für Sie infrage kommt. Kostenlos.</p>' +
-          '<form class="lead-form" id="lead" novalidate>' +
-            '<input id="l-name" placeholder="Name" autocomplete="name" aria-label="Name">' +
-            '<input id="l-company" placeholder="Unternehmen" autocomplete="organization" aria-label="Unternehmen">' +
-            '<input id="l-mail" type="email" placeholder="E-Mail" autocomplete="email" aria-label="E-Mail">' +
-            '<button class="btn" type="submit">Anfordern <svg><use href="#i-arrow"/></svg></button>' +
-          '</form>' +
-          '<p class="lead-msg" id="l-msg" hidden></p>' +
-        '</div>' +
-        '<button type="button" class="restart" id="restart">Check neu starten</button>' +
-      '</div>';
-    document.getElementById("restart").onclick = function () { st = { i: 0, a: {}, done: false, help: false }; render(); };
-    document.getElementById("lead").onsubmit = function (e) {
-      e.preventDefault();
-      var m = document.getElementById("l-msg"), name = document.getElementById("l-name"), mail = document.getElementById("l-mail");
-      m.hidden = false;
-      if (!name.value.trim()) { m.textContent = "Bitte geben Sie Ihren Namen an."; name.focus(); return; }
-      if (!mail.value || !mail.checkValidity()) { m.textContent = "Bitte prüfen Sie die E-Mail-Adresse."; mail.focus(); return; }
-      m.textContent = "Prototyp: Das Formular ist noch nicht angebunden, es wurde nichts gesendet.";
-    };
-  }
-
-  document.getElementById("copy-mail").onclick = function () {
-    var b = this, el = document.getElementById("mail");
-    var sel = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Markiert"; };
-    if (navigator.clipboard) navigator.clipboard.writeText(el.textContent).then(function () { b.textContent = "Kopiert"; }, sel); else sel();
-  };
-
-  render();
-
-  // Schild aus Lichtpunkten über einem Netzwerk-Boden, leise animiert.
-  var cv = document.getElementById("shield"), ctx = cv.getContext("2d");
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var pts = [], floor = [], W, H;
-  function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
-  var OUTLINE = [[0, -1], [.78, -.72], [.78, -.05], [.55, .5], [0, 1], [-.55, .5], [-.78, -.05], [-.78, -.72], [0, -1]];
-  function shieldEdge(t) {
-    var seg = t * 8, k = Math.min(7, Math.floor(seg)), f = seg - k;
-    return [OUTLINE[k][0] + (OUTLINE[k + 1][0] - OUTLINE[k][0]) * f, OUTLINE[k][1] + (OUTLINE[k + 1][1] - OUTLINE[k][1]) * f];
-  }
-  function inside(x, y) { // Punkt-in-Polygon gegen die Kontur, mit etwas Rand
-    var c = false;
-    for (var i = 0, j = OUTLINE.length - 2; i < OUTLINE.length - 1; j = i++) {
-      var a = OUTLINE[i], b = OUTLINE[j];
-      if ((a[1] > y) !== (b[1] > y) && x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0]) c = !c;
-    }
-    return c && Math.abs(x) < .72;
-  }
-  function build() {
-    var r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
-    W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var rnd = mulberry(7); pts = []; floor = [];
-    for (var i = 0; i < 64; i++) pts.push({ p: shieldEdge(i / 64), edge: true });
-    while (pts.length < 140) { var x = rnd() * 2 - 1, y = rnd() * 2 - 1; if (inside(x * 1.08, y * 1.08)) pts.push({ p: [x, y] }); }
-    for (var j = 0; j < 160; j++) floor.push({ a: rnd() * Math.PI * 2, d: Math.sqrt(rnd()), s: rnd() });
-  }
-  function draw(time) {
-    ctx.clearRect(0, 0, W, H);
-    var cx = W / 2, cy = H * .44, sc = Math.min(W, H) * .34, tt = (time || 0) / 1000;
-    for (var r = 1; r <= 5; r++) { ctx.beginPath(); ctx.ellipse(cx, H * .84, W * .09 * r, H * .022 * r, 0, 0, Math.PI * 2); ctx.strokeStyle = "rgba(18,179,154," + (.22 - r * .035) + ")"; ctx.lineWidth = 1; ctx.stroke(); }
-    floor.forEach(function (f) {
-      var x = cx + Math.cos(f.a) * f.d * W * .55, y = H * .84 + Math.sin(f.a) * f.d * H * .14;
-      var tw = .35 + .4 * Math.sin(tt * 1.3 + f.s * 9);
-      ctx.fillStyle = "rgba(60,200,220," + Math.max(0, tw * (1 - f.d * .6)) + ")"; ctx.beginPath(); ctx.arc(x, y, 1 + f.s * 1.6, 0, 7); ctx.fill();
-    });
-    var P = pts.map(function (o) { return [cx + o.p[0] * sc, cy + o.p[1] * sc * 1.05, o.edge]; });
-    ctx.lineWidth = .6;
-    for (var a = 0; a < P.length; a++) for (var b = a + 1; b < P.length; b++) {
-      var dx = P[a][0] - P[b][0], dy = P[a][1] - P[b][1], d = Math.sqrt(dx * dx + dy * dy);
-      if (d < sc * .24) { ctx.strokeStyle = "rgba(45,212,191," + (.32 * (1 - d / (sc * .24))) + ")"; ctx.beginPath(); ctx.moveTo(P[a][0], P[a][1]); ctx.lineTo(P[b][0], P[b][1]); ctx.stroke(); }
-    }
-    ctx.save(); ctx.shadowColor = "rgba(45,212,191,.9)"; ctx.shadowBlur = 14; ctx.strokeStyle = "rgba(94,234,212,.85)"; ctx.lineWidth = 1.6; ctx.beginPath();
-    for (var k = 0; k <= 64; k++) { var e = shieldEdge(k / 64); var X = cx + e[0] * sc, Y = cy + e[1] * sc * 1.05; if (k) ctx.lineTo(X, Y); else ctx.moveTo(X, Y); }
-    ctx.stroke(); ctx.beginPath(); ctx.moveTo(cx, cy - sc * 1.05); ctx.lineTo(cx, cy + sc * 1.05); ctx.strokeStyle = "rgba(94,234,212,.35)"; ctx.lineWidth = 1; ctx.stroke(); ctx.restore();
-    P.forEach(function (p, i) {
-      var tw = .55 + .45 * Math.sin(tt * 2 + i);
-      ctx.fillStyle = p[2] ? "rgba(153,246,228," + tw + ")" : "rgba(94,234,212," + (tw * .7) + ")";
-      ctx.beginPath(); ctx.arc(p[0], p[1], p[2] ? 1.8 : 1.3, 0, 7); ctx.fill();
-    });
-    var g = ctx.createRadialGradient(cx, cy + sc * 1.05, 0, cx, cy + sc * 1.05, sc * .5); g.addColorStop(0, "rgba(94,234,212,.5)"); g.addColorStop(1, "rgba(94,234,212,0)");
-    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy + sc * 1.05, sc * .5, 0, 7); ctx.fill();
-    if (!reduce) requestAnimationFrame(draw);
-  }
-  build(); draw(0);
-  addEventListener("resize", function () { build(); if (reduce) draw(0); });
-})();
-</script>
+<!-- Lead-Formular im Ergebnis: als Template, damit kein Markup aus JS-Strings entsteht. -->
+<template id="lead-template">
+  <div class="lead">
+    <h3>Ausführlichen Bericht und Förder-Check anfordern</h3>
+    <p>Ich melde mich innerhalb von zwei Werktagen, bespreche Ihr Ergebnis in 30 Minuten und prüfe, welche Förderung für Sie infrage kommt. Kostenlos.</p>
+    <form class="form on-dark" novalidate>
+      <input name="name" placeholder="Name" autocomplete="name" aria-label="Name" required maxlength="80">
+      <input name="company" placeholder="Unternehmen" autocomplete="organization" aria-label="Unternehmen" maxlength="120">
+      <input class="full" name="email" type="email" inputmode="email" placeholder="E-Mail" autocomplete="email" aria-label="E-Mail" required maxlength="254">
+      <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off" aria-label="Nicht ausfüllen"></div>
+      <label class="consent full"><input name="consent" type="checkbox" required> Ich bin einverstanden, dass meine Angaben und mein Check-Ergebnis zur Bearbeitung der Anfrage verwendet werden.</label>
+      <button class="btn full" type="submit">Anfordern <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="form-msg full" data-status role="status" hidden></p>
+    </form>
+  </div>
+</template>
+</body>
+</html>

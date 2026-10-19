@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# KI-Crawler ausdrücklich zugelassen: die Seite soll in KI-Antworten als Quelle auftauchen.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.ihre-domain.de/sitemap.xml
