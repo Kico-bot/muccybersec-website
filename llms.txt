@@ -2,7 +2,7 @@
 
 > Beratung zu Cybersicherheit und Risiken für kleine und mittlere Unternehmen, vor Ort in
 > Bayern und bundesweit per Video. Kostenloser Online-Cyber-Check und eine kostenlose
-> ISMS-Software, die Unternehmen auch ohne Beratung selbst nutzen können.
+> ISMS-Suite, die Unternehmen auch ohne Beratung selbst nutzen können.
 
 ## Angebot
 
@@ -16,7 +16,7 @@
 - Außerdem NIS2 und Sicherheitsnachweise für Kunden.
 - Preise: Beratung auf Anfrage mit individuellem Angebot, externer CISO oder Informationssicherheitsbeauftragter zum monatlichen Festpreis.
 
-## Kostenlose ISMS-Software
+## Kostenlose ISMS-Suite
 
 - Software für Informationssicherheit nach ISO 27001, mit NIS2, DSGVO und BSI IT-Grundschutz. Kostenlos, Quellcode offen auf GitHub, Betrieb mit Docker auf eigenen Servern, ohne Beratung nutzbar: https://github.com/Kico-bot/ISMS_SaaS
 

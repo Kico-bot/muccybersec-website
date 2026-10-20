@@ -1,7 +1,7 @@
 # Website: Cyber- und Risikoberatung für KMU
 
 Statische Landingpage für CyberSec KMU 24 mit eingebautem Cyber-Check
-(angelehnt an DIN SPEC 27076) und der kostenlosen ISMS-Software als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
+(angelehnt an DIN SPEC 27076) und der kostenlosen ISMS-Suite als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
 
 ```
 index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, SoftwareApplication, FAQPage)
