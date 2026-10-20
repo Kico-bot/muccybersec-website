@@ -1,7 +1,7 @@
-# MucCyberSec
+# CyberSecCheck
 
 > Beratung zu Cybersicherheit und Risiken für kleine und mittlere Unternehmen, vor Ort in
-> Bayern und bundesweit per Video. Kostenloser Online-Cyber-Check und eine kostenlose
+> München und Umgebung, bundesweit per Video. Kostenloser Online-Cyber-Check und eine kostenlose
 > ISMS-Suite, die Unternehmen auch ohne Beratung selbst nutzen können.
 
 ## Angebot
@@ -23,9 +23,15 @@
 
 - ISO/IEC 27001 Implementer, ISO/IEC 27005 Risk Manager.
 - Jahrelange Erfahrung in Informationssicherheit, unter anderem bei einer BaFin-regulierten Bank und in der Beratung von Behörden, Automobil und Gesundheitswesen.
-- Sitz in München, vor Ort in Bayern, bundesweit per Video.
+- Sitz in München, vor Ort in München und Umgebung, bundesweit per Video.
 
 ## Links
+
+- [Sicherheitsanalysen](https://www.ihre-domain.de/leistungen/sicherheitsanalysen.html)
+- [Security Awareness](https://www.ihre-domain.de/leistungen/security-awareness.html)
+- [Notfall- und Krisenmanagement](https://www.ihre-domain.de/leistungen/notfallmanagement.html)
+- [ISMS und Zertifizierung](https://www.ihre-domain.de/leistungen/isms-zertifizierung.html)
+- [Externer CISO und Interim Management](https://www.ihre-domain.de/leistungen/externer-ciso.html)
 
 - [Startseite mit Check](https://www.ihre-domain.de/)
 - [Kostenlose Software](https://www.ihre-domain.de/#software)

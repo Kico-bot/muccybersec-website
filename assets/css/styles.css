@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MucCyberSec
+   CyberSecCheck
    Ein Stylesheet, keine Inline-Styles: Voraussetzung für die strenge CSP
    (style-src 'self'), siehe _headers.
 
@@ -81,9 +81,9 @@ img { max-width: 100%; height: auto; }
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 4.25rem; }
 .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--ink); min-width: 0; }
-/* Wortmarke ohne Bildzeichen: „Muc“ im Akzent, „CyberSec“ in Tinte */
+/* Wortmarke ohne Bildzeichen: „CyberSec“ in Tinte, „Check“ im Akzent */
 .brand-word { font-family: var(--f-head); font-weight: 700; font-size: 1.3rem; line-height: 1; letter-spacing: -0.03em; white-space: nowrap; }
-.brand-muc { color: var(--accent); }
+.brand-accent { color: var(--accent); }
 .nav { display: flex; align-items: center; gap: 1.75rem; }
 .nav a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .92rem; }
 .nav a:not(.btn):hover { color: var(--ink); }
@@ -266,3 +266,44 @@ footer a:hover { color: var(--ink); }
 .btn-sm { white-space: nowrap; }
 @media (max-width: 400px) { .brand-word { font-size: 1.25rem; } .top .btn-sm { padding: .55rem .75rem; font-size: .82rem; } }
 .legal-date { font-size: .88rem; margin-top: 1.5rem; }
+
+/* --- Leistungen: ganze Zeile führt zur Unterseite ------------------------ */
+.services h3 a { color: inherit; text-decoration: none; }
+.services h3 a::after { content: ""; position: absolute; inset: 0; }
+.services h3 a:focus-visible { outline: none; }
+.services li:focus-within { outline: 3px solid var(--accent); outline-offset: -3px; }
+.services .more { display: flex; align-items: center; gap: .4rem; margin-top: .7rem; color: var(--accent-strong); font-weight: 700; font-size: .92rem; }
+.services .more svg { width: 1em; height: 1em; transition: transform .25s ease; }
+.services li:hover .more svg { transform: translateX(4px); }
+
+/* --- Leistungsseiten ----------------------------------------------------- */
+.sub-hero { background: linear-gradient(180deg, var(--hero-tint) 0%, var(--paper) 100%); }
+.sub-hero .wrap { display: grid; gap: 1.2rem; justify-items: start; padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2.5rem, 6vw, 4rem); }
+.sub-hero h1 { font-size: clamp(2.2rem, 1.5rem + 3vw, 3.6rem); font-weight: 700; max-width: 20ch; letter-spacing: -0.03em; line-height: 1.08; }
+.crumbs { display: flex; flex-wrap: wrap; gap: .45rem; font-size: .88rem; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--ink); text-decoration: underline; }
+.sub-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+@media (max-width: 860px) { .sub-grid { grid-template-columns: 1fr; } }
+.prose { display: grid; gap: 1.1rem; max-width: 42rem; }
+.prose h2, .deliver h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); font-weight: 400; }
+.prose p { color: var(--muted); }
+.deliver { border: 1px solid var(--line); border-radius: 4px; padding: 1.6rem; display: grid; gap: 1.1rem; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 5.5rem); }
+@media (max-width: 860px) { .deliver { position: static; } }
+.deliver .checks { color: var(--ink); }
+.process { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; counter-reset: step; }
+@media (max-width: 900px) { .process { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .process { grid-template-columns: 1fr; } }
+.process li { counter-increment: step; border-top: 2px solid var(--accent); padding-top: 1rem; display: grid; gap: .5rem; align-content: start; }
+.process li::before { content: counter(step, decimal-leading-zero); font-size: 2rem; font-weight: 300; line-height: 1; color: #c3cddb; }
+.process h3 { font-size: 1.1rem; font-weight: 600; }
+.process p { color: var(--muted); font-size: .97rem; }
+.more-services { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.more-services a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem .5rem; border-bottom: 1px solid var(--line); color: var(--ink); font-weight: 600; text-decoration: none; transition: background .2s ease, color .2s ease; }
+.more-services a:hover { background: var(--hero-tint); color: var(--accent-strong); }
+.more-services svg { width: 1.1em; height: 1.1em; flex: none; }
+.ms-no { display: inline-block; width: 2.5rem; font-weight: 300; color: #9aa8b8; font-variant-numeric: tabular-nums; }
+.cta-band { background: var(--navy-900); color: var(--on-dark); }
+.cta-band .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding-block: clamp(2.5rem, 6vw, 4rem); }
+.cta-band h2 { color: #fff; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); font-weight: 400; }
+.cta-band p { color: var(--on-dark-muted); margin-top: .4rem; }

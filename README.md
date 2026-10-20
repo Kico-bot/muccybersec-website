@@ -1,10 +1,11 @@
-# MucCyberSec Website
+# CyberSecCheck Website
 
-Statische Landingpage für MucCyberSec: Cybersicherheit für den Mittelstand, mit eingebautem
+Statische Landingpage für CyberSecCheck: Cybersicherheit für den Mittelstand, mit eingebautem
 Cyber-Check und der kostenlosen ISMS-Suite (https://github.com/Kico-bot/ISMS_SaaS) als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
 
 ```
 index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, SoftwareApplication, FAQPage)
+leistungen/*.html       eine Unterseite je Leistung (ohne JavaScript)
 impressum.html          Pflichtangaben nach § 5 DDG
 datenschutz.html        Datenschutzerklärung, beschreibt was die Seite technisch tut
 assets/css/styles.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)

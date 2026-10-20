@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.ihre-domain.de/</loc><lastmod>2026-10-19</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.ihre-domain.de/leistungen/sicherheitsanalysen.html</loc><lastmod>2026-10-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.ihre-domain.de/leistungen/security-awareness.html</loc><lastmod>2026-10-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.ihre-domain.de/leistungen/notfallmanagement.html</loc><lastmod>2026-10-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.ihre-domain.de/leistungen/isms-zertifizierung.html</loc><lastmod>2026-10-20</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.ihre-domain.de/leistungen/externer-ciso.html</loc><lastmod>2026-10-20</lastmod><priority>0.8</priority></url>
   <url><loc>https://www.ihre-domain.de/impressum.html</loc><priority>0.2</priority></url>
   <url><loc>https://www.ihre-domain.de/datenschutz.html</loc><priority>0.2</priority></url>
 </urlset>
