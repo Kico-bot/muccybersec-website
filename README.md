@@ -1,6 +1,6 @@
 # Website: Cyber- und Risikoberatung für KMU
 
-Statische Landingpage für CyberSec KMU 24 mit eingebautem Cyber-Check
+Statische Landingpage für MucCyberSec mit eingebautem Cyber-Check
 (angelehnt an DIN SPEC 27076) und der kostenlosen ISMS-Suite als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
 
 ```
@@ -13,7 +13,7 @@ assets/js/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
 assets/js/questions.js  27 Fragen, Bewertung als reine Funktion
 assets/js/forms.js      Formularprüfung, Honeypot, Zeitsperre, JSON-Versand mit CSRF-Token
 assets/js/dom.js        DOM-Helfer, sessionStorage-Wrapper
-assets/img/logo.svg     Logo (auch als favicon.svg)
+assets/img/logo.svg     Wortmarke, favicon.svg das Kürzel M
 assets/fonts/           Source Serif 4 und IBM Plex Sans, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
 robots.txt, sitemap.xml, llms.txt   SEO und KI-Crawler
