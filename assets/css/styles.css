@@ -179,31 +179,27 @@ img { max-width: 100%; height: auto; }
 .field-row div span:last-child { font-variant-numeric: tabular-nums; color: var(--muted); }
 .gaps { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
 .gaps li { display: flex; gap: .7rem; align-items: baseline; padding: .7rem .9rem; border-radius: 4px; background: var(--mist); font-size: .95rem; }
-.gaps li b { font-size: .72rem; letter-spacing: .04em; color: var(--navy-700); white-space: nowrap; }
+.gaps li { justify-content: space-between; }
+.gaps li em { font-style: normal; white-space: nowrap; }
+.result-cta { display: flex; align-items: center; justify-content: space-between; gap: 1rem 1.5rem; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 1.4rem; }
+.result-cta p { max-width: 30rem; color: var(--muted); }
+.result-cta strong { color: var(--ink); }
 .result-note { font-size: .88rem; color: var(--muted); background: var(--mist); border-radius: 4px; padding: .7rem .9rem; }
 .restart { justify-self: start; background: none; border: 0; color: var(--muted); font: 600 .9rem var(--f-body); cursor: pointer; text-decoration: underline; padding: 0; }
 
 /* --- Formulare ---------------------------------------------------------- */
-.lead { background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); color: var(--on-dark); border-radius: 4px; padding: 1.4rem; display: grid; gap: 1rem; }
-.lead h3 { font-size: 1.15rem; color: #fff; }
-.lead > p { color: var(--on-dark-muted); font-size: .95rem; }
 .form { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
 .form .full { grid-column: 1 / -1; }
 @media (max-width: 560px) { .form { grid-template-columns: 1fr; } }
 .form label.lbl { display: grid; gap: .35rem; font-size: .88rem; font-weight: 700; }
 .form input, .form textarea { font: inherit; font-size: 1rem; padding: .85rem .95rem; border-radius: 4px; width: 100%; border: 1px solid var(--line); background: var(--paper); color: var(--ink); }
 .form textarea { resize: vertical; min-height: 7rem; }
-.form.on-dark input { border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #fff; }
-.form.on-dark input::placeholder { color: var(--on-dark-muted); }
 .form input:focus, .form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(31,95,214,.2); }
 .form [aria-invalid="true"] { border-color: var(--crit) !important; }
 .consent { display: flex; gap: .6rem; align-items: flex-start; font-size: .86rem; color: var(--muted); }
-.form.on-dark .consent { color: var(--on-dark-muted); }
 .consent input { width: auto; margin-top: .3rem; accent-color: var(--accent); }
 .form-msg { font-size: .92rem; border-radius: 4px; padding: .75rem .95rem; background: var(--accent-soft); color: var(--ink); }
 .form-msg.error { background: var(--crit-soft); }
-.form.on-dark .form-msg { background: rgba(31,95,214,.18); color: var(--on-dark); }
-.form.on-dark .form-msg.error { background: rgba(240,122,112,.18); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* --- Leistungen: nummerierte Liste mit Linien und Hover auf der Nummer -- */

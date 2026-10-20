@@ -4,7 +4,6 @@
 
 import { h, icon, svg, store } from "./dom.js";
 import { FIELDS, QUESTIONS, ANSWERS, LEVELS, evaluate, levelOf } from "./questions.js";
-import { bindLeadForm } from "./forms.js";
 
 const KEY = "crc-v1";
 const fresh = () => ({ index: 0, answers: {}, done: false, help: false });
@@ -42,7 +41,7 @@ export function initCheck(card) {
       h("div", { class: "check-top" }, h("span", { text: "Cyber-Check" }), h("span", { text: `Frage ${state.index + 1} von ${QUESTIONS.length}` })),
       h("div", { class: "bar", role: "progressbar", "aria-label": "Fortschritt", "aria-valuemin": 0, "aria-valuemax": QUESTIONS.length, "aria-valuenow": answeredCount() }, progress),
       h("div", { class: "chips", role: "group", "aria-label": "Themenfelder" }, chips),
-      h("div", { class: "q-ref" }, `${q.id} · ${fieldName(q.field)}`, q.top && h("span", { class: "top-tag", text: "TOP-Anforderung" })),
+      h("div", { class: "q-ref" }, fieldName(q.field), q.top && h("span", { class: "top-tag", text: "Besonders wichtig" })),
       h("div", { class: "q-row" },
         h("p", { class: "q-text", id: "q-text", text: q.text }),
         h("button", { type: "button", class: "help-btn", "aria-expanded": String(state.help), "aria-controls": "q-help", onclick: toggleHelp }, icon("i-help"), "Hilfe")),
@@ -74,14 +73,13 @@ export function initCheck(card) {
     });
 
     const gaps = r.gaps.slice(0, 3).map((g) =>
-      h("li", {}, h("b", { text: g.q.id + (g.q.top ? " · TOP" : "") }), h("span", { text: g.q.text })));
+      h("li", {}, h("span", { text: g.q.text }), g.q.top && h("em", { class: "top-tag", text: "Besonders wichtig" })));
 
-    const lead = document.getElementById("lead-template").content.firstElementChild.cloneNode(true);
-    bindLeadForm(lead.querySelector("form"), {
-      source: "check",
-      // Nur berechnete Werte, nie freier Text: Score, Stufe, offene Anforderungen.
-      extra: () => ({ check: { score: r.score, level: r.level, open: r.gaps.slice(0, 5).map((g) => g.q.id) } }),
-    });
+    // Schlichter Abschluss: ein Satz, ein Button. Der Button trägt die Zusammenfassung ins
+    // Kontaktformular ein, sichtbar und änderbar; gesendet wird erst, wenn der Nutzer absendet.
+    const cta = h("div", { class: "result-cta" },
+      h("p", {}, h("strong", { text: "Wie geht es weiter? " }), "In einem kostenlosen Gespräch von 30 Minuten zeige ich Ihnen, welche Lücken Sie zuerst schließen sollten."),
+      h("a", { class: "btn", href: "#kontakt", onclick: () => prefillContact(r, level) }, "Erstgespräch anfragen", icon("i-arrow")));
 
     return [
       h("div", { class: "check-top" }, h("span", { text: "Cyber-Check · Ergebnis" }), h("span", { text: `${QUESTIONS.length} von ${QUESTIONS.length} beantwortet` })),
@@ -91,13 +89,23 @@ export function initCheck(card) {
           h("div", {},
             h("span", { class: `status lvl-${r.level}`, text: level.label }),
             h("h3", { text: "Ihr Sicherheitsniveau" }),
-            h("p", { text: level.text + (r.topOpen ? ` Offene TOP-Anforderungen: ${r.topOpen}.` : "") }))),
+            h("p", { text: level.text + (r.topOpen ? ` Offen sind ${r.topOpen === 1 ? "ein besonders wichtiger Punkt" : `${r.topOpen} besonders wichtige Punkte`}.` : "") }))),
         h("p", { class: "result-note", text: "Dieses Ergebnis sehen nur Sie. Es wird in diesem Browser-Tab angezeigt, nicht gespeichert und nicht übertragen." }),
         h("div", { class: "fields" }, fieldRows),
         gaps.length > 0 && h("div", {}, h("h3", { class: "res-sub", text: "Zuerst angehen" }), h("ul", { class: "gaps" }, gaps)),
-        lead,
+        cta,
         h("button", { type: "button", class: "restart", onclick: restart }, "Check neu starten")),
     ];
+  }
+
+  function prefillContact(r, level) {
+    const message = document.getElementById("c-message");
+    if (!message) return;
+    const lines = [`Mein Cyber-Check: ${r.score} von 100 Punkten (${level.label}).`];
+    if (r.gaps.length) lines.push("Zuerst angehen:", ...r.gaps.slice(0, 3).map((g) => `- ${g.q.text}`));
+    lines.push("", "Ich möchte das Ergebnis gern in einem Erstgespräch besprechen.");
+    message.value = lines.join("\n");
+    setTimeout(() => document.getElementById("c-name")?.focus({ preventScroll: true }), 600);
   }
 
   function pick(value) {

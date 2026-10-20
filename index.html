@@ -358,21 +358,5 @@
 
 <div class="sticky-cta" id="sticky-cta"><a class="btn" href="#check">Kostenlosen Cyber-Check starten</a></div>
 
-<!-- Lead-Formular im Ergebnis: als Template, damit kein Markup aus JS-Strings entsteht. -->
-<template id="lead-template">
-  <div class="lead">
-    <h3>Ergebnis gemeinsam besprechen</h3>
-    <p>Ich melde mich innerhalb von zwei Werktagen und bespreche Ihr Ergebnis mit Ihnen in 30 Minuten. Kostenlos und unverbindlich.</p>
-    <form class="form on-dark" novalidate>
-      <input name="name" placeholder="Name" autocomplete="name" aria-label="Name" required maxlength="80">
-      <input name="company" placeholder="Unternehmen" autocomplete="organization" aria-label="Unternehmen" maxlength="120">
-      <input class="full" name="email" type="email" inputmode="email" placeholder="E-Mail" autocomplete="email" aria-label="E-Mail" required maxlength="254">
-      <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off" aria-label="Nicht ausfüllen"></div>
-      <label class="consent full"><input name="consent" type="checkbox" required> Ich bin einverstanden, dass meine Angaben und mein Check-Ergebnis zur Bearbeitung der Anfrage verwendet werden.</label>
-      <button class="btn full" type="submit">Gespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-      <p class="form-msg full" data-status role="status" hidden></p>
-    </form>
-  </div>
-</template>
 </body>
 </html>
