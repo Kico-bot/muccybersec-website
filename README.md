@@ -1,6 +1,6 @@
 # Website: Cyber- und Risikoberatung für KMU
 
-Statische Landingpage für die Beratung (Kristian Dabić) mit eingebautem Cyber-Check
+Statische Landingpage für die Beratung (Firmenname folgt) mit eingebautem Cyber-Check
 (angelehnt an DIN SPEC 27076) und der kostenlosen ISMS-Software als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
 
 ```
@@ -24,7 +24,7 @@ Lokal ansehen: `python3 -m http.server 8080` im Ordner `website/`, dann <http://
 
 ## Vor dem Livegang
 
-1. `ihre-domain.de` überall durch die echte Domain ersetzen (`grep -r ihre-domain .`).
+1. Firmennamen festlegen (Wortmarke „Cyber Security & GRC“ ist ein Platzhalter) und `ihre-domain.de` überall durch die echte Domain ersetzen (`grep -r ihre-domain .`), auch in der Kontakt-E-Mail.
 2. Impressum und Datenschutzerklärung vervollständigen, Foto und echte Kundenstimme einsetzen.
 3. Die 27 Fragen gegen den Text der DIN SPEC 27076 prüfen (`assets/js/questions.js`).
 4. Formular-Endpunkt betreiben (siehe unten) oder `lead-endpoint` im `<meta>` auf den eigenen Dienst setzen.
