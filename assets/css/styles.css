@@ -54,6 +54,8 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
 h1, h2, h3 { font-family: var(--f-head); margin: 0; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
 p { margin: 0; }
+/* Lange deutsche Komposita (Informationssicherheitsbeauftragter) dürfen am Handy trennen */
+p, li, summary { overflow-wrap: break-word; hyphens: auto; }
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
@@ -226,7 +228,7 @@ img { max-width: 100%; height: auto; }
 /* --- FAQ ---------------------------------------------------------------- */
 .faq { max-width: 50rem; margin-inline: auto; border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }
-.faq summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 1.2rem 0; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.faq summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 1.2rem 0; list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after { content: "+"; color: var(--accent-strong); font-size: 1.35rem; line-height: 1; }
 .faq details[open] summary::after { content: "–"; }
