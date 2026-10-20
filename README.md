@@ -1,10 +1,10 @@
 # Website: Cyber- und Risikoberatung für KMU
 
-Statische Landingpage für die Beratung (Firmenname folgt) mit eingebautem Cyber-Check
+Statische Landingpage für CyberSec KMU 24 mit eingebautem Cyber-Check
 (angelehnt an DIN SPEC 27076) und der kostenlosen ISMS-Software als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
 
 ```
-index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, SoftwareApplication, Person, FAQPage)
+index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, SoftwareApplication, FAQPage)
 impressum.html          Gerüst, vor dem Livegang ausfüllen
 datenschutz.html        Gerüst, beschreibt was die Seite technisch tut
 assets/css/styles.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)
@@ -13,6 +13,7 @@ assets/js/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
 assets/js/questions.js  27 Fragen, Bewertung als reine Funktion
 assets/js/forms.js      Formularprüfung, Honeypot, Zeitsperre, JSON-Versand mit CSRF-Token
 assets/js/dom.js        DOM-Helfer, sessionStorage-Wrapper
+assets/img/logo.svg     Logo (auch als favicon.svg)
 assets/fonts/           Source Serif 4 und IBM Plex Sans, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
 robots.txt, sitemap.xml, llms.txt   SEO und KI-Crawler
@@ -24,7 +25,7 @@ Lokal ansehen: `python3 -m http.server 8080` im Ordner `website/`, dann <http://
 
 ## Vor dem Livegang
 
-1. Firmennamen festlegen (Wortmarke „Cyber Security & GRC“ ist ein Platzhalter) und `ihre-domain.de` überall durch die echte Domain ersetzen (`grep -r ihre-domain .`), auch in der Kontakt-E-Mail.
+1. `ihre-domain.de` überall durch die echte Domain ersetzen (`grep -r ihre-domain .`), auch in der Kontakt-E-Mail.
 2. Impressum und Datenschutzerklärung vervollständigen, Foto und echte Kundenstimme einsetzen.
 3. Die 27 Fragen gegen den Text der DIN SPEC 27076 prüfen (`assets/js/questions.js`).
 4. Formular-Endpunkt betreiben (siehe unten) oder `lead-endpoint` im `<meta>` auf den eigenen Dienst setzen.

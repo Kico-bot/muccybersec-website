@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Cyber Security & GRC (Name folgt)
+   CyberSec KMU 24
    Ein Stylesheet, keine Inline-Styles: Voraussetzung für die strenge CSP
    (style-src 'self'), siehe _headers.
 
@@ -86,15 +86,14 @@ img { max-width: 100%; height: auto; }
 /* --- Kopfzeile ---------------------------------------------------------- */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 4.25rem; }
-.brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--ink); min-width: 0; }
-.brand svg { width: 1.3rem; height: 1.3rem; flex: none; color: var(--accent-strong); }
-.brand b { font-family: var(--f-head); font-weight: 700; font-size: 1.02rem; white-space: nowrap; }
-.brand span { color: var(--muted); font-weight: 600; font-size: .95rem; white-space: nowrap; }
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--ink); min-width: 0; }
+.brand-mark { width: 2rem; height: 2rem; flex: none; color: var(--accent); }
+.brand-word { font-family: var(--f-body); font-weight: 700; font-size: 1.08rem; letter-spacing: -0.01em; white-space: nowrap; display: inline-flex; align-items: baseline; gap: .3rem; }
+.brand-24 { font-size: .72rem; font-weight: 700; color: var(--on-accent); background: var(--ink); padding: .12rem .32rem; border-radius: 2px; letter-spacing: .02em; transform: translateY(-.1rem); }
 .nav { display: flex; align-items: center; gap: 1.75rem; }
 .nav a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .92rem; }
 .nav a:not(.btn):hover { color: var(--ink); }
 @media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
-@media (max-width: 520px) { .brand span { display: none; } }
 
 /* --- Hero: Aussage als Überschrift, die Frage führt in den Check -------- */
 .hero { background: linear-gradient(180deg, var(--hero-tint) 0%, var(--paper) 100%); }
@@ -273,3 +272,7 @@ footer a:hover { color: var(--ink); }
 .legal h2 { font-size: 1.2rem; margin-top: 1rem; }
 .legal p, .legal li { color: var(--muted); }
 .todo { background: var(--warn-soft); color: var(--warn); border-radius: 4px; padding: .8rem 1rem; font-weight: 600; }
+
+/* Schmale Handys: Logo und Button in einer Zeile halten */
+.btn-sm { white-space: nowrap; }
+@media (max-width: 400px) { .brand { gap: .45rem; } .brand-mark { width: 1.75rem; height: 1.75rem; } .brand-word { font-size: .98rem; } .top .btn-sm { padding: .55rem .75rem; font-size: .82rem; } }
