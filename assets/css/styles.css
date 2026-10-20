@@ -95,35 +95,25 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
 @media (max-width: 520px) { .brand span { display: none; } }
 
-/* --- Hero: links Aussage, rechts ein Beispielergebnis des Checks -------- */
+/* --- Hero: Aussage als Überschrift, die Frage führt in den Check -------- */
 .hero { background: linear-gradient(180deg, var(--hero-tint) 0%, var(--paper) 100%); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; padding-block: clamp(3.5rem, 8vw, 6.5rem) clamp(3rem, 7vw, 5rem); }
-@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } }
-.hero-copy { display: grid; gap: 1.5rem; justify-items: start; min-width: 0; }
-.hero h1 { font-size: clamp(2.5rem, 1.6rem + 3.8vw, 4.2rem); font-weight: 700; max-width: 13ch; }
-.hero h1 em { font-style: normal; color: var(--accent); }
-.hero-sub { font-size: clamp(1.08rem, 1rem + .4vw, 1.25rem); color: var(--muted); max-width: 34rem; }
-.ticks { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; list-style: none; padding: 0; margin: 0; color: var(--muted); font-size: .95rem; font-weight: 500; }
-.ticks li { display: flex; align-items: center; gap: .45rem; }
-.ticks svg { width: 1.05rem; height: 1.05rem; color: var(--accent); flex: none; }
-.creds { font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: .5rem; width: 100%; }
+.hero .wrap { display: grid; gap: 1.6rem; justify-items: start; padding-block: clamp(4rem, 10vw, 8rem) clamp(3.5rem, 8vw, 6rem); }
+.hero h1 { font-size: clamp(2.5rem, 1.5rem + 4.4vw, 4.8rem); font-weight: 700; max-width: 16ch; line-height: 1.08; }
+.hero h1 .dot { color: var(--accent); }
+.hero-sub { font-size: clamp(1.08rem, 1rem + .4vw, 1.25rem); color: var(--muted); max-width: 40rem; }
+.hero-question { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; width: 100%; max-width: 44rem; margin-top: .6rem; padding: 1.15rem 1.15rem 1.15rem 1.5rem; border-radius: 14px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(15,27,45,.04), 0 18px 40px -26px rgba(31,95,214,.45); text-decoration: none; color: var(--ink); transition: border-color .15s, box-shadow .15s, transform .15s; }
+.hero-question:hover { border-color: var(--accent); transform: translateY(-1px); }
+.hq-text { display: grid; gap: .15rem; min-width: 0; }
+.hq-text strong { font-family: var(--f-head); font-size: clamp(1.2rem, 1.05rem + .6vw, 1.5rem); font-weight: 700; letter-spacing: -0.015em; }
+.hq-text span { color: var(--muted); font-size: .92rem; }
+.hq-go { display: inline-flex; align-items: center; gap: .55rem; background: var(--accent); color: var(--on-accent); font-weight: 700; padding: .9rem 1.3rem; border-radius: 9px; white-space: nowrap; }
+.hero-question:hover .hq-go { background: var(--accent-hover); }
+.hq-go svg, .hero-link svg { width: 1.1em; height: 1.1em; }
+@media (max-width: 560px) { .hq-go { width: 100%; justify-content: center; } }
+.hero-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--accent-strong); font-weight: 700; text-decoration: none; font-size: .98rem; }
+.hero-link:hover { text-decoration: underline; }
+.creds { font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: 1rem; width: 100%; max-width: 44rem; }
 .creds b { color: var(--ink); font-weight: 700; }
-
-/* Beispielergebnis: statisch, zeigt was der Check liefert */
-.sample { margin: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 2px 4px rgba(15,27,45,.04), 0 30px 60px -30px rgba(31,95,214,.35); padding: clamp(1.25rem, 3vw, 1.75rem); display: grid; gap: 1.2rem; min-width: 0; }
-.sample-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.sample-score { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: center; }
-.sample-score .ring { width: 5.5rem; height: 5.5rem; }
-.sample-score .ring b { font-size: 1.5rem; }
-.sample-score h2 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
-.sample-score p { color: var(--muted); font-size: .9rem; margin-top: .2rem; }
-.sample-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
-.sample-bars li { display: grid; grid-template-columns: minmax(0, 1fr) 2.6rem; gap: .2rem .8rem; font-size: .85rem; font-weight: 600; }
-.sample-bars li span:nth-child(2) { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
-.sample-bars .bar { grid-column: 1 / -1; height: 5px; }
-.sample-foot { font-size: .86rem; background: var(--mist); border-radius: 10px; padding: .65rem .85rem; }
-.sample-foot b { color: var(--accent-strong); }
-.sample-bars .bar > i.w-38 { width: 38%; } .sample-bars .bar > i.w-50 { width: 50%; } .sample-bars .bar > i.w-60 { width: 60%; } .sample-bars .bar > i.w-70 { width: 70%; } .sample-bars .bar > i.w-71 { width: 71%; } .sample-bars .bar > i.w-83 { width: 83%; }
 
 /* --- Abschnitte --------------------------------------------------------- */
 .section { padding-block: clamp(4rem, 9vw, 7rem); }
@@ -191,6 +181,7 @@ img { max-width: 100%; height: auto; }
 .gaps { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
 .gaps li { display: flex; gap: .7rem; align-items: baseline; padding: .7rem .9rem; border-radius: 10px; background: var(--mist); font-size: .95rem; }
 .gaps li b { font-size: .72rem; letter-spacing: .04em; color: var(--navy-700); white-space: nowrap; }
+.result-note { font-size: .88rem; color: var(--muted); background: var(--mist); border-radius: 10px; padding: .7rem .9rem; }
 .restart { justify-self: start; background: none; border: 0; color: var(--muted); font: 600 .9rem var(--f-body); cursor: pointer; text-decoration: underline; padding: 0; }
 
 /* --- Formulare ---------------------------------------------------------- */

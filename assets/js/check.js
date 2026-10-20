@@ -92,6 +92,7 @@ export function initCheck(card) {
             h("span", { class: `status lvl-${r.level}`, text: level.label }),
             h("h3", { text: "Ihr Sicherheitsniveau" }),
             h("p", { text: level.text + (r.topOpen ? ` Offene TOP-Anforderungen: ${r.topOpen}.` : "") }))),
+        h("p", { class: "result-note", text: "Dieses Ergebnis sehen nur Sie. Es wird in diesem Browser-Tab angezeigt, nicht gespeichert und nicht übertragen." }),
         h("div", { class: "fields" }, fieldRows),
         gaps.length > 0 && h("div", {}, h("h3", { class: "res-sub", text: "Zuerst angehen" }), h("ul", { class: "gaps" }, gaps)),
         lead,
