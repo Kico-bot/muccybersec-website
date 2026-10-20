@@ -13,7 +13,8 @@
 - Schulungen und Awareness: Phishing, Betrugsmaschen, sicheres Arbeiten, auf Wunsch Phishing-Simulationen.
 - Externer CISO und Interim Management: Leitung der Informationssicherheit auf Zeit oder dauerhaft.
 - DIN SPEC 27076 für Klein- und Kleinstunternehmen: Risikoanalyse mit Bericht und Unterstützung bei der Umsetzung.
-- Außerdem NIS2 und Sicherheitsnachweise für Kunden. Beratung zum Festpreis nach Angebot.
+- Außerdem NIS2 und Sicherheitsnachweise für Kunden.
+- Preise: Beratung auf Anfrage mit individuellem Angebot, externer CISO oder Informationssicherheitsbeauftragter zum monatlichen Festpreis.
 
 ## Kostenlose ISMS-Software
 

@@ -13,7 +13,7 @@ assets/js/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
 assets/js/questions.js  27 Fragen, Bewertung als reine Funktion
 assets/js/forms.js      Formularprüfung, Honeypot, Zeitsperre, JSON-Versand mit CSRF-Token
 assets/js/dom.js        DOM-Helfer, sessionStorage-Wrapper
-assets/fonts/           Sora und Manrope, selbst gehostet (SIL OFL)
+assets/fonts/           Source Serif 4 und IBM Plex Sans, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
 robots.txt, sitemap.xml, llms.txt   SEO und KI-Crawler
 server/lead-endpoint.example.mjs    Referenz für POST /api/lead (Node, ohne Abhängigkeiten)
