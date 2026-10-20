@@ -1,12 +1,12 @@
-# Website: Cyber- und Risikoberatung für KMU
+# MucCyberSec Website
 
-Statische Landingpage für MucCyberSec mit eingebautem Cyber-Check
-(angelehnt an DIN SPEC 27076) und der kostenlosen ISMS-Suite als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
+Statische Landingpage für MucCyberSec: Cybersicherheit für den Mittelstand, mit eingebautem
+Cyber-Check und der kostenlosen ISMS-Suite (https://github.com/Kico-bot/ISMS_SaaS) als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
 
 ```
 index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, SoftwareApplication, FAQPage)
-impressum.html          Gerüst, vor dem Livegang ausfüllen
-datenschutz.html        Gerüst, beschreibt was die Seite technisch tut
+impressum.html          Pflichtangaben nach § 5 DDG
+datenschutz.html        Datenschutzerklärung, beschreibt was die Seite technisch tut
 assets/css/styles.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)
 assets/js/main.js       Einstieg (ES-Modul)
 assets/js/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
@@ -20,13 +20,13 @@ robots.txt, sitemap.xml, llms.txt   SEO und KI-Crawler
 server/lead-endpoint.example.mjs    Referenz für POST /api/lead (Node, ohne Abhängigkeiten)
 ```
 
-Lokal ansehen: `python3 -m http.server 8080` im Ordner `website/`, dann <http://localhost:8080>.
+Lokal ansehen: `python3 -m http.server 8080` im Hauptordner, dann <http://localhost:8080>.
 Über `file://` laden Browser keine ES-Module.
 
 ## Vor dem Livegang
 
 1. `ihre-domain.de` überall durch die echte Domain ersetzen (`grep -r ihre-domain .`), auch in der Kontakt-E-Mail.
-2. Impressum und Datenschutzerklärung vervollständigen, Foto und echte Kundenstimme einsetzen.
+2. In Impressum und Datenschutz die E-Mail-Adresse und den Hoster eintragen.
 3. Die 27 Fragen gegen den Text der DIN SPEC 27076 prüfen (`assets/js/questions.js`).
 4. Formular-Endpunkt betreiben (siehe unten) oder `lead-endpoint` im `<meta>` auf den eigenen Dienst setzen.
 5. Header prüfen: <https://securityheaders.com>, <https://observatory.mozilla.org>.
