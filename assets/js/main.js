@@ -1,14 +1,10 @@
 // Einstiegspunkt. Wird als ES-Modul geladen (script-src 'self', kein Inline-Code).
 
 import { initCheck } from "./check.js";
-import { initShield } from "./shield.js";
 import { bindLeadForm } from "./forms.js";
 
 const card = document.getElementById("check-card");
 if (card) initCheck(card);
-
-const canvas = document.getElementById("shield");
-if (canvas) initShield(canvas);
 
 const contact = document.getElementById("contact-form");
 if (contact) bindLeadForm(contact, { source: "kontakt" });

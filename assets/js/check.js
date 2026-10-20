@@ -1,4 +1,4 @@
-// Der CyberRisikoCheck: eine Frage nach der anderen, danach die Auswertung.
+// Der Cyber-Check: eine Frage nach der anderen, danach die Auswertung.
 // Die Antworten verlassen den Browser nicht, außer der Nutzer schickt das
 // Lead-Formular ab. Zwischenstand liegt nur im sessionStorage dieses Tabs.
 
@@ -39,7 +39,7 @@ export function initCheck(card) {
     });
 
     return [
-      h("div", { class: "check-top" }, h("span", { text: "CyberRisikoCheck · DIN SPEC 27076" }), h("span", { text: `Frage ${state.index + 1} von ${QUESTIONS.length}` })),
+      h("div", { class: "check-top" }, h("span", { text: "Cyber-Check" }), h("span", { text: `Frage ${state.index + 1} von ${QUESTIONS.length}` })),
       h("div", { class: "bar", role: "progressbar", "aria-label": "Fortschritt", "aria-valuemin": 0, "aria-valuemax": QUESTIONS.length, "aria-valuenow": answeredCount() }, progress),
       h("div", { class: "chips", role: "group", "aria-label": "Themenfelder" }, chips),
       h("div", { class: "q-ref" }, `${q.id} · ${fieldName(q.field)}`, q.top && h("span", { class: "top-tag", text: "TOP-Anforderung" })),
@@ -84,7 +84,7 @@ export function initCheck(card) {
     });
 
     return [
-      h("div", { class: "check-top" }, h("span", { text: "CyberRisikoCheck · Ergebnis" }), h("span", { text: `${QUESTIONS.length} von ${QUESTIONS.length} beantwortet` })),
+      h("div", { class: "check-top" }, h("span", { text: "Cyber-Check · Ergebnis" }), h("span", { text: `${QUESTIONS.length} von ${QUESTIONS.length} beantwortet` })),
       h("div", { class: "result" },
         h("div", { class: "res-head" },
           h("div", { class: "ring" }, ring, h("div", {}, h("b", { text: r.score }), h("small", { text: "von 100" }))),

@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>CyberRisikoCheck für KMU in Bayern nach DIN SPEC 27076 | Kristian Dabić</title>
-  <meta name="description" content="IT-Sicherheitsberatung für KMU in Bayern und bundesweit: kostenloser CyberRisikoCheck nach DIN SPEC 27076, Einstieg zum Festpreis, BAFA-Förderung prüfen. Aus München.">
+  <title>Kostenloser Cyber-Check für Ihr Unternehmen | Kristian Dabić, Cybersicherheit und Risikoberatung</title>
+  <meta name="description" content="Wie sicher ist Ihr Unternehmen? Kostenloser Cyber-Check in 5 Minuten, Beratung zu Cybersicherheit, Risiken und ISO 27001 für KMU in Bayern und bundesweit, dazu eine kostenlose ISMS-Software.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Kristian Dabić">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#081326">
   <!-- Ersatz-CSP für Hosts ohne eigene Header. Maßgeblich sind die HTTP-Header aus _headers. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
-  <!-- Vom Server pro Sitzung zu füllen (Double-Submit-Token), siehe server/lead-endpoint.example.mjs -->
+  <!-- Vom Server pro Sitzung zu füllen (HMAC-Token), siehe server/lead-endpoint.example.mjs -->
   <meta name="csrf-token" content="">
   <meta name="lead-endpoint" content="/api/lead">
 
@@ -25,8 +25,8 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Kristian Dabić · Cyber Security &amp; GRC">
-  <meta property="og:title" content="Kostenloser CyberRisikoCheck für KMU nach DIN SPEC 27076">
-  <meta property="og:description" content="27 Fragen, 5 Minuten, sofort ein klares Ergebnis mit den wichtigsten nächsten Schritten.">
+  <meta property="og:title" content="Wie sicher ist Ihr Unternehmen? Kostenloser Cyber-Check">
+  <meta property="og:description" content="27 Fragen, 5 Minuten, sofort ein klares Ergebnis. Dazu Beratung zu Cybersicherheit und Risiken und eine kostenlose ISMS-Software.">
   <meta property="og:url" content="https://www.ihre-domain.de/">
   <meta property="og:image" content="https://www.ihre-domain.de/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -42,31 +42,42 @@
         "@type": "ProfessionalService",
         "@id": "https://www.ihre-domain.de/#business",
         "name": "Kristian Dabić · Cyber Security & GRC",
-        "description": "IT-Sicherheitsberatung für kleine und mittlere Unternehmen in Bayern und bundesweit: CyberRisikoCheck nach DIN SPEC 27076, ISO 27001, NIS2 und BSI IT-Grundschutz.",
+        "description": "Beratung zu Cybersicherheit und Risiken für kleine und mittlere Unternehmen in Bayern und bundesweit, von der ersten Bestandsaufnahme bis zur ISO-27001-Zertifizierung.",
         "url": "https://www.ihre-domain.de/",
         "email": "kristian95@gmx.de",
         "image": "https://www.ihre-domain.de/assets/img/og-image.jpg",
         "address": { "@type": "PostalAddress", "addressLocality": "München", "addressRegion": "Bayern", "addressCountry": "DE" },
-        "areaServed": [{ "@type": "City", "name": "München" }, { "@type": "State", "name": "Bayern" }, { "@type": "Country", "name": "Deutschland" }],
-        "knowsAbout": ["DIN SPEC 27076", "CyberRisikoCheck", "ISO/IEC 27001", "NIS2", "BSI IT-Grundschutz", "Informationssicherheit", "Risikomanagement", "Notfallmanagement"],
+        "areaServed": [{ "@type": "State", "name": "Bayern" }, { "@type": "Country", "name": "Deutschland" }],
+        "knowsAbout": ["Cybersicherheit", "IT-Sicherheit", "Risikomanagement", "Informationssicherheit", "ISO/IEC 27001", "NIS2", "BSI IT-Grundschutz", "Notfallmanagement", "DIN SPEC 27076"],
         "founder": { "@id": "https://www.ihre-domain.de/#person" },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Leistungen",
           "itemListElement": [
-            { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "CyberRisikoCheck online", "description": "Selbsteinschätzung mit 27 Fragen nach DIN SPEC 27076 und sofortiger Auswertung." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CyberRisikoCheck nach DIN SPEC 27076 mit Bericht", "description": "Begleitetes Interview zu den 27 Anforderungen, schriftlicher Bericht mit Risikostatus und Maßnahmenplan, Festpreis, bei Folgeauftrag angerechnet." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Umsetzung und Fördermittel", "description": "Schließen der gefundenen Lücken nach Dringlichkeit, Prüfung passender Förderprogramme." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 27001 ISMS", "description": "Schlanker Aufbau eines ISMS bis zur Zertifizierung, mit lizenzfreier ISMS-Software." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "NIS2 und BSI IT-Grundschutz", "description": "Betroffenheitsprüfung, Registrierung, Meldeprozess und Maßnahmen nach BSI-Gesetz." } }
+            { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Cyber-Check online", "description": "Selbsteinschätzung mit 27 Fragen in sechs Themenfeldern und sofortiger Auswertung." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cyber- und Risikoberatung", "description": "Risiken erkennen, bewerten und nach Dringlichkeit angehen." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sicherheits- und Notfallkonzepte", "description": "Notfallplan, Datensicherung, Zugänge, Schulungen und Dienstleistersteuerung." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ISO 27001 und ISMS", "description": "Aufbau eines Informationssicherheits-Managementsystems bis zur Zertifizierung." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "NIS2 und Kundenanforderungen", "description": "Betroffenheitsprüfung, Pflichten nach BSI-Gesetz und Sicherheitsnachweise für Kunden." } }
           ]
         }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.ihre-domain.de/#software",
+        "name": "ISMS-Suite",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Docker (Windows, macOS, Linux)",
+        "description": "Software für Informationssicherheit nach ISO 27001, mit NIS2, DSGVO und BSI IT-Grundschutz. Kostenlos, auf eigenen Servern betrieben, auch ohne Beratung nutzbar.",
+        "url": "https://github.com/Kico-bot/ISMS_SaaS",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "author": { "@id": "https://www.ihre-domain.de/#person" }
       },
       {
         "@type": "Person",
         "@id": "https://www.ihre-domain.de/#person",
         "name": "Kristian Dabić",
-        "jobTitle": "Berater für Informationssicherheit",
+        "jobTitle": "Berater für Cybersicherheit und Informationssicherheit",
         "worksFor": { "@id": "https://www.ihre-domain.de/#business" },
         "hasCredential": [
           { "@type": "EducationalOccupationalCredential", "name": "ISO/IEC 27001 Implementer" },
@@ -77,13 +88,13 @@
       {
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Was ist der CyberRisikoCheck nach DIN SPEC 27076?", "acceptedAnswer": { "@type": "Answer", "text": "Ein standardisiertes Verfahren, mit dem kleine Unternehmen ihr IT-Sicherheitsniveau bewerten lassen. Es prüft 27 Anforderungen in sechs Themenfeldern und liefert einen Risikostatus mit priorisierten Empfehlungen. Die DIN SPEC 27076 entstand unter Federführung des BSI und richtet sich vor allem an Betriebe mit weniger als 50 Mitarbeitenden." } },
-          { "@type": "Question", "name": "Wie lange dauert der Online-Check?", "acceptedAnswer": { "@type": "Answer", "text": "Rund fünf Minuten. Das Ergebnis sehen Sie sofort. Der vollständige CyberRisikoCheck ist ein begleitetes Gespräch von wenigen Stunden mit schriftlichem Bericht." } },
-          { "@type": "Question", "name": "Was kostet der CyberRisikoCheck?", "acceptedAnswer": { "@type": "Answer", "text": "Der Online-Check und das 30-minütige Erstgespräch sind kostenlos. Der begleitete CyberRisikoCheck mit Bericht kostet einen Festpreis, der bei einem Folgeauftrag voll angerechnet wird. Für die Umsetzung erhalten Sie vorab ein Angebot zum Festpreis." } },
-          { "@type": "Question", "name": "Gibt es Fördermittel für IT-Sicherheit in kleinen Unternehmen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die BAFA-Beratungsförderung des Bundes bezuschusst Beratung zur IT-Sicherheit für KMU: in Bayern und den meisten Bundesländern mit 50 %, höchstens 1.750 € je Beratung. Der Antrag muss vor Beratungsbeginn gestellt werden, Anträge sind derzeit bis 31. Dezember 2026 möglich. Ob die Förderung für Sie passt, prüfe ich im Erstgespräch." } },
+          { "@type": "Question", "name": "Was prüft der kostenlose Cyber-Check?", "acceptedAnswer": { "@type": "Answer", "text": "27 Fragen in sechs Themenfeldern: Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware sowie Systeme und Netzwerke. Die Fragen orientieren sich an der DIN SPEC 27076, einem Standard für kleine Unternehmen. Sie sehen sofort Ihren Risikostatus und die dringendsten Lücken." } },
+          { "@type": "Question", "name": "Wobei berate ich Unternehmen?", "acceptedAnswer": { "@type": "Answer", "text": "Bei allen Fragen zu Cybersicherheit und Risiken: von der ersten Bestandsaufnahme über Notfallplanung, Datensicherung und Schulungen bis zu ISO 27001, NIS2 und Sicherheitsnachweisen für Kunden." } },
+          { "@type": "Question", "name": "Was kostet die Beratung?", "acceptedAnswer": { "@type": "Answer", "text": "Der Cyber-Check, das 30-minütige Erstgespräch und die ISMS-Software sind kostenlos. Für die Beratung erhalten Sie vorab ein Angebot zum Festpreis." } },
+          { "@type": "Question", "name": "Kann ich die ISMS-Software ohne Beratung nutzen?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Die Software ist kostenlos, der Quellcode liegt offen auf GitHub, und sie läuft mit Docker auf Ihrem eigenen Rechner oder Server. Eine Beratung ist dafür nicht nötig. Wer Unterstützung bei der Einführung möchte, kann sie dazubuchen." } },
           { "@type": "Question", "name": "Arbeiten Sie nur in Bayern?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Vor Ort bin ich in ganz Bayern, von München aus. Unternehmen in anderen Bundesländern berate ich per Video, Termine vor Ort sind nach Absprache möglich." } },
           { "@type": "Question", "name": "Betrifft NIS2 mein Unternehmen?", "acceptedAnswer": { "@type": "Answer", "text": "Seit dem 6. Dezember 2025 gilt in Deutschland das neue BSI-Gesetz zur Umsetzung von NIS2. Betroffen sind in der Regel Unternehmen ab 50 Mitarbeitenden oder mehr als 10 Millionen Euro Jahresumsatz in bestimmten Branchen. Kleinere Betriebe spüren die Anforderungen oft als Lieferant ihrer Kunden." } },
-          { "@type": "Question", "name": "Was passiert mit meinen Antworten im Check?", "acceptedAnswer": { "@type": "Answer", "text": "Die Auswertung läuft vollständig in Ihrem Browser. Es wird nichts übertragen, solange Sie nicht selbst das Formular für den ausführlichen Bericht absenden." } }
+          { "@type": "Question", "name": "Was passiert mit meinen Antworten im Check?", "acceptedAnswer": { "@type": "Answer", "text": "Die Auswertung läuft vollständig in Ihrem Browser. Es wird nichts übertragen, solange Sie nicht selbst das Anfrageformular absenden." } }
         ]
       }
     ]
@@ -92,7 +103,7 @@
   <script type="module" src="assets/js/main.js"></script>
 </head>
 <body>
-<a class="skip" href="#check">Zum Risiko-Check springen</a>
+<a class="skip" href="#check">Zum Cyber-Check springen</a>
 
 <!-- Icon-Sprite: einmal definiert, überall per <use> referenziert -->
 <svg class="sprite" aria-hidden="true" focusable="false">
@@ -101,9 +112,11 @@
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H6M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.1-2.4 3.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="currentColor"/></symbol>
-  <symbol id="i-euro" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 8.6a4 4 0 1 0 0 6.8M7.5 11h6M7.5 13.4h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 12l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-life" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5.6 5.6l3.9 3.9M14.5 14.5l3.9 3.9M18.4 5.6l-3.9 3.9M9.5 14.5l-3.9 3.9" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v5h5M9.5 14.5l1.8 1.8 3.4-3.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9.5L12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 8L4.5 12l4 4M15.5 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <div class="dark">
@@ -111,30 +124,29 @@
     <div class="wrap">
       <a class="brand" href="#start" aria-label="Kristian Dabić, Cyber Security und GRC, zum Seitenanfang"><svg aria-hidden="true"><use href="#i-shield"/></svg><b>Kristian Dabić</b><span>· Cyber Security &amp; GRC</span></a>
       <nav class="nav" aria-label="Hauptnavigation">
-        <a href="#ablauf">Ablauf</a>
-        <a href="#leistungen">Leistungen</a>
+        <a href="#software">Software</a>
+        <a href="#leistungen">Beratung</a>
         <a href="#faq">Fragen</a>
         <a href="#kontakt">Kontakt</a>
-        <a class="btn btn-sm" href="#check">Risiko-Check</a>
+        <a class="btn btn-sm" href="#check">Cyber-Check</a>
       </nav>
     </div>
   </header>
 
   <section class="hero" id="start" aria-labelledby="hero-title">
-    <div class="wrap">
-      <div class="hero-copy">
-        <span class="pill">Für KMU in Bayern und bundesweit</span>
-        <h1 id="hero-title">CyberRisikoCheck nach DIN SPEC 27076: Wie sicher ist Ihr Unternehmen?</h1>
-        <p class="hero-benefit">Damit Sie keinen Auftrag verlieren, weil ein Kunde einen Sicherheitsnachweis verlangt.</p>
-        <p class="hero-sub">Testen Sie Ihr IT-Sicherheitsniveau in rund fünf Minuten. Sie sehen sofort, wo Ihre größten Lücken liegen und was als Nächstes zu tun ist.</p>
-        <a class="btn" href="#check">Jetzt kostenlosen Risiko-Check starten <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <ul class="ticks">
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>5 Minuten</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Kostenlos und anonym</li>
-          <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Förder-Check inklusive</li>
-        </ul>
+    <div class="wrap hero-c">
+      <span class="pill">Kostenloser Cyber-Check für Ihr Unternehmen</span>
+      <h1 id="hero-title">Wie sicher ist Ihr Unternehmen?</h1>
+      <p class="hero-sub">Ich berate kleine und mittlere Unternehmen zu Cybersicherheit und Risiken, verständlich und ohne Papierberge. Starten Sie mit dem kostenlosen Check und sehen Sie in fünf Minuten, wo Sie stehen.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#check">Kostenlosen Cyber-Check starten <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="#software">ISMS-Software kostenlos nutzen</a>
       </div>
-      <figure class="visual" aria-hidden="true"><canvas id="shield"></canvas></figure>
+      <ul class="ticks">
+        <li><svg aria-hidden="true"><use href="#i-tick"/></svg>5 Minuten</li>
+        <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Kostenlos und anonym</li>
+        <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Ergebnis sofort</li>
+      </ul>
     </div>
   </section>
 
@@ -152,71 +164,76 @@
   <section class="section" id="check" aria-labelledby="check-title">
     <div class="wrap">
       <div class="head-c">
-        <h2 id="check-title">Ihr CyberRisikoCheck</h2>
-        <p>Alle 27 Anforderungen der DIN SPEC 27076 in sechs Themenfeldern. Ihre Antworten bleiben in Ihrem Browser.</p>
+        <h2 id="check-title">Ihr kostenloser Cyber-Check</h2>
+        <p>27 Fragen in sechs Themenfeldern. Ihre Antworten bleiben in Ihrem Browser.</p>
       </div>
       <div class="check" id="check-card" aria-live="polite">
         <noscript><p>Der Check benötigt JavaScript. Schreiben Sie mir gern direkt, dann gehen wir die Fragen gemeinsam durch.</p></noscript>
       </div>
-      <p class="fine">Selbsteinschätzung auf Grundlage der DIN SPEC 27076. Der vollständige CyberRisikoCheck ist ein begleitetes Gespräch mit schriftlichem Bericht, den Sie im Anschluss bei mir anfragen können.</p>
+      <p class="fine">Erste Selbsteinschätzung, angelehnt an die DIN SPEC 27076 für kleine Unternehmen. Sie ersetzt keine Prüfung vor Ort.</p>
     </div>
   </section>
 
-  <section class="section mist" id="ablauf" aria-labelledby="ablauf-title">
+  <section class="dark software" id="software" aria-labelledby="software-title">
+    <div class="wrap">
+      <div class="software-copy">
+        <span class="badge-free">100 % kostenlos · auch ohne Beratung</span>
+        <h2 id="software-title">Meine ISMS-Software: kostenlos für Ihr Unternehmen</h2>
+        <p class="software-lead">Ich habe eine Software für Informationssicherheit entwickelt, die Sie selbst nutzen können. Ohne Lizenz, ohne Abo, ohne dass Sie mich dafür buchen müssen.</p>
+        <ul class="checks">
+          <li>Zeigt auf einen Blick, wie weit Sie für ISO 27001 sind</li>
+          <li>Risiken, Maßnahmen, Vorfälle, Notfallplanung und Audits an einem Ort</li>
+          <li>Eine Maßnahme zählt für ISO 27001, NIS2, DSGVO und BSI IT-Grundschutz zugleich</li>
+          <li>Läuft auf Ihrem eigenen Server, Ihre Daten bleiben bei Ihnen</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn" href="https://github.com/Kico-bot/ISMS_SaaS" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-code"/></svg>Kostenlos auf GitHub</a>
+          <a class="btn btn-outline" href="#kontakt">Einführung begleiten lassen</a>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="assets/img/suite-ueberblick.jpg" width="1400" height="924" loading="lazy" decoding="async" alt="Startseite der ISMS-Software: Zertifizierungsreife nach ISO 27001, Kernnachweise, offene Risiken und Fristen">
+        <figcaption>Startseite der Software mit Beispieldaten</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section mist" id="leistungen" aria-labelledby="leistungen-title">
     <div class="wrap">
       <div class="head-l">
-        <h2 id="ablauf-title">So geht es weiter</h2>
-        <p>Vom Check zur belastbaren Sicherheitsorganisation, begleitet und gefördert.</p>
+        <h2 id="leistungen-title">Beratung zu Cybersicherheit und Risiken</h2>
+        <p>Von der ersten Bestandsaufnahme bis zum Zertifikat. Sie bekommen so viel Beratung, wie Ihr Unternehmen braucht.</p>
       </div>
-      <ol class="steps">
-        <li><div><h3>Check machen</h3><p>Fünf Minuten online. Sie sehen sofort Ihren Risikostatus.</p></div></li>
-        <li><div><h3>Ergebnis besprechen</h3><p>30 Minuten, kostenlos. Ich sage Ihnen, was zuerst kommt und was es kostet.</p></div></li>
-        <li><div><h3>Lücken schließen</h3><p>Zum Festpreis und, wo möglich, mit Fördermitteln.</p></div></li>
-      </ol>
-
-
-      <!-- Einstiegsangebot: Preis vor dem Livegang eintragen (data-todo). Ein sichtbarer Preis senkt die Hemmschwelle. -->
-      <article class="offer" id="einstieg" aria-labelledby="offer-title">
-        <div class="offer-copy">
-          <span class="pill pill-light">Einstiegsangebot</span>
-          <h3 id="offer-title">CyberRisikoCheck nach DIN SPEC 27076 mit Bericht</h3>
-          <p>Wir gehen die 27 Anforderungen gemeinsam durch, vor Ort in Bayern oder per Video. Sie bekommen einen schriftlichen Bericht mit Risikostatus und einem Maßnahmenplan, den Ihr IT-Dienstleister direkt umsetzen kann.</p>
-          <ul class="offer-list">
-            <li>Interview mit Geschäftsführung und IT, rund drei Stunden</li>
-            <li>Schriftlicher Bericht mit priorisierten Maßnahmen</li>
-            <li>Ergebnisbesprechung mit der Geschäftsführung</li>
-          </ul>
-        </div>
-        <div class="offer-price">
-          <span class="offer-label">Festpreis</span>
-          <b class="price" data-todo="Preis eintragen">[Preis] €</b>
-          <span class="offer-note">netto, wird bei einem Folgeauftrag voll angerechnet</span>
-          <p class="offer-funding"><b>BAFA-Förderung:</b> In Bayern trägt die Beratungsförderung des Bundes 50 % der Beratungskosten, höchstens 1.750 €. Der Antrag muss vor Beratungsbeginn gestellt werden. Ob es für Sie passt, prüfe ich mit Ihnen.</p>
-          <a class="btn" href="#kontakt">Termin anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </div>
-      </article>
-
-      <div class="cards" id="leistungen">
+      <div class="cards cards-4">
         <article class="card">
-          <span class="icon" aria-hidden="true"><svg><use href="#i-euro"/></svg></span>
-          <h3>Fördermittel und Umsetzung</h3>
-          <p>Ich schließe mit Ihnen die gefundenen Lücken, nach Dringlichkeit sortiert. Und ich prüfe mit Ihnen, ob die BAFA-Beratungsförderung oder ein Landesprogramm greift.</p>
+          <span class="icon" aria-hidden="true"><svg><use href="#i-radar"/></svg></span>
+          <h3>Cyber- und Risikoberatung</h3>
+          <p>Wo ist Ihr Unternehmen verwundbar, und was davon ist wirklich gefährlich? Wir bewerten Ihre Risiken und gehen sie nach Dringlichkeit an.</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true"><svg><use href="#i-life"/></svg></span>
+          <h3>Sicherheits- und Notfallkonzepte</h3>
+          <p>Notfallplan, Datensicherung, Zugänge, Schulungen und klare Regeln für Ihre Dienstleister. Damit ein Angriff kein Stillstand wird.</p>
         </article>
         <article class="card">
           <span class="icon" aria-hidden="true"><svg><use href="#i-doc"/></svg></span>
-          <h3>ISO 27001 ISMS</h3>
-          <p>Wenn Kunden ein Zertifikat verlangen: schlanker Aufbau bis zur Zertifizierung, mit meiner eigenen ISMS-Software ohne Lizenzkosten.</p>
-          <a class="link-arrow" href="https://github.com/Kico-bot/ISMS_SaaS" target="_blank" rel="noopener noreferrer">Software ansehen →</a>
+          <h3>ISO 27001 und ISMS</h3>
+          <p>Wenn Kunden ein Zertifikat verlangen: ein schlankes Managementsystem für Informationssicherheit, bis zur Zertifizierung begleitet.</p>
         </article>
         <article class="card">
           <span class="icon" aria-hidden="true"><svg><use href="#i-bank"/></svg></span>
-          <h3>NIS2 und BSI IT-Grundschutz</h3>
-          <p>Für Betriebe, die unter das neue BSI-Gesetz fallen oder für öffentliche Auftraggeber arbeiten. Registrierung, Meldeprozess und Maßnahmen aus einer Hand.</p>
+          <h3>NIS2 und Kundenanforderungen</h3>
+          <p>Ob Sie unter das BSI-Gesetz fallen, was es verlangt und wie Sie Sicherheitsfragebögen Ihrer Kunden sicher beantworten.</p>
         </article>
       </div>
+
+      <ol class="steps" id="ablauf" aria-label="Ablauf">
+        <li><div><h3>Check machen</h3><p>Fünf Minuten online. Sie sehen sofort, wo Sie stehen.</p></div></li>
+        <li><div><h3>Ergebnis besprechen</h3><p>30 Minuten, kostenlos. Ich sage Ihnen, was zuerst kommt.</p></div></li>
+        <li><div><h3>Gemeinsam umsetzen</h3><p>Zum Festpreis, mit der kostenlosen Software als Grundlage.</p></div></li>
+      </ol>
     </div>
   </section>
-
 
   <section class="section" id="warum" aria-labelledby="why-title">
     <div class="wrap">
@@ -224,9 +241,9 @@
         <h2 id="why-title">Was mich unterscheidet</h2>
       </div>
       <ul class="why">
-        <li><h3>Die Software gehört Ihnen</h3><p>Ihr ISMS läuft in meiner Open-Source-Suite, ohne Lizenz und ohne Abo. Endet die Zusammenarbeit, bleibt alles bei Ihnen.</p></li>
-        <li><h3>Festpreis statt Tagessätze</h3><p>Sie kennen die Kosten, bevor es losgeht. Der Einstieg wird bei einem Folgeauftrag angerechnet.</p></li>
-        <li><h3>Ehrliche Zeitpläne</h3><p>Keine Zertifikatsgarantie in drei Monaten. Ich sage Ihnen, was mit Ihrem Team realistisch ist.</p></li>
+        <li><h3>Verständlich statt Fachchinesisch</h3><p>Sie bekommen klare Empfehlungen, die Ihre Geschäftsführung und Ihr IT-Dienstleister sofort verstehen.</p></li>
+        <li><h3>Festpreis statt Tagessätze</h3><p>Sie kennen die Kosten, bevor es losgeht. Keine offenen Rechnungen nach Stunden.</p></li>
+        <li><h3>Ehrliche Zeitpläne</h3><p>Keine Garantie auf ein Zertifikat in drei Monaten. Ich sage Ihnen, was mit Ihrem Team realistisch ist.</p></li>
         <li><h3>Kein Tracking</h3><p>Diese Seite setzt keine Werbe-Cookies und keine Pixel. Wer Sicherheit verkauft, sollte sie vorleben.</p></li>
       </ul>
     </div>
@@ -238,33 +255,33 @@
         <div class="avatar" role="img" aria-label="Platzhalter für Porträtfoto">KD</div>
         <div class="person-copy">
           <h2 id="about-title">Ihr Ansprechpartner</h2>
-          <p>Ich bin Kristian Dabić aus München. Ich habe das Sicherheitsmanagement einer Bank verantwortet und große Unternehmen beraten. Heute helfe ich kleinen Betrieben, sich mit vernünftigem Aufwand zu schützen.</p>
+          <p>Ich bin Kristian Dabić aus München. Ich habe das Sicherheitsmanagement einer Bank verantwortet und große Unternehmen beraten. Heute helfe ich kleinen und mittleren Unternehmen, sich mit vernünftigem Aufwand zu schützen.</p>
           <ul class="badges"><li>ISO 27001 Implementer</li><li>ISO 27005 Risk Manager</li><li>Vor Ort in Bayern, bundesweit per Video</li></ul>
         </div>
       </div>
       <!-- Social Proof: Platzhalter. Nur echte Stimmen mit schriftlicher Freigabe einsetzen (UWG). -->
       <figure class="quote">
         <span class="placeholder-note">Platzhalter für Kundenstimme</span>
-        <blockquote><p>„Hier steht später ein kurzes Zitat eines Kunden, zum Beispiel was sich nach dem Check verändert hat.“</p></blockquote>
+        <blockquote><p>„Hier steht später ein kurzes Zitat eines Kunden, zum Beispiel was sich nach der Beratung verändert hat.“</p></blockquote>
         <figcaption>Name, Funktion, Unternehmen (Branche, Mitarbeiterzahl)</figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="section mist" id="faq" aria-labelledby="faq-title">
+  <section class="section" id="faq" aria-labelledby="faq-title">
     <div class="wrap">
       <div class="head-c">
         <h2 id="faq-title">Häufige Fragen</h2>
       </div>
       <!-- Gleicher Wortlaut wie im FAQPage-JSON-LD oben: Suchmaschinen und KI-Systeme lesen beides. -->
       <div class="faq">
-        <details><summary>Was ist der CyberRisikoCheck nach DIN SPEC 27076?</summary><div><p>Ein standardisiertes Verfahren, mit dem kleine Unternehmen ihr IT-Sicherheitsniveau bewerten lassen. Es prüft 27 Anforderungen in sechs Themenfeldern und liefert einen Risikostatus mit priorisierten Empfehlungen. Die DIN SPEC 27076 entstand unter Federführung des BSI und richtet sich vor allem an Betriebe mit weniger als 50 Mitarbeitenden.</p></div></details>
-        <details><summary>Wie lange dauert der Online-Check?</summary><div><p>Rund fünf Minuten. Das Ergebnis sehen Sie sofort. Der vollständige CyberRisikoCheck ist ein begleitetes Gespräch von wenigen Stunden mit schriftlichem Bericht.</p></div></details>
-        <details><summary>Was kostet der CyberRisikoCheck?</summary><div><p>Der Online-Check und das 30-minütige Erstgespräch sind kostenlos. Der begleitete CyberRisikoCheck mit Bericht kostet einen Festpreis, der bei einem Folgeauftrag voll angerechnet wird. Für die Umsetzung erhalten Sie vorab ein Angebot zum Festpreis.</p></div></details>
-        <details><summary>Gibt es Fördermittel für IT-Sicherheit in kleinen Unternehmen?</summary><div><p>Ja. Die BAFA-Beratungsförderung des Bundes bezuschusst Beratung zur IT-Sicherheit für KMU: in Bayern und den meisten Bundesländern mit 50 %, höchstens 1.750 € je Beratung. Der Antrag muss vor Beratungsbeginn gestellt werden, Anträge sind derzeit bis 31. Dezember 2026 möglich. Ob die Förderung für Sie passt, prüfe ich im Erstgespräch.</p></div></details>
+        <details><summary>Was prüft der kostenlose Cyber-Check?</summary><div><p>27 Fragen in sechs Themenfeldern: Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware sowie Systeme und Netzwerke. Die Fragen orientieren sich an der DIN SPEC 27076, einem Standard für kleine Unternehmen. Sie sehen sofort Ihren Risikostatus und die dringendsten Lücken.</p></div></details>
+        <details><summary>Wobei berate ich Unternehmen?</summary><div><p>Bei allen Fragen zu Cybersicherheit und Risiken: von der ersten Bestandsaufnahme über Notfallplanung, Datensicherung und Schulungen bis zu ISO 27001, NIS2 und Sicherheitsnachweisen für Kunden.</p></div></details>
+        <details><summary>Was kostet die Beratung?</summary><div><p>Der Cyber-Check, das 30-minütige Erstgespräch und die ISMS-Software sind kostenlos. Für die Beratung erhalten Sie vorab ein Angebot zum Festpreis.</p></div></details>
+        <details><summary>Kann ich die ISMS-Software ohne Beratung nutzen?</summary><div><p>Ja. Die Software ist kostenlos, der Quellcode liegt offen auf GitHub, und sie läuft mit Docker auf Ihrem eigenen Rechner oder Server. Eine Beratung ist dafür nicht nötig. Wer Unterstützung bei der Einführung möchte, kann sie dazubuchen.</p></div></details>
         <details><summary>Arbeiten Sie nur in Bayern?</summary><div><p>Nein. Vor Ort bin ich in ganz Bayern, von München aus. Unternehmen in anderen Bundesländern berate ich per Video, Termine vor Ort sind nach Absprache möglich.</p></div></details>
         <details><summary>Betrifft NIS2 mein Unternehmen?</summary><div><p>Seit dem 6. Dezember 2025 gilt in Deutschland das neue BSI-Gesetz zur Umsetzung von NIS2. Betroffen sind in der Regel Unternehmen ab 50 Mitarbeitenden oder mehr als 10 Millionen Euro Jahresumsatz in bestimmten Branchen. Kleinere Betriebe spüren die Anforderungen oft als Lieferant ihrer Kunden.</p></div></details>
-        <details><summary>Was passiert mit meinen Antworten im Check?</summary><div><p>Die Auswertung läuft vollständig in Ihrem Browser. Es wird nichts übertragen, solange Sie nicht selbst das Formular für den ausführlichen Bericht absenden.</p></div></details>
+        <details><summary>Was passiert mit meinen Antworten im Check?</summary><div><p>Die Auswertung läuft vollständig in Ihrem Browser. Es wird nichts übertragen, solange Sie nicht selbst das Anfrageformular absenden.</p></div></details>
       </div>
     </div>
   </section>
@@ -303,20 +320,20 @@
   </footer>
 </div>
 
-<div class="sticky-cta" id="sticky-cta"><a class="btn" href="#check">Kostenlosen Risiko-Check starten</a></div>
+<div class="sticky-cta" id="sticky-cta"><a class="btn" href="#check">Kostenlosen Cyber-Check starten</a></div>
 
 <!-- Lead-Formular im Ergebnis: als Template, damit kein Markup aus JS-Strings entsteht. -->
 <template id="lead-template">
   <div class="lead">
-    <h3>Ausführlichen Bericht und Förder-Check anfordern</h3>
-    <p>Ich melde mich innerhalb von zwei Werktagen, bespreche Ihr Ergebnis in 30 Minuten und prüfe, welche Förderung für Sie infrage kommt. Kostenlos.</p>
+    <h3>Ergebnis gemeinsam besprechen</h3>
+    <p>Ich melde mich innerhalb von zwei Werktagen und bespreche Ihr Ergebnis mit Ihnen in 30 Minuten. Kostenlos und unverbindlich.</p>
     <form class="form on-dark" novalidate>
       <input name="name" placeholder="Name" autocomplete="name" aria-label="Name" required maxlength="80">
       <input name="company" placeholder="Unternehmen" autocomplete="organization" aria-label="Unternehmen" maxlength="120">
       <input class="full" name="email" type="email" inputmode="email" placeholder="E-Mail" autocomplete="email" aria-label="E-Mail" required maxlength="254">
       <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off" aria-label="Nicht ausfüllen"></div>
       <label class="consent full"><input name="consent" type="checkbox" required> Ich bin einverstanden, dass meine Angaben und mein Check-Ergebnis zur Bearbeitung der Anfrage verwendet werden.</label>
-      <button class="btn full" type="submit">Anfordern <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <button class="btn full" type="submit">Gespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
       <p class="form-msg full" data-status role="status" hidden></p>
     </form>
   </div>

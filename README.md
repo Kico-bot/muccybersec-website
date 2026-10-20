@@ -1,10 +1,10 @@
-# Website: CyberRisikoCheck für KMU
+# Website: Cyber- und Risikoberatung für KMU
 
-Statische Landingpage für die Beratung (Kristian Dabić) mit eingebautem CyberRisikoCheck
-nach DIN SPEC 27076. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
+Statische Landingpage für die Beratung (Kristian Dabić) mit eingebautem Cyber-Check
+(angelehnt an DIN SPEC 27076) und der kostenlosen ISMS-Software als zweitem Angebot. Kein Build, keine Abhängigkeiten im Browser, keine Dritt-Server.
 
 ```
-index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, Person, FAQPage)
+index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, SoftwareApplication, Person, FAQPage)
 impressum.html          Gerüst, vor dem Livegang ausfüllen
 datenschutz.html        Gerüst, beschreibt was die Seite technisch tut
 assets/css/styles.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)
@@ -12,7 +12,6 @@ assets/js/main.js       Einstieg (ES-Modul)
 assets/js/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
 assets/js/questions.js  27 Fragen, Bewertung als reine Funktion
 assets/js/forms.js      Formularprüfung, Honeypot, Zeitsperre, JSON-Versand mit CSRF-Token
-assets/js/shield.js     Hero-Grafik (Canvas)
 assets/js/dom.js        DOM-Helfer, sessionStorage-Wrapper
 assets/fonts/           Sora und Manrope, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
