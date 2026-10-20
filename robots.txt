@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# KI-Crawler ausdrücklich zugelassen: die Seite soll in KI-Antworten als Quelle auftauchen.
+# KI-Crawler:
 User-agent: GPTBot
 Allow: /
 User-agent: OAI-SearchBot
