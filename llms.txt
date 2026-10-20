@@ -8,11 +8,11 @@
 
 - Cyber-Check online: 27 Fragen in sechs Themenfeldern (Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware, Systeme und Netzwerke), angelehnt an die DIN SPEC 27076. Rund fünf Minuten, Auswertung sofort im Browser, kostenlos.
 - Erstgespräch: 30 Minuten, kostenlos.
-- Sicherheitsanalysen: Risikoanalysen, Gap-Analysen, Schwachstellenmanagement, Maßnahmenliste nach Dringlichkeit; für Klein- und Kleinstunternehmen nach DIN SPEC 27076.
-- Security Awareness: Awareness-Programm mit Online-Schulungen und Phishing-Simulationen samt Auswertung; deckt auch die Schulung der Geschäftsleitung nach NIS2 ab.
-- Notfall- und Krisenmanagement: Business-Impact-Analyse, Notfallpläne, Wiederanlauf nach einem Angriff, Notfallübungen.
 - ISMS und Zertifizierung: ISO/IEC 27001:2022 oder BSI IT-Grundschutz, interne Audits, Vorbereitung auf das Zertifizierungsaudit; bei NIS2-Betroffenheit auch BSI-Registrierung und Meldeprozess.
 - Externer CISO und Interim Management: Leitung der Informationssicherheit auf Zeit oder dauerhaft, auf Wunsch mit Begleitung von SIEM und SOC.
+- Sicherheitsanalysen: Risikoanalysen, Gap-Analysen, Schwachstellenmanagement, Maßnahmenliste nach Dringlichkeit; für Klein- und Kleinstunternehmen nach DIN SPEC 27076.
+- Notfall- und Krisenmanagement: Business-Impact-Analyse, Notfallpläne, Wiederanlauf nach einem Angriff, Notfallübungen.
+- Security Awareness: Awareness-Programm mit Online-Schulungen und Phishing-Simulationen samt Auswertung; deckt auch die Schulung der Geschäftsleitung nach NIS2 ab.
 - Preise: Beratung auf Anfrage mit individuellem Angebot, externer CISO oder Informationssicherheitsbeauftragter zum monatlichen Festpreis.
 
 ## Kostenlose ISMS-Suite
@@ -27,11 +27,11 @@
 
 ## Links
 
-- [Sicherheitsanalysen](https://www.ihre-domain.de/leistungen/sicherheitsanalysen.html)
-- [Security Awareness](https://www.ihre-domain.de/leistungen/security-awareness.html)
-- [Notfall- und Krisenmanagement](https://www.ihre-domain.de/leistungen/notfallmanagement.html)
 - [ISMS und Zertifizierung](https://www.ihre-domain.de/leistungen/isms-zertifizierung.html)
 - [Externer CISO und Interim Management](https://www.ihre-domain.de/leistungen/externer-ciso.html)
+- [Sicherheitsanalysen](https://www.ihre-domain.de/leistungen/sicherheitsanalysen.html)
+- [Notfall- und Krisenmanagement](https://www.ihre-domain.de/leistungen/notfallmanagement.html)
+- [Security Awareness](https://www.ihre-domain.de/leistungen/security-awareness.html)
 
 - [Startseite mit Check](https://www.ihre-domain.de/)
 - [Kostenlose Software](https://www.ihre-domain.de/#software)
