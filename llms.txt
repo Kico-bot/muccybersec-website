@@ -6,7 +6,7 @@
 
 ## Angebot
 
-- Cyber-Check online: 27 Fragen in sechs Themenfeldern (Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware, Systeme und Netzwerke), angelehnt an die DIN SPEC 27076. Rund fünf Minuten, Auswertung sofort im Browser, kostenlos.
+- Cyber-Check online: 27 Fragen in sechs Themenfeldern (Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware, Systeme und Netzwerke), angelehnt an ein Prüfverfahren für kleine Unternehmen, das unter Federführung des BSI entstanden ist. Rund fünf Minuten, Auswertung sofort im Browser, kostenlos.
 - Erstgespräch: 30 Minuten, kostenlos.
 - ISMS und Zertifizierung: ISO/IEC 27001:2022 oder BSI IT-Grundschutz, interne Audits, Vorbereitung auf das Zertifizierungsaudit; bei NIS2-Betroffenheit auch BSI-Registrierung und Meldeprozess.
 - Externer CISO und Interim Management: Leitung der Informationssicherheit auf Zeit oder dauerhaft, auf Wunsch mit Begleitung von SIEM und SOC.
