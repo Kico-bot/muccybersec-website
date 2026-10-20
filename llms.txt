@@ -8,11 +8,12 @@
 
 - Cyber-Check online: 27 Fragen in sechs Themenfeldern (Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware, Systeme und Netzwerke), angelehnt an die DIN SPEC 27076. Rund fünf Minuten, Auswertung sofort im Browser, kostenlos.
 - Erstgespräch: 30 Minuten, kostenlos.
-- Cyber- und Risikoberatung: Risiken erkennen, bewerten und nach Dringlichkeit angehen.
-- Sicherheits- und Notfallkonzepte: Notfallplan, Datensicherung, Zugänge, Schulungen, Dienstleister.
-- ISO 27001: Aufbau eines ISMS bis zur Zertifizierung.
-- NIS2 und Kundenanforderungen: Betroffenheit nach BSI-Gesetz (seit 6. Dezember 2025), Sicherheitsfragebögen von Kunden.
-- Beratung zum Festpreis nach Angebot.
+- Sicherheitsanalysen: Risikoanalysen, Health Checks, Schwachstellenmanagement, Gap-Analysen, Maßnahmenliste nach Dringlichkeit.
+- ISMS nach ISO/IEC 27001:2022: Aufbau bis zur Zertifizierung, so schlank wie möglich.
+- Schulungen und Awareness: Phishing, Betrugsmaschen, sicheres Arbeiten, auf Wunsch Phishing-Simulationen.
+- Externer CISO und Interim Management: Leitung der Informationssicherheit auf Zeit oder dauerhaft.
+- DIN SPEC 27076 für Klein- und Kleinstunternehmen: Risikoanalyse mit Bericht und Unterstützung bei der Umsetzung.
+- Außerdem NIS2 und Sicherheitsnachweise für Kunden. Beratung zum Festpreis nach Angebot.
 
 ## Kostenlose ISMS-Software
 
