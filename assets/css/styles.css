@@ -261,8 +261,8 @@ footer a:hover { color: var(--ink); }
 .legal h1 { font-size: 2rem; }
 .legal h2 { font-size: 1.2rem; margin-top: 1rem; }
 .legal p, .legal li { color: var(--muted); }
-.todo { background: var(--warn-soft); color: var(--warn); border-radius: 4px; padding: .8rem 1rem; font-weight: 600; }
 
 /* Schmale Handys: Logo und Button in einer Zeile halten */
 .btn-sm { white-space: nowrap; }
 @media (max-width: 400px) { .brand-word { font-size: 1.25rem; } .top .btn-sm { padding: .55rem .75rem; font-size: .82rem; } }
+.legal-date { font-size: .88rem; margin-top: 1.5rem; }
