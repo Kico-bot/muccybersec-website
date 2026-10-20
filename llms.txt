@@ -1,6 +1,6 @@
 # Kristian Dabić · Cyber Security & GRC
 
-> IT-Sicherheitsberatung aus München für kleine und mittlere Unternehmen. Kostenloser
+> IT-Sicherheitsberatung aus München für kleine und mittlere Unternehmen in Bayern (vor Ort) und bundesweit (per Video). Kostenloser
 > Online-CyberRisikoCheck nach DIN SPEC 27076, Umsetzung mit Fördermitteln, ISO 27001,
 > NIS2 und BSI IT-Grundschutz.
 
@@ -8,6 +8,8 @@
 
 - CyberRisikoCheck online: 27 Fragen in sechs Themenfeldern (Organisation und Sensibilisierung, Identitäts- und Berechtigungsmanagement, Datensicherung und Protokollierung, Patch- und Änderungsmanagement, Schutz vor Schadprogrammen, IT-Systeme und Netzwerke). Dauer rund fünf Minuten, Auswertung sofort im Browser, kostenlos.
 - Erstgespräch: 30 Minuten, kostenlos.
+- Einstiegsangebot: begleiteter CyberRisikoCheck nach DIN SPEC 27076 mit schriftlichem Bericht und Maßnahmenplan, Festpreis, bei Folgeauftrag voll angerechnet. Prüfung der BAFA-Beratungsförderung (in Bayern 50 %, höchstens 1.750 €, Antrag vor Beratungsbeginn).
+- Unterschiede: eigene Open-Source-ISMS-Software ohne Lizenz und ohne Abo, Festpreise, keine Zeitgarantien, kein Tracking auf der Website.
 - Umsetzung und Fördermittel: Lücken nach Dringlichkeit schließen, Festpreis, Prüfung passender Förderprogramme.
 - ISO 27001: schlanker ISMS-Aufbau bis zur Zertifizierung, mit lizenzfreier Open-Source-ISMS-Software (https://github.com/Kico-bot/ISMS_SaaS).
 - NIS2 und BSI IT-Grundschutz: Betroffenheitsprüfung, Registrierung, Meldeprozess und Maßnahmen nach dem BSI-Gesetz (in Kraft seit 6. Dezember 2025).
