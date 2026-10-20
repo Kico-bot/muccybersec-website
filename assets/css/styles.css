@@ -8,19 +8,13 @@
    damit das kostenlose Angebot heraussticht.
    ========================================================================== */
 
-/* --- Schriften: selbst gehostet (DSGVO, kein Abruf bei Google) ----------
-   Source Serif 4 für Überschriften (ruhig, klassisch), IBM Plex Sans für Text. */
-@font-face { font-family: "Source Serif 4"; font-style: normal; font-display: swap; font-weight: 200 900;
-  src: url("../fonts/source-serif-4-latin-wght-normal.woff2") format("woff2-variations");
+/* --- Schrift: Manrope, selbst gehostet (DSGVO, kein Abruf bei Google) ---
+   Eine Familie für alles: Überschriften leicht (300), Text normal, Auszeichnungen halbfett. */
+@font-face { font-family: "Manrope"; font-style: normal; font-display: swap; font-weight: 200 800;
+  src: url("../fonts/manrope-latin-wght-normal.woff2") format("woff2-variations");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Source Serif 4"; font-style: normal; font-display: swap; font-weight: 200 900;
-  src: url("../fonts/source-serif-4-latin-ext-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-display: swap; font-weight: 100 700;
-  src: url("../fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-display: swap; font-weight: 100 700;
-  src: url("../fonts/ibm-plex-sans-latin-ext-wght-normal.woff2") format("woff2-variations");
+@font-face { font-family: "Manrope"; font-style: normal; font-display: swap; font-weight: 200 800;
+  src: url("../fonts/manrope-latin-ext-wght-normal.woff2") format("woff2-variations");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 /* --- Tokens: bewusst ein helles Erscheinungsbild ------------------------ */
@@ -46,8 +40,8 @@
   --crit: #b8322a; --crit-soft: #fde8e6;
   --shadow: 0 1px 2px rgba(15,27,45,.04), 0 16px 40px -24px rgba(15,27,45,.22);
 
-  --f-head: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-head: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
   --wrap: 68rem;
   color-scheme: light;
 }
@@ -58,7 +52,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
-h1, h2, h3 { font-family: var(--f-head); margin: 0; line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
+h1, h2, h3 { font-family: var(--f-head); margin: 0; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
 p { margin: 0; }
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
@@ -87,8 +81,8 @@ img { max-width: 100%; height: auto; }
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 4.25rem; }
 .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--ink); min-width: 0; }
-/* Wortmarke ohne Bildzeichen: „Muc“ im Akzent, „CyberSec“ in Tinte, Serifenschrift wie die Überschriften */
-.brand-word { font-family: var(--f-head); font-weight: 600; font-size: 1.4rem; line-height: 1; letter-spacing: -0.015em; white-space: nowrap; }
+/* Wortmarke ohne Bildzeichen: „Muc“ im Akzent, „CyberSec“ in Tinte */
+.brand-word { font-family: var(--f-head); font-weight: 700; font-size: 1.3rem; line-height: 1; letter-spacing: -0.03em; white-space: nowrap; }
 .brand-muc { color: var(--accent); }
 .nav { display: flex; align-items: center; gap: 1.75rem; }
 .nav a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .92rem; }
@@ -98,7 +92,7 @@ img { max-width: 100%; height: auto; }
 /* --- Hero: Aussage als Überschrift, die Frage führt in den Check -------- */
 .hero { background: linear-gradient(180deg, var(--hero-tint) 0%, var(--paper) 100%); }
 .hero .wrap { display: grid; gap: 1.6rem; justify-items: start; padding-block: clamp(4rem, 10vw, 8rem) clamp(3.5rem, 8vw, 6rem); }
-.hero h1 { font-size: clamp(2.3rem, 1.4rem + 3.8vw, 4.3rem); font-weight: 600; max-width: 24ch; line-height: 1.06; overflow-wrap: normal; }
+.hero h1 { font-size: clamp(2.3rem, 1.4rem + 3.8vw, 4.3rem); font-weight: 300; max-width: 24ch; line-height: 1.08; letter-spacing: -0.03em; overflow-wrap: normal; }
 .hero-sub { font-size: clamp(1.08rem, 1rem + .4vw, 1.25rem); color: var(--muted); max-width: 40rem; }
 .hero-question { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; width: 100%; max-width: 44rem; margin-top: .6rem; padding: 1.15rem 1.15rem 1.15rem 1.5rem; border-radius: 4px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(15,27,45,.04), 0 18px 40px -26px rgba(31,95,214,.45); text-decoration: none; color: var(--ink); transition: border-color .15s, box-shadow .15s, transform .15s; }
 .hero-question:hover { border-color: var(--accent); transform: translateY(-1px); }
@@ -118,7 +112,7 @@ img { max-width: 100%; height: auto; }
 .section { padding-block: clamp(4rem, 9vw, 7rem); }
 .mist { background: var(--mist); }
 .head { display: grid; gap: .7rem; max-width: 40rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
-.head h2 { font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.7rem); font-weight: 600; }
+.head h2 { font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.7rem); font-weight: 400; }
 .head p { color: var(--muted); font-size: 1.08rem; }
 .head-c { margin-inline: auto; text-align: center; justify-items: center; }
 .fine { font-size: .84rem; color: var(--muted); text-align: center; max-width: 44rem; margin: 1.5rem auto 0; }
@@ -208,7 +202,7 @@ img { max-width: 100%; height: auto; }
 .services li::before { content: ""; position: absolute; left: 0; top: -1px; height: 2px; width: 0; background: var(--accent); transition: width .45s ease; }
 .services li:hover { background: var(--hero-tint); }
 .services li:hover::before { width: 100%; }
-.services .no { font-family: var(--f-head); font-size: clamp(1.8rem, 1.4rem + 1.2vw, 2.4rem); font-weight: 400; line-height: 1; color: #c3cddb; font-variant-numeric: lining-nums tabular-nums; transition: color .25s ease, transform .3s ease; transform-origin: left center; }
+.services .no { font-family: var(--f-head); font-size: clamp(1.8rem, 1.4rem + 1.2vw, 2.4rem); font-weight: 300; line-height: 1; color: #c3cddb; font-variant-numeric: lining-nums tabular-nums; transition: color .25s ease, transform .3s ease; transform-origin: left center; }
 .services li:hover .no { color: var(--accent); transform: translateX(4px) scale(1.08); }
 .services h3 { font-size: clamp(1.25rem, 1.1rem + .5vw, 1.5rem); font-weight: 600; transition: color .25s ease; }
 .services li:hover h3 { color: var(--accent-strong); }
@@ -219,7 +213,7 @@ img { max-width: 100%; height: auto; }
 .software { background: var(--navy-900); color: var(--on-dark); border-radius: 4px; display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; padding: clamp(1.75rem, 5vw, 3.5rem); }
 @media (max-width: 900px) { .software { grid-template-columns: 1fr; } }
 .software-copy { display: grid; gap: 1.2rem; justify-items: start; min-width: 0; }
-.software h2 { color: #fff; font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.4rem); }
+.software h2 { font-weight: 400; color: #fff; font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.4rem); }
 .software-lead { color: var(--on-dark-muted); font-size: 1.08rem; max-width: 34rem; }
 .badge-free { font-size: .76rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); padding: .4rem .8rem; border-radius: 3px; }
 .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
@@ -242,7 +236,7 @@ img { max-width: 100%; height: auto; }
 .contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); }
 @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
 .contact-copy { display: grid; gap: 1rem; align-content: start; }
-.contact-copy h2 { font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.7rem); }
+.contact-copy h2 { font-weight: 400; font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.7rem); }
 .contact-copy > p { color: var(--muted); }
 .contact-facts { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; gap: .9rem; }
 .contact-facts li { display: grid; gap: .1rem; }
