@@ -9,9 +9,9 @@
 - Cyber-Check online: 27 Fragen in sechs Themenfeldern (Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware, Systeme und Netzwerke), angelehnt an die DIN SPEC 27076. Rund fünf Minuten, Auswertung sofort im Browser, kostenlos.
 - Erstgespräch: 30 Minuten, kostenlos.
 - Sicherheitsanalysen: Risikoanalysen, Gap-Analysen, Schwachstellenmanagement, Maßnahmenliste nach Dringlichkeit; für Klein- und Kleinstunternehmen nach DIN SPEC 27076.
-- ISMS und Zertifizierung: ISO/IEC 27001:2022 oder BSI IT-Grundschutz, interne Audits, Vorbereitung auf das Zertifizierungsaudit; bei NIS2-Betroffenheit auch BSI-Registrierung und Meldeprozess.
+- Security Awareness: Awareness-Programm mit Online-Schulungen und Phishing-Simulationen samt Auswertung; deckt auch die Schulung der Geschäftsleitung nach NIS2 ab.
 - Notfall- und Krisenmanagement: Business-Impact-Analyse, Notfallpläne, Wiederanlauf nach einem Angriff, Notfallübungen.
-- Schulungen und Awareness: Phishing, Betrugsmaschen, sicheres Arbeiten, Phishing-Simulationen, Schulung der Geschäftsleitung nach NIS2.
+- ISMS und Zertifizierung: ISO/IEC 27001:2022 oder BSI IT-Grundschutz, interne Audits, Vorbereitung auf das Zertifizierungsaudit; bei NIS2-Betroffenheit auch BSI-Registrierung und Meldeprozess.
 - Externer CISO und Interim Management: Leitung der Informationssicherheit auf Zeit oder dauerhaft, auf Wunsch mit Begleitung von SIEM und SOC.
 - Preise: Beratung auf Anfrage mit individuellem Angebot, externer CISO oder Informationssicherheitsbeauftragter zum monatlichen Festpreis.
 
