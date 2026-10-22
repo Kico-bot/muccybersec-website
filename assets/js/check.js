@@ -101,6 +101,8 @@ export function initCheck(card) {
   function prefillContact(r, level) {
     const message = document.getElementById("c-message");
     if (!message) return;
+    const subject = document.getElementById("c-subject");
+    if (subject && !subject.value) subject.value = "Cyber-Check: Ergebnis besprechen";
     const lines = [`Mein Cyber-Check: ${r.score} von 100 Punkten (${level.label}).`];
     if (r.gaps.length) lines.push("Zuerst angehen:", ...r.gaps.slice(0, 3).map((g) => `- ${g.q.text}`));
     lines.push("", "Ich möchte das Ergebnis gern in einem Erstgespräch besprechen.");

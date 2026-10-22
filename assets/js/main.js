@@ -7,7 +7,7 @@ const card = document.getElementById("check-card");
 if (card) initCheck(card);
 
 const contact = document.getElementById("contact-form");
-if (contact) bindLeadForm(contact, { source: "kontakt" });
+if (contact) bindLeadForm(contact);
 
 // E-Mail kopieren: Clipboard-API, sonst Text markieren.
 document.querySelectorAll("[data-copy]").forEach((button) => {

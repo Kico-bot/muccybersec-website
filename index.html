@@ -9,10 +9,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#081326">
   <!-- Ersatz-CSP für Hosts ohne eigene Header. Maßgeblich sind die HTTP-Header aus _headers. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
-  <!-- Vom Server pro Sitzung zu füllen (HMAC-Token), siehe server/lead-endpoint.example.mjs -->
-  <meta name="csrf-token" content="">
-  <meta name="lead-endpoint" content="/api/lead">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://contact-form.kristian95.workers.dev; form-action 'self' https://contact-form.kristian95.workers.dev; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
 
   <!-- TODO vor dem Livegang: ihre-domain.de durch die echte Domain ersetzen (hier, in JSON-LD, sitemap.xml, robots.txt, llms.txt) -->
   <link rel="canonical" href="https://www.ihre-domain.de/">
@@ -348,11 +345,12 @@
           <li><small>Standort</small><span>Vor Ort in München und Umgebung, bundesweit per Video</span></li>
         </ul>
       </div>
-      <form class="form" id="contact-form" novalidate>
+      <!-- Versand an den Cloudflare Worker. Ohne JavaScript schickt der Browser das Formular direkt ab. -->
+      <form class="form" id="contact-form" action="https://contact-form.kristian95.workers.dev" method="POST" novalidate>
         <label class="lbl" for="c-name">Name<input id="c-name" name="name" autocomplete="name" required maxlength="80"></label>
-        <label class="lbl" for="c-company">Unternehmen<input id="c-company" name="company" autocomplete="organization" maxlength="120"></label>
+        <label class="lbl" for="c-subject">Betreff<input id="c-subject" name="subject" maxlength="150"></label>
         <label class="lbl full" for="c-email">E-Mail<input id="c-email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254"></label>
-        <label class="lbl full" for="c-message">Worum geht es?<textarea id="c-message" name="message" maxlength="2000" rows="4" placeholder="Zum Beispiel: Ein Kunde verlangt einen Nachweis zur IT-Sicherheit."></textarea></label>
+        <label class="lbl full" for="c-message">Worum geht es?<textarea id="c-message" name="message" required maxlength="2000" rows="4" placeholder="Zum Beispiel: Ein Kunde verlangt einen Nachweis zur IT-Sicherheit."></textarea></label>
         <div class="hp" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" tabindex="-1" autocomplete="off"></div>
         <label class="consent full" for="c-consent"><input id="c-consent" name="consent" type="checkbox" required> Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
         <button class="btn full" type="submit">Anfrage senden <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
