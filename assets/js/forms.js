@@ -83,11 +83,12 @@ export function bindLeadForm(form) {
       say("Danke, Ihre Nachricht ist angekommen. Ich melde mich innerhalb von zwei Werktagen.");
       form.reset();
     } catch (error) {
-      // Ein TypeError heißt oft nur, dass der Worker keine CORS-Freigabe sendet: Die Nachricht
-      // ist dann trotzdem angekommen, der Browser darf die Antwort nur nicht lesen.
+      // Ein TypeError kann zweierlei heißen: Der Worker sendet keine CORS-Freigabe (Nachricht kam
+      // an, die Antwort ist nur gesperrt) oder die Anfrage wurde gar nicht erst gesendet (Netz, CSP).
+      // Beides lässt sich im Browser nicht unterscheiden, deshalb eine vorsichtige Meldung.
       const unclear = error instanceof TypeError;
       say(unclear
-        ? "Ihre Nachricht wurde abgeschickt, eine Bestätigung kam aber nicht zurück. Falls Sie in zwei Werktagen nichts von mir hören, schreiben Sie mir bitte direkt per E-Mail."
+        ? "Ich konnte nicht bestätigen, dass Ihre Nachricht angekommen ist. Bitte schreiben Sie mir zur Sicherheit direkt per E-Mail."
         : "Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später noch einmal oder schreiben Sie mir direkt per E-Mail.", true);
     } finally {
       clearTimeout(timer);
