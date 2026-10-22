@@ -13,4 +13,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://www.ihre-domain.de/sitemap.xml
+Sitemap: https://cyber-sec-check.de/sitemap.xml

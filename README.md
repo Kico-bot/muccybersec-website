@@ -25,11 +25,9 @@ Lokal ansehen: `python3 -m http.server 8080` im Hauptordner, dann <http://localh
 
 ## Vor dem Livegang
 
-1. `ihre-domain.de` überall durch die echte Domain ersetzen (`grep -r ihre-domain .`), auch in der Kontakt-E-Mail.
-2. In Impressum und Datenschutz die E-Mail-Adresse und den Hoster eintragen.
-3. Die 27 Fragen gegen den Text der DIN SPEC 27076 prüfen (`assets/scripts/questions.js`).
-4. Im Cloudflare Worker die Prüfungen aus dem Abschnitt „Kontaktformular“ umsetzen.
-5. Header prüfen: <https://securityheaders.com>, <https://observatory.mozilla.org>.
+1. Die 27 Fragen gegen den Text der DIN SPEC 27076 prüfen (`assets/scripts/questions.js`).
+2. Im Cloudflare Worker die Prüfungen aus dem Abschnitt „Kontaktformular“ umsetzen.
+3. Header prüfen: <https://securityheaders.com>, <https://observatory.mozilla.org>.
 
 ## Sicherheit
 

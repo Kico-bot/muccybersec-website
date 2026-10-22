@@ -27,13 +27,13 @@
 
 ## Links
 
-- [ISMS und Zertifizierung](https://www.ihre-domain.de/leistungen/isms-zertifizierung.html)
-- [Externer CISO und ISB](https://www.ihre-domain.de/leistungen/externer-ciso.html)
-- [Sicherheitsanalysen](https://www.ihre-domain.de/leistungen/sicherheitsanalysen.html)
-- [Notfall- und Krisenmanagement](https://www.ihre-domain.de/leistungen/notfallmanagement.html)
-- [Security Awareness](https://www.ihre-domain.de/leistungen/security-awareness.html)
+- [ISMS und Zertifizierung](https://cyber-sec-check.de/leistungen/isms-zertifizierung.html)
+- [Externer CISO und ISB](https://cyber-sec-check.de/leistungen/externer-ciso.html)
+- [Sicherheitsanalysen](https://cyber-sec-check.de/leistungen/sicherheitsanalysen.html)
+- [Notfall- und Krisenmanagement](https://cyber-sec-check.de/leistungen/notfallmanagement.html)
+- [Security Awareness](https://cyber-sec-check.de/leistungen/security-awareness.html)
 
-- [Startseite mit Check](https://www.ihre-domain.de/)
-- [Kostenlose Software](https://www.ihre-domain.de/#software)
-- [Häufige Fragen](https://www.ihre-domain.de/#faq)
-- [Kontakt](https://www.ihre-domain.de/#kontakt)
+- [Startseite mit Check](https://cyber-sec-check.de/)
+- [Kostenlose Software](https://cyber-sec-check.de/#software)
+- [Häufige Fragen](https://cyber-sec-check.de/#faq)
+- [Kontakt](https://cyber-sec-check.de/#kontakt)

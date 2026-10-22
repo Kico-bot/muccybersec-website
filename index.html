@@ -11,8 +11,7 @@
   <!-- Ersatz-CSP für Hosts ohne eigene Header. Maßgeblich sind die HTTP-Header aus _headers. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://contact-form.kristian95.workers.dev; form-action 'self' https://contact-form.kristian95.workers.dev; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
 
-  <!-- TODO vor dem Livegang: ihre-domain.de durch die echte Domain ersetzen (hier, in JSON-LD, sitemap.xml, robots.txt, llms.txt) -->
-  <link rel="canonical" href="https://www.ihre-domain.de/">
+  <link rel="canonical" href="https://cyber-sec-check.de/">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -22,8 +21,8 @@
   <meta property="og:site_name" content="CyberSecCheck">
   <meta property="og:title" content="Cybersicherheit für den Mittelstand">
   <meta property="og:description" content="Kostenloser Cyber-Check, kostenlose ISMS-Suite und Beratung zu ISO 27001, NIS2 und externem CISO.">
-  <meta property="og:url" content="https://www.ihre-domain.de/">
-  <meta property="og:image" content="https://www.ihre-domain.de/assets/img/og-image.jpg">
+  <meta property="og:url" content="https://cyber-sec-check.de/">
+  <meta property="og:image" content="https://cyber-sec-check.de/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -35,13 +34,13 @@
   "@graph": [
     {
       "@type": "ProfessionalService",
-      "@id": "https://www.ihre-domain.de/#business",
+      "@id": "https://cyber-sec-check.de/#business",
       "name": "CyberSecCheck",
       "description": "Beratung zu Cybersicherheit und Risiken für kleine und mittlere Unternehmen in München und Umgebung sowie bundesweit, von der ersten Bestandsaufnahme bis zur ISO-27001-Zertifizierung.",
-      "url": "https://www.ihre-domain.de/",
-      "email": "kontakt@ihre-domain.de",
-      "image": "https://www.ihre-domain.de/assets/img/og-image.jpg",
-      "logo": "https://www.ihre-domain.de/assets/img/logo.svg",
+      "url": "https://cyber-sec-check.de/",
+      "email": "kontakt@cyber-sec-check.de",
+      "image": "https://cyber-sec-check.de/assets/img/og-image.jpg",
+      "logo": "https://cyber-sec-check.de/assets/img/logo.svg",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "München",
@@ -97,7 +96,7 @@
               "@type": "Service",
               "name": "ISMS und Zertifizierung",
               "description": "Aufbau eines ISMS nach ISO/IEC 27001:2022 oder BSI IT-Grundschutz mit internen Audits und Vorbereitung auf die Zertifizierung, bei Bedarf mit NIS2-Pflichten.",
-              "url": "https://www.ihre-domain.de/leistungen/isms-zertifizierung.html"
+              "url": "https://cyber-sec-check.de/leistungen/isms-zertifizierung.html"
             }
           },
           {
@@ -106,7 +105,7 @@
               "@type": "Service",
               "name": "Externer CISO und ISB",
               "description": "Leitung der Informationssicherheit als externer CISO oder Informationssicherheitsbeauftragter (ISB), als Interim-Lösung oder dauerhaft, zum monatlichen Festpreis.",
-              "url": "https://www.ihre-domain.de/leistungen/externer-ciso.html"
+              "url": "https://cyber-sec-check.de/leistungen/externer-ciso.html"
             }
           },
           {
@@ -115,7 +114,7 @@
               "@type": "Service",
               "name": "Sicherheitsanalysen",
               "description": "Risikoanalysen, Gap-Analysen und Schwachstellenmanagement mit Maßnahmenliste nach Dringlichkeit, für Kleinunternehmen auch nach DIN SPEC 27076.",
-              "url": "https://www.ihre-domain.de/leistungen/sicherheitsanalysen.html"
+              "url": "https://cyber-sec-check.de/leistungen/sicherheitsanalysen.html"
             }
           },
           {
@@ -124,7 +123,7 @@
               "@type": "Service",
               "name": "Notfall- und Krisenmanagement",
               "description": "Business-Impact-Analyse, Notfallpläne, Wiederanlauf nach einem Angriff und Notfallübungen.",
-              "url": "https://www.ihre-domain.de/leistungen/notfallmanagement.html"
+              "url": "https://cyber-sec-check.de/leistungen/notfallmanagement.html"
             }
           },
           {
@@ -133,7 +132,7 @@
               "@type": "Service",
               "name": "Security Awareness",
               "description": "Awareness-Programm mit Online-Schulungen und Phishing-Simulationen, inklusive Nachweis der Geschäftsleitungsschulung nach NIS2.",
-              "url": "https://www.ihre-domain.de/leistungen/security-awareness.html"
+              "url": "https://cyber-sec-check.de/leistungen/security-awareness.html"
             }
           }
         ]
@@ -141,7 +140,7 @@
     },
     {
       "@type": "SoftwareApplication",
-      "@id": "https://www.ihre-domain.de/#software",
+      "@id": "https://cyber-sec-check.de/#software",
       "name": "ISMS-Suite",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Docker (Windows, macOS, Linux)",
@@ -341,7 +340,7 @@
         <h2 id="contact-title">Lassen Sie uns sprechen</h2>
         <p>30 Minuten, kostenlos und unverbindlich. Sie erzählen mir, was Sie beschäftigt, ich sage Ihnen ehrlich, ob und wie ich helfen kann.</p>
         <ul class="contact-facts">
-          <li><small>E-Mail</small><span><span id="mail">kontakt@ihre-domain.de</span><button class="copy" type="button" data-copy="mail">Kopieren</button></span></li>
+          <li><small>E-Mail</small><span><span id="mail">kontakt@cyber-sec-check.de</span><button class="copy" type="button" data-copy="mail">Kopieren</button></span></li>
           <li><small>Standort</small><span>Vor Ort in München und Umgebung, bundesweit per Video</span></li>
         </ul>
       </div>
