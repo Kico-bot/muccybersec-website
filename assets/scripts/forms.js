@@ -73,7 +73,7 @@ export function bindLeadForm(form) {
     }
 
     const url = endpoint(form);
-    if (!url) { say("Das Formular ist gerade nicht erreichbar. Bitte schreiben Sie mir direkt per E-Mail.", true); return; }
+    if (!url) { say("Das Formular ist gerade nicht erreichbar. Bitte versuchen Sie es später noch einmal.", true); return; }
 
     submit.disabled = true;
     const controller = new AbortController();
@@ -85,7 +85,7 @@ export function bindLeadForm(form) {
       try { result = await response.json(); } catch { /* keine JSON-Antwort */ }
       if (!response.ok || !result || result.success !== true) {
         const reason = result && typeof result.error === "string" ? result.error.slice(0, 200) : "";
-        say("Die Nachricht konnte nicht gesendet werden" + (reason ? ` (${reason})` : "") + ". Bitte versuchen Sie es später noch einmal oder schreiben Sie mir direkt per E-Mail.", true);
+        say("Die Nachricht konnte nicht gesendet werden" + (reason ? ` (${reason})` : "") + ". Bitte versuchen Sie es später noch einmal.", true);
         return;
       }
       say("Danke, Ihre Nachricht ist angekommen. Ich melde mich umgehend bei Ihnen.");
@@ -96,8 +96,8 @@ export function bindLeadForm(form) {
       // Beides lässt sich im Browser nicht unterscheiden, deshalb eine vorsichtige Meldung.
       const unclear = error instanceof TypeError;
       say(unclear
-        ? "Ich konnte nicht bestätigen, dass Ihre Nachricht angekommen ist. Bitte schreiben Sie mir zur Sicherheit direkt per E-Mail."
-        : "Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später noch einmal oder schreiben Sie mir direkt per E-Mail.", true);
+        ? "Ich konnte nicht bestätigen, dass Ihre Nachricht angekommen ist. Bitte versuchen Sie es in ein paar Minuten noch einmal."
+        : "Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später noch einmal.", true);
     } finally {
       clearTimeout(timer);
       submit.disabled = false;
