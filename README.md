@@ -9,11 +9,11 @@ leistungen/*.html       eine Unterseite je Leistung (ohne JavaScript)
 impressum.html          Pflichtangaben nach § 5 DDG
 datenschutz.html        Datenschutzerklärung, beschreibt was die Seite technisch tut
 assets/css/styles.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)
-assets/js/main.js       Einstieg (ES-Modul)
-assets/js/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
-assets/js/questions.js  27 Fragen, Bewertung als reine Funktion
-assets/js/forms.js      Formularprüfung, Honeypot, Zeitsperre, Versand an den Cloudflare Worker
-assets/js/dom.js        DOM-Helfer, sessionStorage-Wrapper
+assets/scripts/main.js       Einstieg (ES-Modul)
+assets/scripts/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
+assets/scripts/questions.js  27 Fragen, Bewertung als reine Funktion
+assets/scripts/forms.js      Formularprüfung, Honeypot, Zeitsperre, Versand an den Cloudflare Worker
+assets/scripts/dom.js        DOM-Helfer, sessionStorage-Wrapper
 assets/img/logo.svg     Wortmarke, favicon.svg das Kürzel M
 assets/fonts/           Manrope, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
@@ -27,7 +27,7 @@ Lokal ansehen: `python3 -m http.server 8080` im Hauptordner, dann <http://localh
 
 1. `ihre-domain.de` überall durch die echte Domain ersetzen (`grep -r ihre-domain .`), auch in der Kontakt-E-Mail.
 2. In Impressum und Datenschutz die E-Mail-Adresse und den Hoster eintragen.
-3. Die 27 Fragen gegen den Text der DIN SPEC 27076 prüfen (`assets/js/questions.js`).
+3. Die 27 Fragen gegen den Text der DIN SPEC 27076 prüfen (`assets/scripts/questions.js`).
 4. Im Cloudflare Worker die Prüfungen aus dem Abschnitt „Kontaktformular“ umsetzen.
 5. Header prüfen: <https://securityheaders.com>, <https://observatory.mozilla.org>.
 
