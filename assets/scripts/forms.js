@@ -88,7 +88,7 @@ export function bindLeadForm(form) {
         say("Die Nachricht konnte nicht gesendet werden" + (reason ? ` (${reason})` : "") + ". Bitte versuchen Sie es später noch einmal oder schreiben Sie mir direkt per E-Mail.", true);
         return;
       }
-      say("Danke, Ihre Nachricht ist angekommen. Ich melde mich innerhalb von zwei Werktagen.");
+      say("Danke, Ihre Nachricht ist angekommen. Ich melde mich umgehend bei Ihnen.");
       form.reset();
     } catch (error) {
       // Ein TypeError kann zweierlei heißen: Der Worker sendet keine CORS-Freigabe (Nachricht kam
