@@ -4,7 +4,8 @@
 //
 // Ohne JavaScript schickt der Browser das Formular ganz normal an action= ab.
 // Mit JavaScript geht es im Hintergrund als einfacher POST (application/x-www-form-urlencoded,
-// keine eigenen Header), damit der Browser keine CORS-Vorabanfrage stellt.
+// keine eigenen Header), damit der Browser keine CORS-Vorabanfrage stellt. Der Worker liest die
+// Felder mit request.formData() und antwortet mit JSON.
 
 const RULES = {
   name: { required: true, max: 80, pattern: /^[\p{L}][\p{L}\p{M} .'-]{1,79}$/u, msg: "Bitte geben Sie Ihren Namen an (nur Buchstaben, Leerzeichen, Punkt, Bindestrich)." },
@@ -79,7 +80,14 @@ export function bindLeadForm(form) {
     const timer = setTimeout(() => controller.abort(), 15000);
     try {
       const response = await fetch(url, { method: "POST", body: data, signal: controller.signal, credentials: "omit", referrerPolicy: "strict-origin-when-cross-origin" });
-      if (!response.ok) throw new Error(String(response.status));
+      // Der Worker antwortet mit JSON: { success: true } oder { success: false, error: "…" }.
+      let result = null;
+      try { result = await response.json(); } catch { /* keine JSON-Antwort */ }
+      if (!response.ok || !result || result.success !== true) {
+        const reason = result && typeof result.error === "string" ? result.error.slice(0, 200) : "";
+        say("Die Nachricht konnte nicht gesendet werden" + (reason ? ` (${reason})` : "") + ". Bitte versuchen Sie es später noch einmal oder schreiben Sie mir direkt per E-Mail.", true);
+        return;
+      }
       say("Danke, Ihre Nachricht ist angekommen. Ich melde mich innerhalb von zwei Werktagen.");
       form.reset();
     } catch (error) {
