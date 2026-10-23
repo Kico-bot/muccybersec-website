@@ -15,6 +15,7 @@ assets/scripts/questions.js  27 Fragen, Bewertung als reine Funktion
 assets/scripts/forms.js      Formularprüfung, Honeypot, Zeitsperre, Versand an den Cloudflare Worker
 assets/scripts/dom.js        DOM-Helfer, sessionStorage-Wrapper
 assets/img/logo.svg     Wortmarke, favicon.svg das Kürzel M
+assets/video/           Erklärvideo zur ISMS-Suite (MP4, 720p), Vorschaubild in assets/img/
 assets/fonts/           Manrope, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
 robots.txt, sitemap.xml, llms.txt   SEO und KI-Crawler
@@ -70,7 +71,7 @@ und zeigt einen vorsichtigen Hinweis statt „Danke“.
 ### nginx
 
 ```nginx
-add_header Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://contact-form.kristian95.workers.dev; manifest-src 'self'; form-action 'self' https://contact-form.kristian95.workers.dev; base-uri 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests" always;
+add_header Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://contact-form.kristian95.workers.dev; manifest-src 'self'; form-action 'self' https://contact-form.kristian95.workers.dev; base-uri 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests" always;
 add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" always;
 add_header X-Content-Type-Options "nosniff" always;
 add_header X-Frame-Options "DENY" always;
