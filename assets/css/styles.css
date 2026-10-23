@@ -226,8 +226,8 @@ img { max-width: 100%; height: auto; }
 
 /* --- Erklärvideo ------------------------------------------------------- */
 .section-video { padding-top: 0; }
-.video-embed { margin: 0 auto; max-width: 56rem; border-radius: 4px; overflow: hidden; background: var(--navy-900); box-shadow: 0 30px 60px -30px rgba(0,0,0,.5); }
-.video-embed video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--navy-900); }
+.video-embed { display: block; width: 100%; max-width: 44rem; margin: 0 auto; padding: 0; border-radius: 16px; overflow: hidden; isolation: isolate; background: var(--navy-900); box-shadow: 0 30px 60px -30px rgba(0,0,0,.5); }
+.video-embed video { display: block; width: 100%; height: auto; border-radius: inherit; aspect-ratio: 16 / 9; background: var(--navy-900); }
 
 
 /* --- FAQ ---------------------------------------------------------------- */
