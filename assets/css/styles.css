@@ -226,7 +226,7 @@ img { max-width: 100%; height: auto; }
 
 /* --- Erklärvideo ------------------------------------------------------- */
 .section-video { padding-top: 0; }
-.video-embed { margin: 0; border-radius: 4px; overflow: hidden; background: var(--navy-900); box-shadow: 0 30px 60px -30px rgba(0,0,0,.5); }
+.video-embed { margin: 0 auto; max-width: 56rem; border-radius: 4px; overflow: hidden; background: var(--navy-900); box-shadow: 0 30px 60px -30px rgba(0,0,0,.5); }
 .video-embed video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--navy-900); }
 
 
