@@ -8,7 +8,7 @@ index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalSe
 leistungen/*.html       eine Unterseite je Leistung (ohne JavaScript)
 impressum.html          Pflichtangaben nach § 5 DDG
 datenschutz.html        Datenschutzerklärung, beschreibt was die Seite technisch tut
-assets/css/styles.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)
+assets/css/site.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)
 assets/scripts/main.js       Einstieg (ES-Modul)
 assets/scripts/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
 assets/scripts/questions.js  27 Fragen, Bewertung als reine Funktion
