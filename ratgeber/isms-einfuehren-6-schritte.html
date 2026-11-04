@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ISMS einführen in 6 Schritten | CyberSecCheck</title>
+  <meta name="description" content="Ein ISMS einführen, ohne in Bürokratie zu versinken: sechs Schritte von Geltungsbereich und Leitlinie über Risikoanalyse bis zur Managementbewertung.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#081326">
+  <!-- Ersatz-CSP für Hosts ohne eigene Header; diese Seite braucht kein JavaScript. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="https://cyber-sec-check.de/ratgeber/isms-einfuehren-6-schritte">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="CyberSecCheck">
+  <meta property="og:title" content="ISMS einführen in 6 Schritten | CyberSecCheck">
+  <meta property="og:description" content="Ein ISMS einführen, ohne in Bürokratie zu versinken: sechs Schritte von Geltungsbereich und Leitlinie über Risikoanalyse bis zur Managementbewertung.">
+  <meta property="og:url" content="https://cyber-sec-check.de/ratgeber/isms-einfuehren-6-schritte">
+  <meta property="og:image" content="https://cyber-sec-check.de/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="CyberSecCheck: Informationssicherheit für den Mittelstand">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "ISMS einführen in 6 Schritten",
+      "description": "Ein ISMS einführen, ohne in Bürokratie zu versinken: sechs Schritte von Geltungsbereich und Leitlinie über Risikoanalyse bis zur Managementbewertung.",
+      "url": "https://cyber-sec-check.de/ratgeber/isms-einfuehren-6-schritte",
+      "mainEntityOfPage": "https://cyber-sec-check.de/ratgeber/isms-einfuehren-6-schritte",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "inLanguage": "de-DE",
+      "image": "https://cyber-sec-check.de/assets/img/og-image.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Cyber Security Check",
+        "url": "https://cyber-sec-check.de/",
+        "description": "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberSecCheck",
+        "url": "https://cyber-sec-check.de/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cyber-sec-check.de/assets/img/logo.svg"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://cyber-sec-check.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ratgeber",
+          "item": "https://cyber-sec-check.de/ratgeber/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ISMS einführen in 6 Schritten",
+          "item": "https://cyber-sec-check.de/ratgeber/isms-einfuehren-6-schritte"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Brauchen wir für ein ISMS ein Zertifikat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Ein ISMS lohnt sich auch ohne Zertifikat, etwa für NIS2 oder um Kundenfragen beantworten zu können. Ein Zertifikat ist nur dann nötig, wenn jemand einen Nachweis verlangt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wer sollte das interne Audit machen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jemand, der nicht an der Umsetzung beteiligt war und die Norm kennt. Das kann eine Person aus einer anderen Abteilung sein oder ein externer Auditor."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="CyberSecCheck, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/iso-27001-beratung-muenchen">ISO 27001</a>
+      <a href="/nis2-beratung-muenchen">NIS2</a>
+      <a href="/ratgeber/" aria-current="page">Ratgeber</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="sub-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/ratgeber/">Ratgeber</a><span aria-hidden="true">/</span><span aria-current="page">ISMS einführen in 6 Schritten</span></nav>
+      <span class="eyebrow">Ratgeber</span>
+      <h1 id="page-title">ISMS einführen in 6 Schritten</h1>
+      <p class="hero-sub">Ein Informationssicherheits-Managementsystem klingt nach viel Aufwand. Mit einem klaren Vorgehen bleibt es überschaubar. Diese sechs Schritte orientieren sich an ISO 27001 und funktionieren auch, wenn Sie gar kein Zertifikat anstreben.</p>
+      <p class="article-meta">Stand: <time datetime="2026-11-04">4. November 2026</time> · Cyber Security Check</p>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="/#check">Cyber-Check in 5 Minuten</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="wrap">
+      <article class="prose article">
+        <div class="keypoints"><h2>Auf einen Blick</h2><ul class="checks"><li>Ohne Rückhalt der Geschäftsführung scheitert jedes ISMS.</li><li>Ein klar abgegrenzter Geltungsbereich spart viel Arbeit.</li><li>Die Risikoanalyse geht von den Geschäftsprozessen aus, nicht von der Technik.</li><li>Ein ISMS ist erst eingeführt, wenn es einmal den Kreis aus Planen, Umsetzen, Prüfen und Verbessern durchlaufen hat.</li></ul></div>
+        <h2>Schritt 1: Die Geschäftsführung ins Boot holen</h2>
+        <p>Ein ISMS braucht Entscheidungen: über Risiken, Budgets, Prioritäten und manchmal unbequeme Regeln. Diese Entscheidungen kann nur die Geschäftsführung treffen. ISO 27001 verlangt deshalb ausdrücklich, dass die oberste Leitung Führung zeigt, und NIS2 nimmt sie in § 38 BSIG persönlich in die Pflicht.</p>
+        <p>Klären Sie zu Beginn, warum Sie das ISMS einführen: Kundenanforderung, NIS2, ein Vorfall, der Wunsch nach mehr Überblick? Der Anlass bestimmt Umfang und Tempo. Legen Sie außerdem fest, wer das Projekt intern verantwortet und wie viel Zeit die Beteiligten dafür bekommen.</p>
+        <h2>Schritt 2: Kontext und Geltungsbereich festlegen</h2>
+        <p>Bevor Sie über Maßnahmen sprechen, beschreiben Sie Ihr Unternehmen: Was sind die wichtigsten Geschäftsprozesse? Welche Informationen sind schützenswert? Wer hat Erwartungen an Ihre Informationssicherheit, etwa Kunden, Behörden, Versicherer oder Mitarbeitende? Und welche äußeren Faktoren spielen eine Rolle, von gesetzlichen Vorgaben bis zur Abhängigkeit von Cloud-Diensten?</p>
+        <p>Daraus folgt der Geltungsbereich: Welche Standorte, Prozesse und Systeme gehören zum ISMS, wo liegen die Schnittstellen, und was ist bewusst ausgeschlossen? Ein klar abgegrenzter Geltungsbereich ist eine der ersten Fragen jedes Auditors und erspart später viele Diskussionen.</p>
+        <h2>Schritt 3: Leitlinie und Rollen</h2>
+        <p>Die Informationssicherheitsleitlinie ist ein kurzes Dokument, in dem die Geschäftsführung festhält, warum Informationssicherheit wichtig ist, welche Ziele gelten und wer wofür verantwortlich ist. Zwei Seiten reichen. Wichtig ist, dass sie unterschrieben und bekannt gemacht wird.</p>
+        <p>Benennen Sie eine Person, die das ISMS steuert, meist als Informationssicherheitsbeauftragter (ISB). In kleineren Unternehmen ist das oft keine Vollzeitstelle. Wenn intern niemand die Zeit oder das Wissen hat, kann ein <a href="/leistungen/externer-ciso">externer CISO oder ISB</a> die Rolle übernehmen. Legen Sie außerdem fest, wer für welche Werte und Risiken verantwortlich ist.</p>
+        <h2>Schritt 4: Risiken beurteilen und behandeln</h2>
+        <p>Das Herz des ISMS ist die Risikobeurteilung. Gehen Sie von Ihren Geschäftsprozessen aus und fragen Sie: Was könnte passieren, wie wahrscheinlich ist das, und wie schlimm wäre es? Eine einfache Matrix mit fünf Stufen für Wahrscheinlichkeit und Auswirkung reicht in den meisten Fällen. ISO/IEC 27005 gibt dafür einen bewährten Rahmen.</p>
+        <p>Für jedes Risiko entscheiden Sie dann, wie Sie damit umgehen: verringern, vermeiden, übertragen oder bewusst tragen. Risiken bewusst zu tragen ist erlaubt, muss aber von der Geschäftsführung entschieden werden. Die Maßnahmen gleichen Sie mit Anhang A der ISO 27001 ab und halten in der Erklärung zur Anwendbarkeit fest, welche der 93 Maßnahmen Sie umsetzen und warum.</p>
+        <h2>Schritt 5: Maßnahmen umsetzen und Nachweise sammeln</h2>
+        <p>Jetzt wird es konkret. Setzen Sie die Maßnahmen um, beginnend mit denen, die die größten Risiken verringern und wenig kosten. Typische frühe Maßnahmen sind Multi-Faktor-Authentifizierung, geschützte Datensicherungen, ein Notfallplan, ein geregelter Umgang mit Berechtigungen und Schulungen für Mitarbeitende.</p>
+        <p>Schreiben Sie nur die Richtlinien, die wirklich gebraucht werden, und halten Sie sie kurz. Sammeln Sie Nachweise gleich mit: Schulungsteilnahmen, Ergebnisse von Prüfungen, Protokolle von Entscheidungen. Eine Software wie die <a href="/#software">ISMS-Suite</a> hilft, Maßnahmen, Verantwortliche, Fristen und Nachweise an einer Stelle zu halten.</p>
+        <h2>Schritt 6: Prüfen und verbessern</h2>
+        <p>Ein ISMS ist kein Projekt, das irgendwann fertig ist. Es lebt davon, regelmäßig überprüft zu werden. Dafür gibt es zwei feste Instrumente:</p>
+        <ul class="list"><li><strong>Internes Audit:</strong> Jemand, der nicht an der Umsetzung beteiligt war, prüft, ob das ISMS die eigenen Vorgaben und die Norm erfüllt.</li><li><strong>Managementbewertung:</strong> Die Geschäftsführung bewertet mindestens einmal im Jahr, ob das ISMS seine Ziele erreicht, und entscheidet über Änderungen.</li></ul>
+        <p>Abweichungen, Vorfälle und Verbesserungsideen werden festgehalten und abgearbeitet. Wenn dieser Kreis einmal durchlaufen ist, ist Ihr ISMS eingeführt. Wer ein Zertifikat möchte, kann sich jetzt auf das Audit vorbereiten, wie im Artikel <a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO-27001-Zertifizierung: Ablauf und Dauer</a> beschrieben.</p>
+        <h2>Wie viel Zeit Sie einplanen sollten</h2>
+        <p>Für kleine und mittlere Unternehmen dauert der Weg durch die sechs Schritte meist drei bis sechs Monate. Am meisten Zeit kosten nicht die Dokumente, sondern Entscheidungen und die Umsetzung technischer Maßnahmen. Planen Sie deshalb feste Termine mit der Geschäftsführung ein und beginnen Sie früh mit den Maßnahmen, die Vorlauf brauchen, etwa der Umstellung auf Multi-Faktor-Authentifizierung oder einer neuen Datensicherung.</p>
+        <p>Nach der Einführung bleibt ein laufender Aufwand: Risiken aktualisieren, Maßnahmen nachhalten, Schulungen planen, ein internes Audit und eine Managementbewertung im Jahr. Mit klaren Zuständigkeiten und einer guten Software bleibt das überschaubar.</p>
+        <h2>Typische Stolpersteine</h2>
+        <ul class="list"><li><strong>Zu viel Papier:</strong> Dutzende Richtlinien, die niemand liest. Weniger ist mehr.</li><li><strong>Risikoanalyse von der Stange:</strong> Eine Liste aus dem Internet passt nie ganz. Gehen Sie von Ihren eigenen Prozessen aus.</li><li><strong>Kein Betrieb nach dem Projekt:</strong> Ohne feste Termine für Überprüfung und Managementbewertung schläft das ISMS ein.</li><li><strong>IT allein lassen:</strong> Informationssicherheit betrifft auch Personal, Einkauf und Geschäftsführung, nicht nur die IT.</li></ul>
+        <div class="faq faq-inline">
+        <h2>Häufige Fragen</h2>
+        <details><summary>Brauchen wir für ein ISMS ein Zertifikat?</summary><div><p>Nein. Ein ISMS lohnt sich auch ohne Zertifikat, etwa für NIS2 oder um Kundenfragen beantworten zu können. Ein Zertifikat ist nur dann nötig, wenn jemand einen Nachweis verlangt.</p></div></details>
+        <details><summary>Wer sollte das interne Audit machen?</summary><div><p>Jemand, der nicht an der Umsetzung beteiligt war und die Norm kennt. Das kann eine Person aus einer anderen Abteilung sein oder ein externer Auditor.</p></div></details>
+        </div>
+        <div class="sources"><h2>Quellen</h2><ul><li><a href="https://www.iso.org/standard/27001" rel="noopener">ISO/IEC 27001:2022, ISO</a></li><li><a href="https://www.iso.org/standard/80585.html" rel="noopener">ISO/IEC 27005:2022, ISO</a></li><li><a href="https://www.bsi.bund.de/grundschutz" rel="noopener">BSI: IT-Grundschutz</a></li></ul>
+          <p>Dieser Artikel ist eine allgemeine Information und keine Rechtsberatung. Maßgeblich ist der jeweils aktuelle Gesetzes- und Normtext.</p>
+        </div>
+      </article>
+      <aside class="author-box" aria-label="Über den Autor">
+        <span class="author-mark" aria-hidden="true">CSC</span>
+        <div>
+          <strong>Cyber Security Check</strong>
+          <p>ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager. Beratung zu Informationssicherheit, ISO 27001 und NIS2 für kleine und mittlere Unternehmen, vor Ort in München und Umgebung, bundesweit per Video.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section mist" aria-labelledby="rel-title">
+    <div class="wrap">
+      <div class="head"><h2 id="rel-title">Weiterlesen</h2></div>
+      <ul class="more-services rel">
+        <li><a href="/leistungen/isms-einfuehrung"><span><strong>ISMS-Einführung</strong><small>Begleitung beim Aufbau</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/iso-27001-beratung-muenchen"><span><strong>ISO 27001 Beratung München</strong><small>Wenn ein Zertifikat das Ziel ist</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/iso-27001-oder-it-grundschutz"><span><strong>ISO 27001 oder IT-Grundschutz</strong><small>Den passenden Rahmen wählen</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video. Die <a href="/#software">ISMS-Suite</a> können Sie schon vorher kostenlos ausprobieren.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="/#check">Cyber-Check starten</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
+      <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+    </div>
+      <nav aria-label="Themen"><h2>Themen</h2><ul><li><a href="/iso-27001-beratung-muenchen">ISO 27001 Beratung</a></li><li><a href="/nis2-beratung-muenchen">NIS2 Beratung</a></li><li><a href="/#software">ISMS-Suite</a></li><li><a href="/#check">Cyber-Check</a></li></ul></nav>
+      <nav aria-label="Leistungen"><h2>Leistungen</h2><ul><li><a href="/leistungen/isms-einfuehrung">ISMS-Einführung</a></li><li><a href="/leistungen/externer-ciso">Externer CISO und ISB</a></li><li><a href="/leistungen/sicherheitsanalysen">Sicherheitsanalysen</a></li><li><a href="/leistungen/din-spec-27076">CyberRisikoCheck (DIN SPEC 27076)</a></li><li><a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a></li><li><a href="/leistungen/security-awareness">Security Awareness</a></li></ul></nav>
+      <nav aria-label="Ratgeber"><h2>Ratgeber</h2><ul><li><a href="/ratgeber/">Alle Artikel</a></li><li><a href="/ratgeber/nis2-betroffenheit">NIS2: Bin ich betroffen?</a></li><li><a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO 27001: Ablauf und Dauer</a></li><li><a href="/ratgeber/iso-27001-oder-it-grundschutz">ISO 27001 oder IT-Grundschutz</a></li><li><a href="/ratgeber/isms-einfuehren-6-schritte">ISMS einführen in 6 Schritten</a></li><li><a href="/ratgeber/nis2-meldepflichten">NIS2-Meldepflichten</a></li></ul></nav>
+  </div>
+  <div class="wrap footer-base">
+    <span>© 2026 CyberSecCheck · Diese Seite setzt keine Tracking-Cookies.</span>
+    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+  </div>
+</footer>
+</body>
+</html>
