@@ -1,162 +1,136 @@
-# Erzeugt die fünf Leistungsseiten unter leistungen/ aus einer Datenquelle (python3 tools/build.py),
-# damit Aufbau, Navigation und strukturierte Daten auf allen Seiten gleich sind.
-import html, json, os, sys
+# Erzeugt alle Unterseiten (Landingpages, Leistungen, Ratgeber) und die Sitemap aus den
+# Inhaltsdateien in tools/content/. Kopf, Fuß, Navigation und JSON-LD kommen so von einer Stelle.
+# Start: python3 tools/build.py   Danach: python3 tools/check_links.py
+import datetime, html, json, os, re, sys
 
-ROOT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "..")
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, ".."))
+sys.path.insert(0, HERE)
+from content import landing, leistungen, ratgeber  # noqa: E402
+
 DOMAIN = "https://cyber-sec-check.de"
 BRAND = "CyberSecCheck"
-
-S = [
-  dict(slug="sicherheitsanalysen", title="Sicherheitsanalysen",
-    desc="Sicherheitsanalysen für den Mittelstand: Risikoanalyse, Gap-Analyse nach ISO 27001 und Schwachstellenmanagement, für Kleinbetriebe nach DIN SPEC 27076. München und bundesweit.",
-    lead="Bevor Sie Geld in Sicherheit stecken, sollten Sie wissen, wo die Lücken liegen. Ich schaue mir Ihr Unternehmen an und sage Ihnen, was zuerst kommt.",
-    about=[
-      "Die meisten Unternehmen haben schon einiges getan: Virenschutz, Backups, vielleicht eine Firewall. Was oft fehlt, ist der Überblick. Welche Systeme sind für den Betrieb wirklich wichtig? Wo liegen Daten, die nicht verloren gehen dürfen? Und welche Lücke würde ein Angreifer zuerst ausnutzen?",
-      "Eine Sicherheitsanalyse beantwortet diese Fragen. Je nach Ausgangslage ist das eine Risikoanalyse, eine Gap-Analyse gegen ISO 27001 oder BSI IT-Grundschutz oder der Aufbau eines Schwachstellenmanagements, das bekannte Lücken in Ihren Systemen regelmäßig findet und nachverfolgt.",
-      "Für Klein- und Kleinstunternehmen gibt es mit der DIN SPEC 27076 ein eigenes Verfahren. Es prüft 27 Anforderungen in sechs Themenfeldern, kommt mit einem Gespräch von wenigen Stunden aus und endet mit einem Bericht, den man auch ohne Fachwissen versteht.",
-    ],
-    get=["Eine Übersicht Ihrer wichtigsten Systeme, Daten und Dienstleister",
-         "Eine Bewertung der Risiken nach Wahrscheinlichkeit und Schaden",
-         "Einen Maßnahmenplan, sortiert nach Dringlichkeit und Aufwand",
-         "Eine Ergebnisbesprechung mit der Geschäftsführung"],
-    steps=[("Vorgespräch", "Wir klären, was geprüft wird und welches Verfahren passt. Danach bekommen Sie ein Angebot."),
-           ("Bestandsaufnahme", "Gespräche mit Geschäftsführung und IT, ein Blick in vorhandene Unterlagen und auf die wichtigsten Systeme. Vor Ort in München oder per Video."),
-           ("Bewertung", "Ich bewerte die Risiken und leite Maßnahmen ab. Was schnell und günstig umsetzbar ist, steht oben."),
-           ("Ergebnis", "Sie bekommen den Bericht, und wir gehen ihn gemeinsam durch. Auf Wunsch begleite ich auch die Umsetzung.")],
-    faq=[("Wie lange dauert eine Sicherheitsanalyse?", "Das hängt von Größe und Umfang ab. Bei einem kleinen Unternehmen reichen oft wenige Tage, verteilt auf zwei bis drei Wochen. Den genauen Rahmen nenne ich Ihnen im Angebot."),
-         ("Was ist der Unterschied zum kostenlosen Cyber-Check?", "Der Cyber-Check ist eine Selbsteinschätzung in fünf Minuten. Bei der Analyse schaue ich mir Ihre Situation selbst an, frage nach und prüfe Unterlagen. Das Ergebnis ist genauer und hält auch gegenüber Kunden oder Versicherern stand."),
-         ("Brauchen wir dafür einen eigenen IT-Mitarbeiter?", "Nein. Wenn Sie einen externen IT-Dienstleister haben, beziehe ich ihn ein. Viele Fragen kann er direkt beantworten.")]),
-  dict(slug="security-awareness", title="Security Awareness",
-    desc="Security Awareness für Unternehmen: Online-Schulungen und Phishing-Simulationen mit Auswertung, auch für die Geschäftsleitung nach NIS2. München und bundesweit.",
-    lead="Die meisten Angriffe beginnen mit einer E-Mail oder einem Anruf. Mit Online-Schulungen und Phishing-Simulationen lernen Ihre Mitarbeitenden, solche Versuche zu erkennen.",
-    about=[
-      "Technik hält viel ab, aber nicht alles. Eine gut gemachte Phishing-Mail, eine gefälschte Rechnung oder ein Anruf vom angeblichen IT-Support erreichen trotzdem die Menschen in Ihrem Unternehmen. Ob daraus ein Schaden wird, entscheidet sich oft in wenigen Sekunden.",
-      "Ich richte für Sie ein Awareness-Programm auf einer Lernplattform ein. Ihre Mitarbeitenden bekommen kurze Lerneinheiten, die sie am eigenen Rechner bearbeiten, wann es in den Arbeitstag passt. Präsenztermine sind nicht nötig.",
-      "Phishing-Simulationen zeigen, ob das Gelernte ankommt. In festen Abständen gehen realistische, aber harmlose Test-Mails raus. Wer klickt, sieht sofort einen kurzen Hinweis, woran er die Mail hätte erkennen können. Die Auswertungen zeigen Ihnen, in welchen Bereichen nachgeschult werden sollte.",
-      "Fällt Ihr Unternehmen unter NIS2, muss auch die Geschäftsleitung regelmäßig geschult werden. Das lässt sich mit eigenen Lerninhalten für Führungskräfte abdecken und über die Plattform nachweisen.",
-    ],
-    get=["Auswahl und Einrichtung einer passenden Lernplattform",
-         "Einen Schulungsplan mit kurzen Online-Einheiten für alle Mitarbeitenden",
-         "Regelmäßige Phishing-Simulationen mit sofortigem Hinweis bei einem Klick",
-         "Auswertungen, die zeigen, wo nachgeschult werden sollte",
-         "Nachweise für Kunden, Versicherer und Auditoren"],
-    steps=[("Ausgangslage", "Wir klären, wie viele Mitarbeitende teilnehmen, welche Themen wichtig sind und ob es einen Betriebsrat gibt."),
-           ("Einrichtung", "Ich richte die Plattform ein, stimme Inhalte und Zeitplan mit Ihnen ab und bereite die Ankündigung im Unternehmen vor."),
-           ("Laufender Betrieb", "Lerneinheiten und Phishing-Simulationen laufen in festen Abständen. Ich behalte die Ergebnisse im Blick."),
-           ("Auswertung", "Sie bekommen regelmäßig einen kurzen Bericht mit Empfehlungen, wo nachgesteuert werden sollte.")],
-    faq=[("Sind Phishing-Simulationen rechtlich erlaubt?", "Ja, wenn sie sauber vorbereitet sind. Die Mitarbeitenden werden vorab über das Programm informiert, ausgewertet wird in der Regel nach Abteilungen und nicht nach Personen, und ein vorhandener Betriebsrat wird beteiligt. Die Abstimmung mit Ihrem Datenschutzbeauftragten gehört dazu."),
-         ("Wie viel Zeit kostet das die Mitarbeitenden?", "Die Lerneinheiten dauern meist nur wenige Minuten und verteilen sich über das Jahr. Niemand fehlt dafür einen halben Tag."),
-         ("Welche Software wird eingesetzt?", "Das hängt von Größe, Budget und Ihren Anforderungen ab. Ich empfehle eine Lösung, die zu Ihrem Unternehmen passt, und achte dabei auf Datenschutz und Serverstandort.")]),
-  dict(slug="notfallmanagement", title="Notfall- und Krisenmanagement",
-    desc="Notfall- und Krisenmanagement für den Mittelstand: Business-Impact-Analyse, Notfallplan für Ransomware und IT-Ausfall, Notfallübungen. München und bundesweit.",
-    lead="Was passiert, wenn morgen alle Rechner verschlüsselt sind? Mit einem Notfallplan wissen Sie vorher, was zu tun ist.",
-    about=[
-      "Nach einem Ransomware-Angriff oder einem längeren IT-Ausfall zählt jede Stunde. Wer muss informiert werden? Welche Abläufe müssen zuerst wieder laufen? Wo liegt die letzte saubere Sicherung, und wie lange dauert die Wiederherstellung? Wer diese Fragen erst im Ernstfall klärt, verliert Zeit und meist auch Geld.",
-      "Am Anfang steht eine Business-Impact-Analyse. Für jeden wichtigen Geschäftsprozess legen wir fest, wie lange er ausfallen darf und wie viele Daten im schlimmsten Fall verloren gehen dürfen. Daraus ergibt sich, welche Systeme zuerst wiederhergestellt werden und welche Sicherungen Sie dafür brauchen.",
-      "Der Notfallplan selbst passt auf wenige Seiten: Ansprechpartner und Erreichbarkeiten, Meldeketten, erste Schritte und die Reihenfolge des Wiederanlaufs. Er liegt auch auf Papier vor, denn im Ernstfall funktioniert das Netzwerk vielleicht nicht. Eine Übung zeigt, ob der Plan in der Praxis trägt.",
-      "Für Unternehmen unter NIS2 gelten feste Meldefristen. Spätestens 24 Stunden, nachdem Sie von einem erheblichen Sicherheitsvorfall erfahren haben, ist eine Frühwarnung an das BSI fällig. Innerhalb von 72 Stunden folgt die eigentliche Meldung mit einer ersten Bewertung, spätestens einen Monat danach der Abschlussbericht. Diese Meldewege gehören direkt in den Plan.",
-    ],
-    get=["Eine Business-Impact-Analyse für Ihre wichtigsten Geschäftsprozesse",
-         "Wiederanlaufzeiten und die Reihenfolge der Wiederherstellung",
-         "Einen kompakten Notfallplan mit Meldeketten und Kontakten",
-         "Eine Notfallübung, zum Beispiel am Szenario Ransomware",
-         "Bei NIS2 die passenden Meldewege und Fristen"],
-    steps=[("Analyse", "Gemeinsam mit den Verantwortlichen bewerten wir Ihre Geschäftsprozesse und legen fest, was wie lange ausfallen darf."),
-           ("Plan", "Ich erstelle den Notfallplan und stimme ihn mit Geschäftsführung und IT-Dienstleister ab."),
-           ("Übung", "Wir spielen einen Ernstfall am Tisch durch. Lücken im Plan fallen dabei schnell auf."),
-           ("Pflege", "Der Plan wird einmal im Jahr und nach jeder größeren Änderung überprüft.")],
-    faq=[("Reicht nicht ein gutes Backup?", "Ein Backup ist die Grundlage. Es beantwortet aber nicht, wer entscheidet, wen Sie informieren und was zuerst wiederhergestellt wird. Das regelt der Notfallplan. Außerdem prüfen wir, ob sich das Backup im Ernstfall wirklich zurückspielen lässt."),
-         ("Wie aufwendig ist eine Notfallübung?", "Eine Übung am Tisch dauert meist zwei bis drei Stunden. Die IT muss dafür nicht abgeschaltet werden."),
-         ("Was ist eine Business-Impact-Analyse?", "Eine Bewertung, wie stark ein Ausfall Ihre Geschäftsprozesse trifft. Für jeden Prozess wird festgelegt, wie lange er ausfallen darf und wie viel Datenverlust tragbar ist. Sie ist die Grundlage jedes Notfallplans.")]),
-  dict(slug="isms-zertifizierung", title="ISMS und Zertifizierung",
-    desc="ISMS nach ISO 27001:2022 oder BSI IT-Grundschutz für den Mittelstand: schlanker Aufbau, internes Audit, Begleitung bis zur Zertifizierung, NIS2 bei Bedarf. München und bundesweit.",
-    lead="Wenn Kunden einen Nachweis verlangen, führt oft kein Weg an ISO 27001 vorbei. Ich baue mit Ihnen ein Managementsystem auf, das im Alltag funktioniert und im Audit besteht.",
-    about=[
-      "Ein Informationssicherheits-Managementsystem, kurz ISMS, regelt, wie Ihr Unternehmen mit Informationssicherheit umgeht: wer zuständig ist, wie Risiken bewertet werden, welche Maßnahmen gelten und wie geprüft wird, ob sie wirken. ISO/IEC 27001:2022 ist der international anerkannte Standard dafür. Für öffentliche Auftraggeber kann BSI IT-Grundschutz der passende Weg sein.",
-      "Viele ISMS scheitern daran, dass sie zu groß gebaut werden. Am Ende stehen Dutzende Dokumente, die niemand liest. Ich halte das System so schlank wie möglich: wenige, klare Richtlinien, eine Risikoanalyse, die Sie selbst fortschreiben können, und Abläufe, die zu Ihrer Größe passen.",
-      "Als Werkzeug eignet sich die kostenlose ISMS-Suite. Sie zeigt, wie weit Sie für die Zertifizierung sind, und hält Risiken, Maßnahmen und Nachweise an einem Ort.",
-      "Fällt Ihr Unternehmen unter NIS2, kümmern wir uns gleich mit um die Pflichten aus dem BSI-Gesetz: Registrierung beim BSI, Risikomanagement und Meldeprozess. Ein ISMS nach ISO 27001 deckt einen großen Teil davon ohnehin ab.",
-    ],
-    get=["Festlegung des Geltungsbereichs und eine Gap-Analyse zum Start",
-         "Risikoanalyse und Erklärung zur Anwendbarkeit (SoA)",
-         "Schlanke Richtlinien und Abläufe, die zu Ihrem Unternehmen passen",
-         "Internes Audit und Managementbewertung",
-         "Begleitung im Zertifizierungsaudit",
-         "Bei Bedarf die Umsetzung der NIS2-Pflichten"],
-    steps=[("Start", "Wir legen den Geltungsbereich fest und prüfen in einer Gap-Analyse, was schon vorhanden ist."),
-           ("Aufbau", "Risikoanalyse, Richtlinien und Maßnahmen entstehen Schritt für Schritt, abgestimmt mit Ihrem Team."),
-           ("Prüfung", "Ein internes Audit und die Managementbewertung zeigen, ob das System trägt. Offene Punkte werden vor dem Audit geschlossen."),
-           ("Zertifizierung", "Eine akkreditierte Zertifizierungsstelle prüft in zwei Stufen. Ich begleite Sie durch beide Audits.")],
-    faq=[("Wie lange dauert es bis zum Zertifikat?", "Für kleine und mittlere Unternehmen sind drei bis sechs Monate realistisch. Am meisten hängt davon ab, wie viel Zeit Ihr Team einbringen kann."),
-         ("Stellen Sie das Zertifikat aus?", "Nein. Das Zertifikat vergibt eine akkreditierte Zertifizierungsstelle. Ich bereite Sie darauf vor und begleite Sie im Audit."),
-         ("Wie lange gilt ein ISO-27001-Zertifikat?", "Drei Jahre. In dieser Zeit gibt es jährliche Überwachungsaudits, danach folgt eine Rezertifizierung.")]),
-  dict(slug="externer-ciso", title="Externer CISO und ISB",
-    desc="Externer CISO und Informationssicherheitsbeauftragter (ISB) in München und bundesweit: feste Betreuung für den Mittelstand zum monatlichen Festpreis, als Interim-Lösung oder dauerhaft.",
-    lead="Sie brauchen jemanden, der die Informationssicherheit verantwortet, aber keine eigene Vollzeitstelle? Ich übernehme die Rolle, für eine Übergangszeit oder dauerhaft.",
-    about=[
-      "Für eine eigene Stelle als Informationssicherheitsbeauftragter oder CISO sind viele Unternehmen zu klein, oder die Stelle ist gerade nicht besetzt. Die Aufgaben bleiben trotzdem: Risiken im Blick behalten, Richtlinien aktuell halten, Vorfälle bewerten, der Geschäftsführung berichten und Fragen von Kunden und Auditoren beantworten.",
-      "Als externer CISO oder Informationssicherheitsbeauftragter (ISB) übernehme ich diese Aufgaben mit einem festen Zeitkontingent pro Monat, als Interim-Lösung bis zur Besetzung einer eigenen Stelle oder dauerhaft. Vor Ort bin ich in München und Umgebung, alles andere läuft per Video. Sie haben einen Ansprechpartner, der Ihr Unternehmen kennt, und die Geschäftsführung bekommt regelmäßig einen kurzen Bericht zur Lage.",
-      "Auf Wunsch begleite ich auch die Einführung einer zentralen Sicherheitsüberwachung (SIEM) oder die Zusammenarbeit mit einem externen Security Operations Center (SOC).",
-      "Abgerechnet wird über einen monatlichen Festpreis. So wissen Sie vorher, was die Betreuung kostet.",
-    ],
-    get=["Einen festen Ansprechpartner für alle Fragen zur Informationssicherheit",
-         "Laufende Pflege von Risikoanalyse, Richtlinien und Maßnahmen",
-         "Bewertung von Sicherheitsvorfällen und Begleitung im Ernstfall",
-         "Regelmäßige Berichte an die Geschäftsführung",
-         "Antworten auf Sicherheitsfragebögen Ihrer Kunden",
-         "Auf Wunsch Begleitung von SIEM und SOC"],
-    steps=[("Kennenlernen", "Wir klären, welche Aufgaben anfallen und wie viel Zeit pro Monat sinnvoll ist."),
-           ("Einarbeitung", "Ich verschaffe mir einen Überblick über Systeme, Dokumente und laufende Themen."),
-           ("Laufende Betreuung", "Feste Termine, ein Ansprechpartner und ein kurzer Bericht an die Geschäftsführung in jedem Quartal."),
-           ("Anpassung", "Ändert sich der Bedarf, passen wir das monatliche Kontingent an.")],
-    faq=[("Was kostet ein externer CISO?", "Es gibt einen monatlichen Festpreis, der sich nach dem vereinbarten Zeitkontingent richtet. Den genauen Betrag nenne ich Ihnen nach dem Erstgespräch."),
-         ("Was ist der Unterschied zwischen CISO und Informationssicherheitsbeauftragtem?", "Im Mittelstand meist nur der Titel. Beide verantworten die Informationssicherheit im Unternehmen. Der Titel CISO ist eher in größeren Organisationen üblich und stärker auf Strategie und Führung ausgerichtet."),
-         ("Wie schnell reagieren Sie bei einem Vorfall?", "Das legen wir vorab fest. Im Notfallplan steht, wie ich erreichbar bin und wer in welcher Reihenfolge informiert wird.")]),
-]
-
-e = lambda t: html.escape(t, quote=False)
+AUTHOR = "Cyber Security Check"
+CREDS = "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
+TODAY = datetime.date.today().isoformat()
 ARROW = '<svg aria-hidden="true"><use href="#i-arrow"/></svg>'
 
-def page(i, s):
-    url = f"{DOMAIN}/leistungen/{s['slug']}"
-    ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "Service", "name": s["title"], "description": s["lead"], "url": url,
-         "areaServed": [{"@type": "City", "name": "München"}, {"@type": "Country", "name": "Deutschland"}],
-         "provider": {"@type": "ProfessionalService", "name": BRAND, "url": DOMAIN + "/"}},
-        {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Startseite", "item": DOMAIN + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Leistungen", "item": DOMAIN + "/#leistungen"},
-            {"@type": "ListItem", "position": 3, "name": s["title"], "item": url}]},
-        {"@type": "FAQPage", "mainEntity": [
-            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in s["faq"]]}]}
-    others = "\n".join(
-        f'        <li><a href="/leistungen/{o["slug"]}"><span><span class="ms-no">{j:02d}</span>{e(o["title"])}</span>{ARROW}</a></li>'
-        for j, o in enumerate(S, 1) if o is not s)
+NAV = [("Leistungen", "/#leistungen"), ("ISO 27001", "/iso-27001-beratung-muenchen"),
+       ("NIS2", "/nis2-beratung-muenchen"), ("Ratgeber", "/ratgeber/"), ("Kontakt", "/#kontakt")]
+
+
+def e(s):
+    return html.escape(s, quote=False)
+
+
+def t(s):
+    """Fließtext: escapen, dann [Text](/pfad) als Link und **Text** als Hervorhebung."""
+    s = e(s)
+    s = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", lambda m: f'<a href="{html.escape(m.group(2))}">{m.group(1)}</a>', s)
+    return re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", s)
+
+
+def plain(s):
+    """Text für Meta-Tags und JSON-LD: ohne Link- und Hervorhebungsmarkup."""
+    return re.sub(r"\*\*([^*]+)\*\*", r"\1", re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", s))
+
+
+def url(path):
+    return f"{DOMAIN}/{path}" if path else DOMAIN + "/"
+
+
+def blocks(items, indent="        "):
+    out = []
+    for kind, val in items:
+        if kind in ("h2", "h3"):
+            out.append(f"{indent}<{kind}>{t(val)}</{kind}>")
+        elif kind == "p":
+            out.append(f"{indent}<p>{t(val)}</p>")
+        elif kind in ("ul", "ol"):
+            li = "".join(f"<li>{t(x)}</li>" for x in val)
+            out.append(f'{indent}<{kind} class="list">{li}</{kind}>')
+        elif kind == "note":
+            out.append(f'{indent}<p class="note">{t(val)}</p>')
+        elif kind == "todo":
+            out.append(f"{indent}<!-- TODO: {val} -->")
+        else:
+            raise ValueError(kind)
+    return "\n".join(out)
+
+
+def breadcrumb_ld(crumbs):
+    return {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i, "name": n, "item": url(p.lstrip("/")) if not p.startswith("http") else p}
+        for i, (n, p) in enumerate(crumbs, 1)]}
+
+
+def faq_ld(faq):
+    return {"@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": plain(a)}} for q, a in faq]}
+
+
+def header(current):
+    links = "\n".join(
+        f'      <a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{n}</a>' for n, h in NAV)
+    return f'''<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="{BRAND}, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+{links}
+      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
+    </nav>
+  </div>
+</header>'''
+
+
+def footer():
+    col = lambda title, items: (f'      <nav aria-label="{title}"><h2>{title}</h2><ul>'
+                                + "".join(f'<li><a href="{h}">{e(n)}</a></li>' for n, h in items) + "</ul></nav>")
+    return f'''<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
+      <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+    </div>
+{col("Themen", [(p["nav"], "/" + p["slug"]) for p in landing.PAGES] + [("ISMS-Suite", "/#software"), ("Cyber-Check", "/#check")])}
+{col("Leistungen", [(p["nav"], "/" + p["slug"]) for p in leistungen.PAGES])}
+{col("Ratgeber", [("Alle Artikel", "/ratgeber/")] + [(a["nav"], "/" + a["slug"]) for a in ratgeber.ARTICLES])}
+  </div>
+  <div class="wrap footer-base">
+    <span>© 2026 {BRAND} · Diese Seite setzt keine Tracking-Cookies.</span>
+    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+  </div>
+</footer>'''
+
+
+def document(p, ld, main, og_type="website"):
+    path = p["slug"]
     return f'''<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>{e(s["title"])} in München | {BRAND}</title>
-  <meta name="description" content="{html.escape(s["desc"])}">
+  <title>{e(p["title"])}</title>
+  <meta name="description" content="{html.escape(p["desc"])}">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#081326">
   <!-- Ersatz-CSP für Hosts ohne eigene Header; diese Seite braucht kein JavaScript. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
-  <link rel="canonical" href="{url}">
+  <link rel="canonical" href="{url(path)}">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/site.css">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{og_type}">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="{BRAND}">
-  <meta property="og:title" content="{e(s["title"])} | {BRAND}">
-  <meta property="og:description" content="{html.escape(s["lead"])}">
-  <meta property="og:url" content="{url}">
+  <meta property="og:title" content="{html.escape(p["title"])}">
+  <meta property="og:description" content="{html.escape(p["desc"])}">
+  <meta property="og:url" content="{url(path)}">
   <meta property="og:image" content="{DOMAIN}/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="CyberSecCheck: Informationssicherheit für den Mittelstand">
   <script type="application/ld+json">
-{json.dumps(ld, ensure_ascii=False, indent=2)}
+{json.dumps({"@context": "https://schema.org", "@graph": ld}, ensure_ascii=False, indent=2)}
   </script>
 </head>
 <body>
@@ -165,100 +139,247 @@ def page(i, s):
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="/" aria-label="{BRAND}, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
-    <nav class="nav" aria-label="Hauptnavigation">
-      <a href="/#leistungen">Leistungen</a>
-      <a href="/#software">ISMS-Suite</a>
-      <a href="/#faq">Fragen</a>
-      <a href="/#kontakt">Kontakt</a>
-      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
-    </nav>
-  </div>
-</header>
+{header(p.get("nav_current", ""))}
 
 <main id="inhalt">
-  <section class="sub-hero" aria-labelledby="page-title">
+{main}
+</main>
+
+{footer()}
+</body>
+</html>
+'''
+
+
+def crumbs_html(crumbs):
+    parts = [f'<a href="{h}">{e(n)}</a>' for n, h in crumbs[:-1]] + [f'<span aria-current="page">{e(crumbs[-1][0])}</span>']
+    return '<nav class="crumbs" aria-label="Brotkrumen">' + '<span aria-hidden="true">/</span>'.join(parts) + "</nav>"
+
+
+def hero(p, meta=""):
+    return f'''  <section class="sub-hero" aria-labelledby="page-title">
     <div class="wrap">
-      <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/#leistungen">Leistungen</a><span aria-hidden="true">/</span><span aria-current="page">{e(s["title"])}</span></nav>
-      <span class="eyebrow">Leistung {i:02d}</span>
-      <h1 id="page-title">{e(s["title"])}</h1>
-      <p class="hero-sub">{e(s["lead"])}</p>
+      {crumbs_html(p["crumbs"])}
+      <span class="eyebrow">{e(p["eyebrow"])}</span>
+      <h1 id="page-title">{e(p["h1"])}</h1>
+      <p class="hero-sub">{t(p["lead"])}</p>{meta}
       <div class="actions">
-        <a class="btn" href="/#kontakt">Erstgespräch anfragen {ARROW}</a>
-        <a class="btn btn-line" href="/#check">Kostenloser Cyber-Check</a>
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch {ARROW}</a>
+        <a class="btn btn-line" href="/#check">Cyber-Check in 5 Minuten</a>
       </div>
     </div>
-  </section>
+  </section>'''
+
+
+def related(items, title="Passt dazu"):
+    li = "\n".join(f'        <li><a href="{h}"><span><strong>{e(n)}</strong><small>{e(d)}</small></span>{ARROW}</a></li>'
+                   for n, h, d in items)
+    return f'''  <section class="section mist" aria-labelledby="rel-title">
+    <div class="wrap">
+      <div class="head"><h2 id="rel-title">{title}</h2></div>
+      <ul class="more-services rel">
+{li}
+      </ul>
+    </div>
+  </section>'''
+
+
+def cta():
+    return f'''  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video. Die <a href="/#software">ISMS-Suite</a> können Sie schon vorher kostenlos ausprobieren.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen {ARROW}</a>
+        <a class="btn btn-outline" href="/#check">Cyber-Check starten</a>
+      </div>
+    </div>
+  </section>'''
+
+
+def faq_html(faq):
+    return f'''  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="head head-c"><h2 id="faq-title">Häufige Fragen</h2></div>
+      <div class="faq">
+{chr(10).join(f"        <details><summary>{e(q)}</summary><div><p>{t(a)}</p></div></details>" for q, a in faq)}
+      </div>
+    </div>
+  </section>'''
+
+
+def offer_page(p):
+    """Landingpages und Leistungsseiten: gleicher Aufbau, eigener Inhalt."""
+    ld = [{"@type": "Service", "name": p["service"], "serviceType": p["service"], "description": plain(p["lead"]),
+           "url": url(p["slug"]), "provider": {"@id": DOMAIN + "/#business"},
+           "areaServed": [{"@type": "City", "name": "München"}, {"@type": "State", "name": "Bayern"},
+                          {"@type": "Country", "name": "Deutschland"}]},
+          {"@type": "ProfessionalService", "@id": DOMAIN + "/#business", "name": BRAND, "url": DOMAIN + "/"},
+          breadcrumb_ld(p["crumbs"]), faq_ld(p["faq"])]
+    steps = "\n".join(f"        <li><h3>{e(a)}</h3><p>{t(b)}</p></li>" for a, b in p["steps"])
+    main = f'''{hero(p)}
 
   <section class="section" aria-labelledby="about-title">
     <div class="wrap sub-grid">
       <div class="prose">
-        <h2 id="about-title">Worum es geht</h2>
-{chr(10).join(f"        <p>{e(p)}</p>" for p in s["about"])}
+{blocks(p["body"])}
       </div>
       <aside class="deliver" aria-labelledby="get-title">
         <h2 id="get-title">Was Sie bekommen</h2>
         <ul class="checks">
-{chr(10).join(f"          <li>{e(g)}</li>" for g in s["get"])}
+{chr(10).join(f"          <li>{t(g)}</li>" for g in p["get"])}
         </ul>
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen {ARROW}</a>
       </aside>
     </div>
   </section>
 
   <section class="section mist" aria-labelledby="steps-title">
     <div class="wrap">
-      <div class="head"><h2 id="steps-title">So läuft es ab</h2></div>
-      <ol class="process">
-{chr(10).join(f"        <li><h3>{e(t)}</h3><p>{e(p)}</p></li>" for t, p in s["steps"])}
+      <div class="head"><h2 id="steps-title">{e(p.get("steps_title", "So läuft es ab"))}</h2></div>
+      <ol class="process{" process-" + str(len(p["steps"])) if len(p["steps"]) != 4 else ""}">
+{steps}
       </ol>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="faq-title">
+  <section class="section" aria-labelledby="local-title">
     <div class="wrap">
-      <div class="head head-c"><h2 id="faq-title">Häufige Fragen</h2></div>
-      <div class="faq">
-{chr(10).join(f"        <details><summary>{e(q)}</summary><div><p>{e(a)}</p></div></details>" for q, a in s["faq"])}
+      <div class="prose local">
+        <h2 id="local-title">{e(p["local"][0])}</h2>
+{blocks([("p", x) for x in p["local"][1:]])}
       </div>
     </div>
   </section>
 
-  <section class="section mist" aria-labelledby="more-title">
+{faq_html(p["faq"])}
+
+{related(p["related"])}
+
+{cta()}'''
+    return document(p, ld, main)
+
+
+def de_date(iso):
+    y, m, d = iso.split("-")
+    months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+    return f"{int(d)}. {months[int(m) - 1]} {y}"
+
+
+def author_box():
+    return f'''      <aside class="author-box" aria-label="Über den Autor">
+        <span class="author-mark" aria-hidden="true">CSC</span>
+        <div>
+          <strong>{AUTHOR}</strong>
+          <p>{CREDS}. Beratung zu Informationssicherheit, ISO 27001 und NIS2 für kleine und mittlere Unternehmen, vor Ort in München und Umgebung, bundesweit per Video.</p>
+        </div>
+      </aside>'''
+
+
+def article_page(a):
+    a = dict(a, eyebrow="Ratgeber", nav_current="/ratgeber/",
+             crumbs=[("Startseite", "/"), ("Ratgeber", "/ratgeber/"), (a["nav"], "/" + a["slug"])])
+    ld = [{"@type": "Article", "headline": a["h1"], "description": a["desc"], "url": url(a["slug"]),
+           "mainEntityOfPage": url(a["slug"]), "datePublished": a["date"], "dateModified": a.get("updated", a["date"]),
+           "inLanguage": "de-DE", "image": DOMAIN + "/assets/img/og-image.jpg",
+           "author": {"@type": "Organization", "name": AUTHOR, "url": DOMAIN + "/", "description": CREDS},
+           "publisher": {"@type": "Organization", "name": BRAND, "url": DOMAIN + "/",
+                         "logo": {"@type": "ImageObject", "url": DOMAIN + "/assets/img/logo.svg"}}},
+          breadcrumb_ld(a["crumbs"])]
+    if a.get("faq"):
+        ld.append(faq_ld(a["faq"]))
+    meta = f'\n      <p class="article-meta">Stand: <time datetime="{a.get("updated", a["date"])}">{de_date(a.get("updated", a["date"]))}</time> · {AUTHOR}</p>'
+    keys = "".join(f"<li>{t(k)}</li>" for k in a["key"])
+    sources = "".join(f'<li><a href="{h}" rel="noopener">{e(n)}</a></li>' for n, h in a["sources"])
+    faq = ""
+    if a.get("faq"):
+        faq = "\n        <h2>Häufige Fragen</h2>\n" + "\n".join(
+            f"        <details><summary>{e(q)}</summary><div><p>{t(ans)}</p></div></details>" for q, ans in a["faq"])
+        faq = f'\n        <div class="faq faq-inline">{faq}\n        </div>'
+    main = f'''{hero(a, meta)}
+
+  <section class="section article-section">
     <div class="wrap">
-      <div class="head"><h2 id="more-title">Weitere Leistungen</h2></div>
-      <ul class="more-services">
-{others}
+      <article class="prose article">
+        <div class="keypoints"><h2>Auf einen Blick</h2><ul class="checks">{keys}</ul></div>
+{blocks(a["body"])}{faq}
+        <div class="sources"><h2>Quellen</h2><ul>{sources}</ul>
+          <p>Dieser Artikel ist eine allgemeine Information und keine Rechtsberatung. Maßgeblich ist der jeweils aktuelle Gesetzes- und Normtext.</p>
+        </div>
+      </article>
+{author_box()}
+    </div>
+  </section>
+
+{related(a["related"], "Weiterlesen")}
+
+{cta()}'''
+    return document(a, ld, main, og_type="article")
+
+
+def ratgeber_index():
+    p = dict(ratgeber.INDEX, slug="ratgeber/", nav_current="/ratgeber/",
+             crumbs=[("Startseite", "/"), ("Ratgeber", "/ratgeber/")])
+    cards = "\n".join(f'''        <li><a href="/{a["slug"]}">
+          <span class="eyebrow">{e(a["topic"])}</span>
+          <h2>{e(a["h1"])}</h2>
+          <p>{e(a["desc"])}</p>
+          <span class="more">Artikel lesen {ARROW}</span>
+        </a></li>''' for a in ratgeber.ARTICLES)
+    ld = [{"@type": "CollectionPage", "name": p["h1"].replace("\u00ad", ""), "description": p["desc"], "url": url("ratgeber/"),
+           "hasPart": [{"@type": "Article", "headline": a["h1"], "url": url(a["slug"])} for a in ratgeber.ARTICLES]},
+          breadcrumb_ld(p["crumbs"])]
+    main = f'''{hero(p)}
+
+  <section class="section">
+    <div class="wrap">
+      <ul class="article-list">
+{cards}
       </ul>
     </div>
   </section>
 
-  <section class="cta-band" aria-labelledby="cta-title">
-    <div class="wrap">
-      <div>
-        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
-        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video.</p>
-      </div>
-      <a class="btn" href="/#kontakt">Erstgespräch anfragen {ARROW}</a>
-    </div>
-  </section>
-</main>
+{cta()}'''
+    return document(p, ld, main)
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 {BRAND} · Diese Seite setzt keine Tracking-Cookies.</span>
-    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
-  </div>
-</footer>
-</body>
-</html>
+
+def write(path, text):
+    full = os.path.join(ROOT, path)
+    os.makedirs(os.path.dirname(full), exist_ok=True)
+    with open(full, "w", encoding="utf-8") as f:
+        f.write(text)
+
+
+def inject_footer(path):
+    """Startseite und Rechtstexte sind handgeschrieben; Navigation und Fuß kommen von hier."""
+    full = os.path.join(ROOT, path)
+    s = open(full, encoding="utf-8").read()
+    s2 = re.sub(r"<footer>.*?</footer>", lambda m: footer(), s, count=1, flags=re.S)
+    nav = re.search(r'    <nav class="nav".*?</nav>', header(""), re.S).group(0)
+    s2 = re.sub(r'    <nav class="nav".*?</nav>', lambda m: nav, s2, count=1, flags=re.S)
+    if s2 != s:
+        write(path, s2)
+
+
+def sitemap(paths):
+    rows = "\n".join(f"  <url><loc>{url(p)}</loc><lastmod>{TODAY}</lastmod></url>" for p in paths)
+    return f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{rows}
+</urlset>
 '''
 
-ORDER = ['isms-zertifizierung', 'externer-ciso', 'sicherheitsanalysen', 'notfallmanagement', 'security-awareness']
-S.sort(key=lambda s: ORDER.index(s["slug"]))
-os.makedirs(os.path.join(ROOT, "leistungen"), exist_ok=True)
-for i, s in enumerate(S, 1):
-    with open(os.path.join(ROOT, "leistungen", s["slug"] + ".html"), "w", encoding="utf-8") as f:
-        f.write(page(i, s))
-print("\n".join(s["slug"] for s in S))
+
+if __name__ == "__main__":
+    built = []
+    for p in landing.PAGES + leistungen.PAGES:
+        write(p["slug"] + ".html", offer_page(p)); built.append(p["slug"])
+    write("ratgeber/index.html", ratgeber_index()); built.append("ratgeber/")
+    for a in ratgeber.ARTICLES:
+        write(a["slug"] + ".html", article_page(a)); built.append(a["slug"])
+    for page in ("index.html", "impressum.html", "datenschutz.html"):
+        inject_footer(page)
+    write("sitemap.xml", sitemap([""] + built + ["impressum", "datenschutz"]))
+    print("\n".join(built))
