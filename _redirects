@@ -1,0 +1,3 @@
+# Cloudflare Pages: alte Adressen dauerhaft auf die neuen umleiten.
+/leistungen/isms-zertifizierung       /leistungen/isms-einfuehrung  301
+/leistungen/isms-zertifizierung.html  /leistungen/isms-einfuehrung  301
