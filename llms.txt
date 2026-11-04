@@ -8,9 +8,12 @@
 
 - Cyber-Check online: 27 Fragen in sechs Themenfeldern (Organisation, Zugänge, Datensicherung, Updates, Schutz vor Schadsoftware, Systeme und Netzwerke), angelehnt an ein Prüfverfahren für kleine Unternehmen, das unter Federführung des BSI entstanden ist. Rund fünf Minuten, Auswertung sofort im Browser, kostenlos.
 - Erstgespräch: 30 Minuten, kostenlos.
-- ISMS und Zertifizierung: ISO/IEC 27001:2022 oder BSI IT-Grundschutz, interne Audits, Vorbereitung auf das Zertifizierungsaudit; bei NIS2-Betroffenheit auch BSI-Registrierung und Meldeprozess.
+- ISO 27001 Beratung: Gap-Check, Aufbau nach ISO/IEC 27001:2022, interne Audits, Vorbereitung und Begleitung des Zertifizierungsaudits.
+- NIS2 Beratung: Betroffenheitsprüfung, Registrierung beim BSI, Maßnahmen nach § 30 BSIG, Meldeprozess nach § 32 BSIG, Pflichten der Geschäftsleitung nach § 38 BSIG.
+- ISMS-Einführung: Managementsystem nach ISO/IEC 27001 oder BSI IT-Grundschutz, mit oder ohne Zertifikat.
 - Externer CISO und ISB: Leitung der Informationssicherheit als externer CISO oder Informationssicherheitsbeauftragter (ISB), auf Zeit oder dauerhaft, auf Wunsch mit Begleitung von SIEM und SOC.
-- Sicherheitsanalysen: Risikoanalysen, Gap-Analysen, Schwachstellenmanagement, Maßnahmenliste nach Dringlichkeit; für Klein- und Kleinstunternehmen nach DIN SPEC 27076.
+- Sicherheitsanalysen: Risikoanalysen, Gap-Analysen, Schwachstellenmanagement, Maßnahmenliste nach Dringlichkeit.
+- CyberRisikoCheck nach DIN SPEC 27076: kompakter Sicherheitscheck für kleine und Kleinstunternehmen.
 - Notfall- und Krisenmanagement: Business-Impact-Analyse, Notfallpläne, Wiederanlauf nach einem Angriff, Notfallübungen.
 - Security Awareness: Awareness-Programm mit Online-Schulungen und Phishing-Simulationen samt Auswertung; deckt auch die Schulung der Geschäftsleitung nach NIS2 ab.
 - Preise: Beratung auf Anfrage mit individuellem Angebot, externer CISO oder Informationssicherheitsbeauftragter zum monatlichen Festpreis.
@@ -27,11 +30,25 @@
 
 ## Links
 
-- [ISMS und Zertifizierung](https://cyber-sec-check.de/leistungen/isms-zertifizierung)
+- [ISO 27001 Beratung München](https://cyber-sec-check.de/iso-27001-beratung-muenchen)
+- [NIS2 Beratung München](https://cyber-sec-check.de/nis2-beratung-muenchen)
+- [ISMS-Einführung](https://cyber-sec-check.de/leistungen/isms-einfuehrung)
 - [Externer CISO und ISB](https://cyber-sec-check.de/leistungen/externer-ciso)
 - [Sicherheitsanalysen](https://cyber-sec-check.de/leistungen/sicherheitsanalysen)
+- [CyberRisikoCheck nach DIN SPEC 27076](https://cyber-sec-check.de/leistungen/din-spec-27076)
 - [Notfall- und Krisenmanagement](https://cyber-sec-check.de/leistungen/notfallmanagement)
 - [Security Awareness](https://cyber-sec-check.de/leistungen/security-awareness)
+
+## Ratgeber
+
+- [Übersicht](https://cyber-sec-check.de/ratgeber/)
+- [NIS2: Ist mein Unternehmen betroffen?](https://cyber-sec-check.de/ratgeber/nis2-betroffenheit)
+- [ISO-27001-Zertifizierung: Ablauf und Dauer für KMU](https://cyber-sec-check.de/ratgeber/iso-27001-zertifizierung-ablauf)
+- [ISO 27001 oder BSI IT-Grundschutz: Was passt zu wem?](https://cyber-sec-check.de/ratgeber/iso-27001-oder-it-grundschutz)
+- [ISMS einführen in 6 Schritten](https://cyber-sec-check.de/ratgeber/isms-einfuehren-6-schritte)
+- [NIS2-Meldepflichten: Was im Ernstfall wann ans BSI muss](https://cyber-sec-check.de/ratgeber/nis2-meldepflichten)
+
+## Weitere Seiten
 
 - [Startseite mit Check](https://cyber-sec-check.de/)
 - [Kostenlose Software](https://cyber-sec-check.de/#software)
