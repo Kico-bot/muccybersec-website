@@ -27,11 +27,11 @@
 
 ## Links
 
-- [ISMS und Zertifizierung](https://cyber-sec-check.de/leistungen/isms-zertifizierung.html)
-- [Externer CISO und ISB](https://cyber-sec-check.de/leistungen/externer-ciso.html)
-- [Sicherheitsanalysen](https://cyber-sec-check.de/leistungen/sicherheitsanalysen.html)
-- [Notfall- und Krisenmanagement](https://cyber-sec-check.de/leistungen/notfallmanagement.html)
-- [Security Awareness](https://cyber-sec-check.de/leistungen/security-awareness.html)
+- [ISMS und Zertifizierung](https://cyber-sec-check.de/leistungen/isms-zertifizierung)
+- [Externer CISO und ISB](https://cyber-sec-check.de/leistungen/externer-ciso)
+- [Sicherheitsanalysen](https://cyber-sec-check.de/leistungen/sicherheitsanalysen)
+- [Notfall- und Krisenmanagement](https://cyber-sec-check.de/leistungen/notfallmanagement)
+- [Security Awareness](https://cyber-sec-check.de/leistungen/security-awareness)
 
 - [Startseite mit Check](https://cyber-sec-check.de/)
 - [Kostenlose Software](https://cyber-sec-check.de/#software)

@@ -5,7 +5,7 @@ Cyber-Check und der kostenlosen ISMS-Suite (https://github.com/Kico-bot/ISMS_Saa
 
 ```
 index.html              Seite mit Meta-Tags, Open Graph, JSON-LD (ProfessionalService, SoftwareApplication, FAQPage)
-leistungen/*.html       eine Unterseite je Leistung (ohne JavaScript)
+leistungen/*.html       eine Unterseite je Leistung (ohne JavaScript), erzeugt von tools/build.py
 impressum.html          Pflichtangaben nach § 5 DDG
 datenschutz.html        Datenschutzerklärung, beschreibt was die Seite technisch tut
 assets/css/site.css   einziges Stylesheet (keine Inline-Styles, wegen CSP)
@@ -19,9 +19,16 @@ assets/video/           Erklärvideo zur ISMS-Suite (MP4, 720p), Vorschaubild in
 assets/fonts/           Manrope, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
 robots.txt, sitemap.xml, llms.txt   SEO und KI-Crawler
+tools/build.py          erzeugt die Unterseiten mit gemeinsamem Kopf, Fuß und JSON-LD
+tools/serve.py          lokaler Server, löst Adressen ohne .html auf wie Cloudflare Pages
+tools/check_links.py    prüft interne Links, Anker und JSON-LD
 ```
 
-Lokal ansehen: `python3 -m http.server 8080` im Hauptordner, dann <http://localhost:8080>.
+Lokal ansehen: `python3 tools/serve.py`, dann <http://localhost:8000>.
+Nach Änderungen an Unterseiten: `python3 tools/build.py` und `python3 tools/check_links.py`.
+
+Adressen: Cloudflare Pages liefert `impressum.html` unter `/impressum` aus und leitet die
+`.html`-Adresse dorthin um. Links, Canonicals und Sitemap nutzen deshalb die Adresse ohne Endung.
 Über `file://` laden Browser keine ES-Module.
 
 ## Vor dem Livegang
