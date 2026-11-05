@@ -65,7 +65,8 @@ ISO = dict(
              ("NIS2 Beratung München", "/nis2-beratung-muenchen", "Wenn neben dem Zertifikat auch NIS2 gilt"),
              ("Externer CISO und ISB", "/leistungen/externer-ciso", "Jemand, der das ISMS nach dem Audit weiterführt"),
              ("Ratgeber: Ablauf und Dauer der Zertifizierung", "/ratgeber/iso-27001-zertifizierung-ablauf", "Stufe 1, Stufe 2, Überwachungsaudits"),
-             ("Ratgeber: ISO 27001 oder IT-Grundschutz", "/ratgeber/iso-27001-oder-it-grundschutz", "Welcher Weg zu welchem Unternehmen passt")],
+             ("Ratgeber: ISO 27001 oder IT-Grundschutz", "/ratgeber/iso-27001-oder-it-grundschutz", "Welcher Weg zu welchem Unternehmen passt"),
+             ("Ratgeber: Erklärung zur Anwendbarkeit", "/ratgeber/erklaerung-zur-anwendbarkeit-soa", "Das zentrale Dokument im Audit")],
 )
 
 NIS2 = dict(
@@ -135,7 +136,8 @@ NIS2 = dict(
              ("Notfall- und Krisenmanagement", "/leistungen/notfallmanagement", "Notfallplan und Meldewege für den Ernstfall"),
              ("Security Awareness", "/leistungen/security-awareness", "Schulungen für Mitarbeitende und Geschäftsleitung"),
              ("Ratgeber: NIS2, bin ich betroffen?", "/ratgeber/nis2-betroffenheit", "Sektoren, Schwellenwerte, Lieferanten"),
-             ("Ratgeber: NIS2-Meldepflichten", "/ratgeber/nis2-meldepflichten", "Was wann ans BSI muss")],
+             ("Ratgeber: NIS2-Meldepflichten", "/ratgeber/nis2-meldepflichten", "Was wann ans BSI muss"),
+             ("Ratgeber: NIS2 für Geschäftsführer", "/ratgeber/nis2-geschaeftsfuehrung-pflichten", "Pflichten und Haftung der Leitung")],
 )
 
 PAGES = [ISO, NIS2]

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Risikoanalyse für KMU: eine einfache Methode | CyberSecCheck</title>
+  <meta name="description" content="Eine Risikoanalyse, die auch kleine Unternehmen durchhalten: Kriterien, Gefährdungen, Bewertung und Behandlung nach ISO 27001.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#081326">
+  <!-- Ersatz-CSP für Hosts ohne eigene Header; diese Seite braucht kein JavaScript. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="https://cyber-sec-check.de/ratgeber/risikoanalyse-kmu">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="CyberSecCheck">
+  <meta property="og:title" content="Risikoanalyse für KMU: eine einfache Methode | CyberSecCheck">
+  <meta property="og:description" content="Eine Risikoanalyse, die auch kleine Unternehmen durchhalten: Kriterien, Gefährdungen, Bewertung und Behandlung nach ISO 27001.">
+  <meta property="og:url" content="https://cyber-sec-check.de/ratgeber/risikoanalyse-kmu">
+  <meta property="og:image" content="https://cyber-sec-check.de/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="CyberSecCheck: Informationssicherheit für den Mittelstand">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Risikoanalyse für KMU: eine einfache Methode",
+      "description": "Eine Risikoanalyse, die auch kleine Unternehmen durchhalten: Kriterien, Gefährdungen, Bewertung und Behandlung nach ISO 27001.",
+      "url": "https://cyber-sec-check.de/ratgeber/risikoanalyse-kmu",
+      "mainEntityOfPage": "https://cyber-sec-check.de/ratgeber/risikoanalyse-kmu",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "inLanguage": "de-DE",
+      "image": "https://cyber-sec-check.de/assets/img/og-image.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Cyber Security Check",
+        "url": "https://cyber-sec-check.de/",
+        "description": "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberSecCheck",
+        "url": "https://cyber-sec-check.de/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cyber-sec-check.de/assets/img/logo.svg"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://cyber-sec-check.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ratgeber",
+          "item": "https://cyber-sec-check.de/ratgeber/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Risikoanalyse für KMU",
+          "item": "https://cyber-sec-check.de/ratgeber/risikoanalyse-kmu"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert eine erste Risikoanalyse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für ein kleines Unternehmen reichen oft zwei bis drei Workshops von je einigen Stunden, wenn die Kriterien vorher feststehen und die Teilnehmer gut vorbereitet sind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Brauche ich dafür eine spezielle Software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Eine Tabelle genügt für den Anfang. Eine Software hilft, sobald Maßnahmen, Fristen und Nachweise dazukommen."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="CyberSecCheck, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/iso-27001-beratung-muenchen">ISO 27001</a>
+      <a href="/nis2-beratung-muenchen">NIS2</a>
+      <a href="/ratgeber/" aria-current="page">Ratgeber</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="sub-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/ratgeber/">Ratgeber</a><span aria-hidden="true">/</span><span aria-current="page">Risikoanalyse für KMU</span></nav>
+      <span class="eyebrow">Ratgeber</span>
+      <h1 id="page-title">Risikoanalyse für KMU: eine einfache Methode</h1>
+      <p class="hero-sub">Die Risikoanalyse ist das Herzstück jedes ISMS, und zugleich der Teil, an dem viele Projekte ins Stocken geraten. Mit einer einfachen, konsistenten Methode schaffen auch kleine Unternehmen eine Analyse, die im Audit besteht und im Alltag weitergeführt wird.</p>
+      <p class="article-meta">Stand: <time datetime="2026-11-05">5. November 2026</time> · Cyber Security Check</p>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="/#check">Cyber-Check in 5 Minuten</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="wrap">
+      <article class="prose article">
+        <div class="keypoints"><h2>Auf einen Blick</h2><ul class="checks"><li>Legen Sie zuerst die Kriterien fest: wie Sie bewerten und ab wann ein Risiko akzeptabel ist.</li><li>Gehen Sie von Ihren Geschäftsprozessen aus, nicht von einer Liste aller IT-Systeme.</li><li>Eine Skala mit vier oder fünf Stufen für Wahrscheinlichkeit und Schaden reicht.</li><li>Jedes Risiko braucht einen Eigentümer und eine Entscheidung.</li></ul></div>
+        <h2>Was ISO 27001 verlangt</h2>
+        <p>ISO 27001 verlangt in Abschnitt 6.1.2 einen Prozess zur Risikobeurteilung. Er muss Kriterien für die Beurteilung und für die Akzeptanz von Risiken festlegen, zu konsistenten und vergleichbaren Ergebnissen führen, Risiken für Vertraulichkeit, Integrität und Verfügbarkeit identifizieren, ihnen Eigentümer zuordnen, Folgen und Wahrscheinlichkeit abschätzen und die Risiken anhand der Kriterien bewerten und priorisieren. Eine bestimmte Methode schreibt die Norm nicht vor.</p>
+        <p>Ausführliche Anleitungen gibt es in ISO/IEC 27005 und im BSI-Standard 200-3. Für kleine und mittlere Unternehmen reicht meist eine vereinfachte Fassung, solange sie konsequent angewendet wird.</p>
+        <h2>Schritt 1: Kriterien festlegen</h2>
+        <p>Bevor Sie das erste Risiko bewerten, legen Sie fest, wie bewertet wird. Der BSI-Standard 200-3 arbeitet zum Beispiel mit vier Stufen für die Eintrittshäufigkeit (selten, mittel, häufig, sehr häufig) und vier Stufen für die Schadenshöhe (vernachlässigbar, begrenzt, beträchtlich, existenzbedrohend). Beschreiben Sie jede Stufe so, dass verschiedene Personen zum gleichen Ergebnis kommen. Bei der Schadenshöhe helfen Beispiele: Was bedeutet „beträchtlich“ für Ihr Unternehmen, in Ausfalltagen, in Euro, in verlorenen Kunden?</p>
+        <p>Legen Sie außerdem fest, ab welcher Stufe ein Risiko behandelt werden muss und wer ein Risiko akzeptieren darf. Risiken bewusst zu tragen ist erlaubt, sollte aber eine Entscheidung der Geschäftsführung sein, nicht der Person, die das Risiko verantwortet.</p>
+        <h2>Schritt 2: Geschäftsprozesse und Werte erfassen</h2>
+        <p>Starten Sie mit Ihren wichtigsten Geschäftsprozessen, etwa Auftragsannahme, Produktion, Auslieferung, Buchhaltung und Personalverwaltung. Fragen Sie für jeden Prozess: Welche Informationen werden verarbeitet? Welche Systeme, Räume, Dienstleister und Personen werden gebraucht? Daraus entsteht eine überschaubare Liste von Werten, die geschützt werden müssen.</p>
+        <h2>Schritt 3: Gefährdungen ermitteln</h2>
+        <p>Für jeden wichtigen Wert überlegen Sie, was passieren könnte. Eine gute Hilfe sind die 47 elementaren Gefährdungen aus dem IT-Grundschutz-Kompendium, von Feuer und Stromausfall über Schadprogramme bis zu Fehlbedienung und Identitätsdiebstahl. Gehen Sie die Liste durch und streichen Sie, was nicht passt. Ergänzen Sie, was für Ihr Unternehmen besonders ist.</p>
+        <h2>Schritt 4: Risiken einschätzen und bewerten</h2>
+        <p>Schätzen Sie für jede relevante Gefährdung ein, wie häufig sie eintreten kann und wie groß der Schaden wäre. Berücksichtigen Sie dabei die Maßnahmen, die schon wirken. Aus beiden Werten ergibt sich das Risiko, am einfachsten in einer Matrix. Vergleichen Sie das Ergebnis mit Ihren Kriterien: Welche Risiken sind akzeptabel, welche müssen behandelt werden, welche zuerst?</p>
+        <p>Ein praktischer Tipp: Bewerten Sie in einer kleinen Runde mit Geschäftsführung, IT und den Verantwortlichen der Prozesse. Diskussionen über die Einstufung sind wertvoll, weil sie unterschiedliche Sichtweisen sichtbar machen.</p>
+        <h2>Schritt 5: Risiken behandeln</h2>
+        <p>Für jedes Risiko, das behandelt werden muss, gibt es vier Möglichkeiten: das Risiko durch Maßnahmen verringern, die riskante Tätigkeit vermeiden, das Risiko übertragen, etwa auf eine Versicherung oder einen Dienstleister, oder das Risiko bewusst tragen. Die gewählten Maßnahmen gleichen Sie mit Anhang A der ISO 27001 ab und halten das Ergebnis in der <a href="/ratgeber/erklaerung-zur-anwendbarkeit-soa">Erklärung zur Anwendbarkeit</a> fest.</p>
+        <p>ISO 27001 verlangt außerdem einen Risikobehandlungsplan, den die Risikoeigentümer genehmigen, und ihre Zustimmung zu den verbleibenden Restrisiken. In der Praxis genügt eine Liste der Maßnahmen mit Verantwortlichen und Terminen, die in einer Sitzung freigegeben und protokolliert wird.</p>
+        <h2>Schritt 6: Regelmäßig wiederholen</h2>
+        <p>Die Risikobeurteilung muss in geplanten Abständen wiederholt werden und immer dann, wenn sich etwas Wesentliches ändert: ein neues System, ein neuer Dienstleister, ein neuer Standort, ein Vorfall. Halten Sie fest, wann zuletzt bewertet wurde. Eine Software wie die <a href="/#software">ISMS-Suite</a> erinnert an fällige Überprüfungen und zeigt, wie sich ein Risiko durch Maßnahmen verändert hat.</p>
+        <h2>Häufige Fehler</h2>
+        <ul class="list"><li><strong>Zu feine Skalen:</strong> Zehn Stufen täuschen eine Genauigkeit vor, die es nicht gibt.</li><li><strong>Zu viele Werte:</strong> Wer jeden Laptop einzeln bewertet, wird nie fertig. Fassen Sie gleichartige Werte zusammen.</li><li><strong>Kein Bezug zu Maßnahmen:</strong> Jede Maßnahme sollte sich auf ein Risiko oder eine Anforderung zurückführen lassen.</li><li><strong>Einmal und nie wieder:</strong> Eine Risikoanalyse von vor drei Jahren hilft heute wenig.</li></ul>
+        <h2>Ein Beispiel</h2>
+        <p>Ein Handelsunternehmen bewertet den Prozess Auftragsabwicklung. Er hängt am Warenwirtschaftssystem, an E-Mail und an einem Logistikdienstleister. Eine relevante Gefährdung ist Schadsoftware, konkret ein Ransomware-Angriff auf das Warenwirtschaftssystem. Die Eintrittshäufigkeit schätzt die Runde auf „mittel“, weil es Fernzugänge ohne Multi-Faktor-Authentifizierung gibt. Die Schadenshöhe auf „existenzbedrohend“, weil ohne das System keine Aufträge ausgeliefert werden und die Sicherung nur wöchentlich läuft.</p>
+        <p>Nach den Kriterien muss dieses Risiko behandelt werden. Die Maßnahmen: Multi-Faktor-Authentifizierung für alle Fernzugänge, tägliche Sicherung mit einer vom Netz getrennten Kopie, ein Notfallplan mit getesteter Wiederherstellung. Danach schätzt die Runde die Häufigkeit auf „selten“ und den Schaden auf „beträchtlich“. Das verbleibende Risiko liegt unter der Akzeptanzschwelle, die Geschäftsführung trägt es bewusst und hält das fest. So wird aus einer abstrakten Methode eine konkrete Entscheidung.</p>
+        <div class="faq faq-inline">
+        <h2>Häufige Fragen</h2>
+        <details><summary>Wie lange dauert eine erste Risikoanalyse?</summary><div><p>Für ein kleines Unternehmen reichen oft zwei bis drei Workshops von je einigen Stunden, wenn die Kriterien vorher feststehen und die Teilnehmer gut vorbereitet sind.</p></div></details>
+        <details><summary>Brauche ich dafür eine spezielle Software?</summary><div><p>Nein. Eine Tabelle genügt für den Anfang. Eine Software hilft, sobald Maßnahmen, Fristen und Nachweise dazukommen.</p></div></details>
+        </div>
+        <div class="sources"><h2>Quellen</h2><ul><li><a href="https://www.iso.org/standard/27001" rel="noopener">ISO/IEC 27001:2022, ISO</a></li><li><a href="https://www.iso.org/standard/80585.html" rel="noopener">ISO/IEC 27005:2022, ISO</a></li><li><a href="https://www.bsi.bund.de/dok/bsi-standard-200-3" rel="noopener">BSI-Standard 200-3: Risikoanalyse auf der Basis von IT-Grundschutz</a></li></ul>
+          <p>Dieser Artikel ist eine allgemeine Information und keine Rechtsberatung. Maßgeblich ist der jeweils aktuelle Gesetzes- und Normtext.</p>
+        </div>
+      </article>
+      <aside class="author-box" aria-label="Über den Autor">
+        <span class="author-mark" aria-hidden="true">CSC</span>
+        <div>
+          <strong>Cyber Security Check</strong>
+          <p>ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager. Beratung zu Informationssicherheit, ISO 27001 und NIS2 für kleine und mittlere Unternehmen, vor Ort in München und Umgebung, bundesweit per Video.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section mist" aria-labelledby="rel-title">
+    <div class="wrap">
+      <div class="head"><h2 id="rel-title">Weiterlesen</h2></div>
+      <ul class="more-services rel">
+        <li><a href="/leistungen/isms-einfuehrung"><span><strong>ISMS-Einführung</strong><small>Risikoanalyse als Teil des ISMS</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/leistungen/sicherheitsanalysen"><span><strong>Sicherheitsanalysen</strong><small>Risikoanalyse mit Begleitung</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/erklaerung-zur-anwendbarkeit-soa"><span><strong>Erklärung zur Anwendbarkeit</strong><small>Der nächste Schritt</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video. Die <a href="/#software">ISMS-Suite</a> können Sie schon vorher kostenlos ausprobieren.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="/#check">Cyber-Check starten</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
+      <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+    </div>
+      <nav aria-label="Themen"><h2>Themen</h2><ul><li><a href="/iso-27001-beratung-muenchen">ISO 27001 Beratung</a></li><li><a href="/nis2-beratung-muenchen">NIS2 Beratung</a></li><li><a href="/#software">ISMS-Suite</a></li><li><a href="/#check">Cyber-Check</a></li></ul></nav>
+      <nav aria-label="Leistungen"><h2>Leistungen</h2><ul><li><a href="/leistungen/isms-einfuehrung">ISMS-Einführung</a></li><li><a href="/leistungen/externer-ciso">Externer CISO und ISB</a></li><li><a href="/leistungen/sicherheitsanalysen">Sicherheitsanalysen</a></li><li><a href="/leistungen/din-spec-27076">CyberRisikoCheck (DIN SPEC 27076)</a></li><li><a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a></li><li><a href="/leistungen/security-awareness">Security Awareness</a></li></ul></nav>
+      <nav aria-label="Ratgeber"><h2>Ratgeber</h2><ul><li><a href="/ratgeber/">Alle Artikel</a></li><li><a href="/ratgeber/nis2-betroffenheit">NIS2: Bin ich betroffen?</a></li><li><a href="/ratgeber/nis2-meldepflichten">NIS2-Meldepflichten</a></li><li><a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO 27001: Ablauf und Dauer</a></li><li><a href="/ratgeber/isms-einfuehren-6-schritte">ISMS einführen in 6 Schritten</a></li></ul></nav>
+  </div>
+  <div class="wrap footer-base">
+    <span>© 2026 CyberSecCheck · Diese Seite setzt keine Tracking-Cookies.</span>
+    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -94,7 +94,7 @@ def footer():
     </div>
 {col("Themen", [(p["nav"], "/" + p["slug"]) for p in landing.PAGES] + [("ISMS-Suite", "/#software"), ("Cyber-Check", "/#check")])}
 {col("Leistungen", [(p["nav"], "/" + p["slug"]) for p in leistungen.PAGES])}
-{col("Ratgeber", [("Alle Artikel", "/ratgeber/")] + [(a["nav"], "/" + a["slug"]) for a in ratgeber.ARTICLES])}
+{col("Ratgeber", [("Alle Artikel", "/ratgeber/")] + [(a["nav"], "/" + a["slug"]) for a in ratgeber.FEATURED])}
   </div>
   <div class="wrap footer-base">
     <span>© 2026 {BRAND} · Diese Seite setzt keine Tracking-Cookies.</span>
@@ -281,7 +281,7 @@ def author_box():
 def article_page(a):
     a = dict(a, eyebrow="Ratgeber", nav_current="/ratgeber/",
              crumbs=[("Startseite", "/"), ("Ratgeber", "/ratgeber/"), (a["nav"], "/" + a["slug"])])
-    ld = [{"@type": "Article", "headline": a["h1"], "description": a["desc"], "url": url(a["slug"]),
+    ld = [{"@type": "Article", "headline": a["h1"].replace("\u00ad", ""), "description": a["desc"], "url": url(a["slug"]),
            "mainEntityOfPage": url(a["slug"]), "datePublished": a["date"], "dateModified": a.get("updated", a["date"]),
            "inLanguage": "de-DE", "image": DOMAIN + "/assets/img/og-image.jpg",
            "author": {"@type": "Organization", "name": AUTHOR, "url": DOMAIN + "/", "description": CREDS},
@@ -322,12 +322,22 @@ def article_page(a):
 def ratgeber_index():
     p = dict(ratgeber.INDEX, slug="ratgeber/", nav_current="/ratgeber/",
              crumbs=[("Startseite", "/"), ("Ratgeber", "/ratgeber/")])
-    cards = "\n".join(f'''        <li><a href="/{a["slug"]}">
+    def card(a):
+        return f'''        <li><a href="/{a["slug"]}">
           <span class="eyebrow">{e(a["topic"])}</span>
-          <h2>{e(a["h1"])}</h2>
+          <h3>{e(a["h1"])}</h3>
           <p>{e(a["desc"])}</p>
           <span class="more">Artikel lesen {ARROW}</span>
-        </a></li>''' for a in ratgeber.ARTICLES)
+        </a></li>'''
+    groups = []
+    for topic in ratgeber.TOPICS:
+        items = [a for a in ratgeber.ARTICLES if a["topic"] == topic]
+        if items:
+            groups.append(f'''      <h2 class="topic-head" id="{re.sub(r"[^a-z0-9]+", "-", topic.lower()).strip("-")}">{e(topic)}</h2>
+      <ul class="article-list">
+{chr(10).join(card(a) for a in items)}
+      </ul>''')
+    cards = "\n".join(groups)
     ld = [{"@type": "CollectionPage", "name": p["h1"].replace("\u00ad", ""), "description": p["desc"], "url": url("ratgeber/"),
            "hasPart": [{"@type": "Article", "headline": a["h1"], "url": url(a["slug"])} for a in ratgeber.ARTICLES]},
           breadcrumb_ld(p["crumbs"])]
@@ -335,9 +345,7 @@ def ratgeber_index():
 
   <section class="section">
     <div class="wrap">
-      <ul class="article-list">
 {cards}
-      </ul>
     </div>
   </section>
 

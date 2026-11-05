@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Internes Audit nach ISO 27001 durchführen | CyberSecCheck</title>
+  <meta name="description" content="Was ISO 27001 vom internen Audit verlangt, wie Sie Auditprogramm, Auditoren und Bericht aufsetzen und das Audit als Probelauf nutzen.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#081326">
+  <!-- Ersatz-CSP für Hosts ohne eigene Header; diese Seite braucht kein JavaScript. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="https://cyber-sec-check.de/ratgeber/internes-audit-iso-27001">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="CyberSecCheck">
+  <meta property="og:title" content="Internes Audit nach ISO 27001 durchführen | CyberSecCheck">
+  <meta property="og:description" content="Was ISO 27001 vom internen Audit verlangt, wie Sie Auditprogramm, Auditoren und Bericht aufsetzen und das Audit als Probelauf nutzen.">
+  <meta property="og:url" content="https://cyber-sec-check.de/ratgeber/internes-audit-iso-27001">
+  <meta property="og:image" content="https://cyber-sec-check.de/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="CyberSecCheck: Informationssicherheit für den Mittelstand">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Internes Audit nach ISO 27001 vorbereiten und durchführen",
+      "description": "Was ISO 27001 vom internen Audit verlangt, wie Sie Auditprogramm, Auditoren und Bericht aufsetzen und das Audit als Probelauf nutzen.",
+      "url": "https://cyber-sec-check.de/ratgeber/internes-audit-iso-27001",
+      "mainEntityOfPage": "https://cyber-sec-check.de/ratgeber/internes-audit-iso-27001",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "inLanguage": "de-DE",
+      "image": "https://cyber-sec-check.de/assets/img/og-image.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Cyber Security Check",
+        "url": "https://cyber-sec-check.de/",
+        "description": "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberSecCheck",
+        "url": "https://cyber-sec-check.de/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cyber-sec-check.de/assets/img/logo.svg"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://cyber-sec-check.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ratgeber",
+          "item": "https://cyber-sec-check.de/ratgeber/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Internes Audit nach ISO 27001",
+          "item": "https://cyber-sec-check.de/ratgeber/internes-audit-iso-27001"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert ein internes Audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für ein kleines Unternehmen reichen oft ein bis zwei Tage für Vorbereitung, Durchführung und Bericht. Größere Geltungsbereiche brauchen entsprechend mehr."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Muss jedes Jahr alles geprüft werden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Das Auditprogramm kann die Themen über mehrere Jahre verteilen, solange alles in angemessenen Abständen geprüft wird und wichtige Bereiche häufiger drankommen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Unterschied zwischen internem Audit und Managementbewertung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das interne Audit prüft, ob das ISMS die Anforderungen erfüllt und wirksam ist. Die Managementbewertung ist die Sitzung, in der die Leitung die Ergebnisse, darunter die des Audits, bewertet und über Änderungen entscheidet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dürfen wir eine Vorlage für die Checkliste verwenden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, als Ausgangspunkt. Passen Sie sie aber an Ihre eigenen Regeln und Prozesse an. Ein Audit, das nur die Norm abfragt, übersieht, ob Ihre eigenen Vorgaben eingehalten werden."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="CyberSecCheck, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/iso-27001-beratung-muenchen">ISO 27001</a>
+      <a href="/nis2-beratung-muenchen">NIS2</a>
+      <a href="/ratgeber/" aria-current="page">Ratgeber</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="sub-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/ratgeber/">Ratgeber</a><span aria-hidden="true">/</span><span aria-current="page">Internes Audit nach ISO 27001</span></nav>
+      <span class="eyebrow">Ratgeber</span>
+      <h1 id="page-title">Internes Audit nach ISO 27001 vorbereiten und durchführen</h1>
+      <p class="hero-sub">Das interne Audit ist Pflicht für jedes ISMS nach ISO 27001 und vor der Zertifizierung zugleich der beste Probelauf. Was die Norm verlangt und wie Sie es mit überschaubarem Aufwand gut machen.</p>
+      <p class="article-meta">Stand: <time datetime="2026-11-05">5. November 2026</time> · Cyber Security Check</p>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="/#check">Cyber-Check in 5 Minuten</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="wrap">
+      <article class="prose article">
+        <div class="keypoints"><h2>Auf einen Blick</h2><ul class="checks"><li>ISO 27001 verlangt interne Audits in geplanten Abständen (Abschnitt 9.2).</li><li>Es braucht ein Auditprogramm mit Häufigkeit, Methoden, Verantwortlichkeiten und Berichterstattung.</li><li>Auditoren müssen objektiv und unparteiisch sein, also nicht ihre eigene Arbeit prüfen.</li><li>Die Ergebnisse gehen an die zuständige Leitung und in die Managementbewertung.</li></ul></div>
+        <h2>Was die Norm verlangt</h2>
+        <p>Nach Abschnitt 9.2 der ISO 27001 muss eine Organisation in geplanten Abständen interne Audits durchführen. Sie sollen zeigen, ob das ISMS die eigenen Anforderungen und die Anforderungen der Norm erfüllt und ob es wirksam umgesetzt und aufrechterhalten wird.</p>
+        <p>Dafür braucht es ein Auditprogramm. Es legt fest, wie oft auditiert wird, mit welchen Methoden, wer verantwortlich ist und wie geplant und berichtet wird. Wichtige Prozesse und die Ergebnisse früherer Audits sind dabei zu berücksichtigen. Für jedes Audit werden Kriterien und Umfang festgelegt. Die Auditoren müssen so ausgewählt werden, dass Objektivität und Unparteilichkeit gewahrt sind, und die Ergebnisse werden an die zuständige Leitung berichtet. Das alles ist zu dokumentieren.</p>
+        <h2>Das Auditprogramm aufsetzen</h2>
+        <p>Für kleine und mittlere Unternehmen hat sich ein Programm über drei Jahre bewährt, passend zum Zertifizierungszyklus. Es stellt sicher, dass alle Abschnitte der Norm und alle relevanten Maßnahmen aus Anhang A in diesem Zeitraum mindestens einmal geprüft werden. Wichtige oder auffällige Bereiche kommen häufiger dran. Viele Unternehmen auditieren einmal im Jahr, verteilt auf einen oder zwei Termine.</p>
+        <h2>Wer auditieren darf</h2>
+        <p>Die Norm verlangt keine externe Person, aber Objektivität: Niemand prüft seine eigene Arbeit. In kleinen Unternehmen ist das eine echte Hürde, weil die Person, die das ISMS aufgebaut hat, oft die einzige ist, die die Norm kennt. Lösungen sind:</p>
+        <ul class="list"><li>eine geschulte Person aus einer anderen Abteilung, die nicht am ISMS beteiligt ist,</li><li>gegenseitige Audits mit einem befreundeten Unternehmen,</li><li>ein externer Auditor, der das interne Audit im Auftrag durchführt.</li></ul>
+        <p>Wichtig: Wer Sie beim Aufbau des ISMS beraten hat, sollte nicht auch Ihr internes Audit machen. Sonst prüft er seine eigene Arbeit.</p>
+        <h2>Ablauf eines internen Audits</h2>
+        <ol class="list"><li><strong>Planung:</strong> Umfang und Kriterien festlegen, etwa die Abschnitte 6 bis 8 und die Maßnahmen zu Zugriffssteuerung und Vorfallmanagement. Termine mit den Beteiligten abstimmen.</li><li><strong>Vorbereitung:</strong> Dokumente sichten, eine Checkliste mit Fragen erstellen, Stichproben auswählen.</li><li><strong>Durchführung:</strong> Gespräche führen, sich Nachweise zeigen lassen, Stichproben prüfen. Fragen Sie nicht nur, ob es eine Regel gibt, sondern lassen Sie sich zeigen, dass sie gelebt wird.</li><li><strong>Bewertung:</strong> Feststellungen einordnen, etwa als Abweichung, Hinweis oder positive Feststellung.</li><li><strong>Bericht:</strong> Umfang, Feststellungen, Nachweise und Empfehlungen kurz zusammenfassen und an die Leitung geben.</li><li><strong>Nachverfolgung:</strong> Für jede Abweichung Ursache klären, Korrekturmaßnahme festlegen und deren Wirksamkeit später prüfen.</li></ol>
+        <h2>Gute Feststellungen formulieren</h2>
+        <p>Eine gute Feststellung beschreibt, was erwartet wurde, was vorgefunden wurde und welcher Nachweis das belegt. Zum Beispiel: „Laut Richtlinie werden Berechtigungen halbjährlich überprüft. Für das ERP-System liegt keine Überprüfung aus den letzten zwölf Monaten vor.“ So weiß jeder, was zu tun ist, und niemand fühlt sich angegriffen.</p>
+        <h2>Das interne Audit als Probelauf</h2>
+        <p>Vor der Erstzertifizierung muss mindestens ein vollständiges internes Audit stattgefunden haben, und seine Ergebnisse gehören in die Managementbewertung. Nutzen Sie es als Generalprobe: Prüfen Sie so, wie der Zertifizierungsauditor prüfen wird. Was intern auffällt, können Sie vor dem eigentlichen Audit beheben. Mehr zum Ablauf der Zertifizierung im Artikel <a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO-27001-Zertifizierung: Ablauf und Dauer</a>.</p>
+        <p>In der <a href="/#software">ISMS-Suite</a> planen Sie Audits nach Kapiteln, ordnen Feststellungen zu und sehen, welche Bereiche im Zyklus noch nicht geprüft wurden.</p>
+        <h2>Beispielfragen für die Checkliste</h2>
+        <p>Eine gute Checkliste verbindet die Anforderungen der Norm mit Ihren eigenen Regeln. Einige Beispiele:</p>
+        <ul class="list"><li>Wann wurde die Risikobeurteilung zuletzt aktualisiert, und welche Änderungen haben dazu geführt?</li><li>Wer hat den Risikobehandlungsplan freigegeben, und wo ist das dokumentiert?</li><li>Wie werden neue Mitarbeitende in die Sicherheitsregeln eingewiesen? Bitte zeigen Sie mir den Nachweis für die letzten drei Eintritte.</li><li>Wie wird beim Austritt sichergestellt, dass alle Zugänge gesperrt werden? Bitte zeigen Sie mir ein Beispiel.</li><li>Wann wurden die Berechtigungen im wichtigsten Fachsystem zuletzt überprüft?</li><li>Wann wurde die Wiederherstellung aus der Datensicherung zuletzt getestet, und mit welchem Ergebnis?</li><li>Welche Sicherheitsvorfälle gab es im letzten Jahr, und wie wurden sie behandelt?</li><li>Welche Maßnahmen aus der letzten Managementbewertung sind umgesetzt?</li></ul>
+        <p>Achten Sie darauf, dass sich die Fragen nicht mit Ja oder Nein beantworten lassen, sondern nach Nachweisen fragen. So wird das Audit aussagekräftig.</p>
+        <p>Zum Schluss: Ein internes Audit, das keine Feststellungen hat, ist verdächtig. Jedes ISMS hat Verbesserungspotenzial. Ein ehrlicher Bericht mit einigen Hinweisen zeigt dem Zertifizierungsauditor, dass Ihr Audit ernsthaft war und das System lernt.</p>
+        <div class="faq faq-inline">
+        <h2>Häufige Fragen</h2>
+        <details><summary>Wie lange dauert ein internes Audit?</summary><div><p>Für ein kleines Unternehmen reichen oft ein bis zwei Tage für Vorbereitung, Durchführung und Bericht. Größere Geltungsbereiche brauchen entsprechend mehr.</p></div></details>
+        <details><summary>Muss jedes Jahr alles geprüft werden?</summary><div><p>Nein. Das Auditprogramm kann die Themen über mehrere Jahre verteilen, solange alles in angemessenen Abständen geprüft wird und wichtige Bereiche häufiger drankommen.</p></div></details>
+        <details><summary>Was ist der Unterschied zwischen internem Audit und Managementbewertung?</summary><div><p>Das interne Audit prüft, ob das ISMS die Anforderungen erfüllt und wirksam ist. Die Managementbewertung ist die Sitzung, in der die Leitung die Ergebnisse, darunter die des Audits, bewertet und über Änderungen entscheidet.</p></div></details>
+        <details><summary>Dürfen wir eine Vorlage für die Checkliste verwenden?</summary><div><p>Ja, als Ausgangspunkt. Passen Sie sie aber an Ihre eigenen Regeln und Prozesse an. Ein Audit, das nur die Norm abfragt, übersieht, ob Ihre eigenen Vorgaben eingehalten werden.</p></div></details>
+        </div>
+        <div class="sources"><h2>Quellen</h2><ul><li><a href="https://www.iso.org/standard/27001" rel="noopener">ISO/IEC 27001:2022, ISO</a></li><li><a href="https://www.iso.org/standard/70017.html" rel="noopener">ISO 19011:2018, Leitfaden zur Auditierung von Managementsystemen, ISO</a></li></ul>
+          <p>Dieser Artikel ist eine allgemeine Information und keine Rechtsberatung. Maßgeblich ist der jeweils aktuelle Gesetzes- und Normtext.</p>
+        </div>
+      </article>
+      <aside class="author-box" aria-label="Über den Autor">
+        <span class="author-mark" aria-hidden="true">CSC</span>
+        <div>
+          <strong>Cyber Security Check</strong>
+          <p>ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager. Beratung zu Informationssicherheit, ISO 27001 und NIS2 für kleine und mittlere Unternehmen, vor Ort in München und Umgebung, bundesweit per Video.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section mist" aria-labelledby="rel-title">
+    <div class="wrap">
+      <div class="head"><h2 id="rel-title">Weiterlesen</h2></div>
+      <ul class="more-services rel">
+        <li><a href="/iso-27001-beratung-muenchen"><span><strong>ISO 27001 Beratung München</strong><small>Begleitung bis zum Zertifikat</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/erklaerung-zur-anwendbarkeit-soa"><span><strong>Erklärung zur Anwendbarkeit</strong><small>Ein Kernstück jedes Audits</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/iso-27001-zertifizierung-ablauf"><span><strong>ISO-27001-Zertifizierung: Ablauf</strong><small>Nach dem internen Audit</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video. Die <a href="/#software">ISMS-Suite</a> können Sie schon vorher kostenlos ausprobieren.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="/#check">Cyber-Check starten</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
+      <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+    </div>
+      <nav aria-label="Themen"><h2>Themen</h2><ul><li><a href="/iso-27001-beratung-muenchen">ISO 27001 Beratung</a></li><li><a href="/nis2-beratung-muenchen">NIS2 Beratung</a></li><li><a href="/#software">ISMS-Suite</a></li><li><a href="/#check">Cyber-Check</a></li></ul></nav>
+      <nav aria-label="Leistungen"><h2>Leistungen</h2><ul><li><a href="/leistungen/isms-einfuehrung">ISMS-Einführung</a></li><li><a href="/leistungen/externer-ciso">Externer CISO und ISB</a></li><li><a href="/leistungen/sicherheitsanalysen">Sicherheitsanalysen</a></li><li><a href="/leistungen/din-spec-27076">CyberRisikoCheck (DIN SPEC 27076)</a></li><li><a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a></li><li><a href="/leistungen/security-awareness">Security Awareness</a></li></ul></nav>
+      <nav aria-label="Ratgeber"><h2>Ratgeber</h2><ul><li><a href="/ratgeber/">Alle Artikel</a></li><li><a href="/ratgeber/nis2-betroffenheit">NIS2: Bin ich betroffen?</a></li><li><a href="/ratgeber/nis2-meldepflichten">NIS2-Meldepflichten</a></li><li><a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO 27001: Ablauf und Dauer</a></li><li><a href="/ratgeber/isms-einfuehren-6-schritte">ISMS einführen in 6 Schritten</a></li></ul></nav>
+  </div>
+  <div class="wrap footer-base">
+    <span>© 2026 CyberSecCheck · Diese Seite setzt keine Tracking-Cookies.</span>
+    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+  </div>
+</footer>
+</body>
+</html>

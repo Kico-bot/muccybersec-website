@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Business-Impact-Analyse (BIA) für KMU | CyberSecCheck</title>
+  <meta name="description" content="Was eine Business-Impact-Analyse ist, welche Werte sie liefert (Ausfallzeit, Wiederanlauf, Datenverlust) und wie KMU sie in einem Workshop-Tag schaffen.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#081326">
+  <!-- Ersatz-CSP für Hosts ohne eigene Header; diese Seite braucht kein JavaScript. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="https://cyber-sec-check.de/ratgeber/business-impact-analyse">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="CyberSecCheck">
+  <meta property="og:title" content="Business-Impact-Analyse (BIA) für KMU | CyberSecCheck">
+  <meta property="og:description" content="Was eine Business-Impact-Analyse ist, welche Werte sie liefert (Ausfallzeit, Wiederanlauf, Datenverlust) und wie KMU sie in einem Workshop-Tag schaffen.">
+  <meta property="og:url" content="https://cyber-sec-check.de/ratgeber/business-impact-analyse">
+  <meta property="og:image" content="https://cyber-sec-check.de/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="CyberSecCheck: Informationssicherheit für den Mittelstand">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Business-Impact-Analyse in einem Tag",
+      "description": "Was eine Business-Impact-Analyse ist, welche Werte sie liefert (Ausfallzeit, Wiederanlauf, Datenverlust) und wie KMU sie in einem Workshop-Tag schaffen.",
+      "url": "https://cyber-sec-check.de/ratgeber/business-impact-analyse",
+      "mainEntityOfPage": "https://cyber-sec-check.de/ratgeber/business-impact-analyse",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "inLanguage": "de-DE",
+      "image": "https://cyber-sec-check.de/assets/img/og-image.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Cyber Security Check",
+        "url": "https://cyber-sec-check.de/",
+        "description": "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberSecCheck",
+        "url": "https://cyber-sec-check.de/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cyber-sec-check.de/assets/img/logo.svg"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://cyber-sec-check.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ratgeber",
+          "item": "https://cyber-sec-check.de/ratgeber/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Business-Impact-Analyse",
+          "item": "https://cyber-sec-check.de/ratgeber/business-impact-analyse"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wer sollte am BIA-Workshop teilnehmen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Verantwortlichen der Geschäftsprozesse, die IT und jemand aus der Geschäftsführung, der Prioritäten entscheiden kann. Ein Moderator hält das Tempo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist eine BIA Pflicht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ISO 27001 und NIS2 verlangen, dass Sie den Betrieb im Notfall aufrechterhalten können. Eine BIA ist der übliche und nachvollziehbare Weg dorthin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Unterschied zwischen BIA und Risikoanalyse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die BIA fragt, wie schlimm ein Ausfall wäre und wie schnell ein Prozess wieder laufen muss, egal warum er ausfällt. Die Risikoanalyse fragt, was passieren kann und wie wahrscheinlich das ist. Beide ergänzen sich: Die BIA zeigt, was besonders schützenswert ist, die Risikoanalyse, wogegen."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="CyberSecCheck, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/iso-27001-beratung-muenchen">ISO 27001</a>
+      <a href="/nis2-beratung-muenchen">NIS2</a>
+      <a href="/ratgeber/" aria-current="page">Ratgeber</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="sub-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/ratgeber/">Ratgeber</a><span aria-hidden="true">/</span><span aria-current="page">Business-Impact-Analyse</span></nav>
+      <span class="eyebrow">Ratgeber</span>
+      <h1 id="page-title">Business-Impact-Analyse in einem Tag</h1>
+      <p class="hero-sub">Die Business-Impact-Analyse, kurz BIA, beantwortet eine einfache Frage: Was tut uns wie schnell weh, wenn es ausfällt? Sie ist die Grundlage jedes Notfallplans. Für kleine und mittlere Unternehmen lässt sie sich mit guter Vorbereitung an einem Tag erarbeiten.</p>
+      <p class="article-meta">Stand: <time datetime="2026-11-05">5. November 2026</time> · Cyber Security Check</p>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="/#check">Cyber-Check in 5 Minuten</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="wrap">
+      <article class="prose article">
+        <div class="keypoints"><h2>Auf einen Blick</h2><ul class="checks"><li>Die BIA betrachtet Geschäftsprozesse, nicht IT-Systeme.</li><li>Für jeden Prozess wird festgelegt, wie lange er höchstens ausfallen darf.</li><li>Daraus ergeben sich Wiederanlaufzeiten und die Reihenfolge der Wiederherstellung.</li><li>Die Ergebnisse zeigen, ob Ihre Datensicherung und Ihre Dienstleister das schaffen.</li></ul></div>
+        <h2>Was die BIA leistet</h2>
+        <p>Der BSI-Standard 200-4 beschreibt die BIA als zentrales Instrument des Business Continuity Managements. Sie ermittelt, welche Geschäftsprozesse zeitkritisch sind, welche Auswirkungen ein Ausfall über die Zeit hätte und welche Ressourcen die Prozesse brauchen. Das Ergebnis ist eine Rangfolge: Was muss im Notfall zuerst wieder laufen, und in welchem Umfang?</p>
+        <p>Ohne BIA ist ein Notfallplan Raterei. Mit BIA wissen Sie, dass zum Beispiel die Auftragsannahme nach einem Tag wieder funktionieren muss, die Lohnbuchhaltung aber eine Woche warten kann.</p>
+        <h2>Die wichtigsten Begriffe</h2>
+        <ul class="list"><li><strong>Maximal tolerierbare Ausfallzeit:</strong> Wie lange darf ein Prozess höchstens ausfallen, bevor der Schaden nicht mehr tragbar ist?</li><li><strong>Wiederanlaufzeit:</strong> In welcher Zeit muss der Prozess wieder laufen, zumindest im Notbetrieb? Sie muss kürzer sein als die maximal tolerierbare Ausfallzeit.</li><li><strong>Notbetriebsniveau:</strong> Welche Leistung muss der Prozess im Notbetrieb mindestens erbringen, etwa 50 Prozent der üblichen Aufträge?</li><li><strong>Tolerierbarer Datenverlust:</strong> Wie viele Daten dürfen im schlimmsten Fall verloren gehen, gemessen als Zeitraum seit der letzten Sicherung? Im Englischen spricht man vom Recovery Point Objective (RPO).</li></ul>
+        <h2>Vorbereitung: der halbe Erfolg</h2>
+        <p>Damit der Workshop an einem Tag gelingt, braucht es Vorarbeit:</p>
+        <ol class="list"><li>Eine Liste der Geschäftsprozesse, nicht zu fein: zehn bis zwanzig Prozesse reichen für die meisten mittelständischen Unternehmen.</li><li>Je Prozess eine verantwortliche Person, die am Workshop teilnimmt.</li><li>Eine einfache Skala für die Auswirkungen, etwa finanziell, auf Kunden, rechtlich und auf den Ruf, jeweils in vier Stufen.</li><li>Zeitstufen für die Bewertung, zum Beispiel 4 Stunden, 1 Tag, 3 Tage, 1 Woche, 2 Wochen.</li><li>Eine Übersicht der IT-Systeme und Dienstleister, damit Abhängigkeiten schnell erfasst werden können.</li></ol>
+        <h2>Der Workshop-Tag</h2>
+        <h3>Vormittag: Auswirkungen bewerten</h3>
+        <p>Gehen Sie Prozess für Prozess durch. Für jede Zeitstufe fragen Sie: Was passiert, wenn dieser Prozess so lange ausfällt? Ab welchem Punkt wird es ernst? Daraus ergibt sich die maximal tolerierbare Ausfallzeit. Legen Sie gleich danach Wiederanlaufzeit und Notbetriebsniveau fest. Gesetzliche und vertragliche Fristen fließen ein, etwa Lieferzusagen gegenüber Kunden.</p>
+        <h3>Nachmittag: Ressourcen und Abhängigkeiten</h3>
+        <p>Für die zeitkritischen Prozesse ermitteln Sie, was sie brauchen: Personal, Räume, IT-Systeme, Daten, Dienstleister. Achten Sie auf Abhängigkeiten zwischen Prozessen. Ein Prozess kann nicht schneller wieder laufen als die Prozesse, von denen er abhängt. Halten Sie fest, wie viel Datenverlust je Prozess tolerierbar ist.</p>
+        <h3>Abschluss: Abgleich mit der Realität</h3>
+        <p>Am Ende vergleichen Sie die Anforderungen mit dem, was heute möglich ist. Wie lange dauert die Wiederherstellung des ERP-Systems aus der Sicherung tatsächlich? Was sagt der Vertrag mit dem Rechenzentrum? Wie oft wird gesichert? Die Lücken zwischen Anforderung und Wirklichkeit sind Ihre wichtigsten Maßnahmen.</p>
+        <h2>Typische Erkenntnisse</h2>
+        <ul class="list"><li>Ein unscheinbares System, etwa ein Schnittstellenserver, ist für mehrere kritische Prozesse unverzichtbar.</li><li>Die Datensicherung läuft nachts, der Prozess verträgt aber höchstens zwei Stunden Datenverlust.</li><li>Der Vertrag mit dem IT-Dienstleister sieht eine Reaktionszeit vor, aber keine Wiederherstellungszeit.</li><li>Für einen kritischen Prozess gibt es nur eine Person, die ihn bedienen kann.</li></ul>
+        <h2>Nach der BIA</h2>
+        <p>Die Ergebnisse fließen in den Notfallplan, in die Datensicherungsstrategie und in Verträge mit Dienstleistern. Überprüfen Sie die BIA mindestens einmal im Jahr und nach wesentlichen Änderungen. ISO 27001 verlangt im Anhang A, dass die IT für die Betriebskontinuität bereit ist, und NIS2 nennt die Aufrechterhaltung des Betriebs mit Backup-Management und Wiederherstellung als Pflichtmaßnahme. Die BIA ist der Nachweis, dass Sie diese Anforderungen planvoll angehen.</p>
+        <p>Wie ich Sie bei BIA, Notfallplan und Übung unterstütze, steht auf der Seite <a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a>. Was im Ernstfall konkret zu tun ist, beschreibt der Artikel <a href="/ratgeber/notfallplan-ransomware">Notfallplan für Ransomware</a>.</p>
+        <h2>Ein Beispiel</h2>
+        <p>Ein Lebensmittelgroßhändler bewertet im Workshop den Prozess Kommissionierung und Versand. Fällt er vier Stunden aus, lassen sich die Touren noch umplanen. Nach einem Tag verderben Waren, Kunden aus der Gastronomie springen ab. Die maximal tolerierbare Ausfallzeit wird deshalb auf einen Tag festgelegt, die Wiederanlaufzeit auf acht Stunden, das Notbetriebsniveau auf die Belieferung der wichtigsten Kunden.</p>
+        <p>Am Nachmittag zeigt sich: Der Prozess braucht das Warenwirtschaftssystem, die Etikettendrucker, das Scannersystem im Lager und den Logistikdienstleister. Das Warenwirtschaftssystem wird nachts gesichert, seine Wiederherstellung hat beim letzten Test zwei Tage gedauert. Damit ist die Anforderung von acht Stunden nicht erfüllbar. Die Maßnahmen: eine zusätzliche Sicherung tagsüber, ein vorbereitetes Ersatzsystem und ein Papierverfahren für die Kommissionierung im Notbetrieb. Ohne die BIA wäre diese Lücke erst im Ernstfall aufgefallen.</p>
+        <div class="faq faq-inline">
+        <h2>Häufige Fragen</h2>
+        <details><summary>Wer sollte am BIA-Workshop teilnehmen?</summary><div><p>Die Verantwortlichen der Geschäftsprozesse, die IT und jemand aus der Geschäftsführung, der Prioritäten entscheiden kann. Ein Moderator hält das Tempo.</p></div></details>
+        <details><summary>Ist eine BIA Pflicht?</summary><div><p>ISO 27001 und NIS2 verlangen, dass Sie den Betrieb im Notfall aufrechterhalten können. Eine BIA ist der übliche und nachvollziehbare Weg dorthin.</p></div></details>
+        <details><summary>Was ist der Unterschied zwischen BIA und Risikoanalyse?</summary><div><p>Die BIA fragt, wie schlimm ein Ausfall wäre und wie schnell ein Prozess wieder laufen muss, egal warum er ausfällt. Die Risikoanalyse fragt, was passieren kann und wie wahrscheinlich das ist. Beide ergänzen sich: Die BIA zeigt, was besonders schützenswert ist, die Risikoanalyse, wogegen.</p></div></details>
+        </div>
+        <div class="sources"><h2>Quellen</h2><ul><li><a href="https://www.bsi.bund.de/dok/bsi-standard-200-4" rel="noopener">BSI-Standard 200-4: Business Continuity Management</a></li><li><a href="https://www.iso.org/standard/27001" rel="noopener">ISO/IEC 27001:2022, ISO</a></li><li><a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" rel="noopener">Richtlinie (EU) 2022/2555 (NIS2), EUR-Lex</a></li></ul>
+          <p>Dieser Artikel ist eine allgemeine Information und keine Rechtsberatung. Maßgeblich ist der jeweils aktuelle Gesetzes- und Normtext.</p>
+        </div>
+      </article>
+      <aside class="author-box" aria-label="Über den Autor">
+        <span class="author-mark" aria-hidden="true">CSC</span>
+        <div>
+          <strong>Cyber Security Check</strong>
+          <p>ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager. Beratung zu Informationssicherheit, ISO 27001 und NIS2 für kleine und mittlere Unternehmen, vor Ort in München und Umgebung, bundesweit per Video.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section mist" aria-labelledby="rel-title">
+    <div class="wrap">
+      <div class="head"><h2 id="rel-title">Weiterlesen</h2></div>
+      <ul class="more-services rel">
+        <li><a href="/leistungen/notfallmanagement"><span><strong>Notfall- und Krisenmanagement</strong><small>BIA, Notfallplan, Übung</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/notfallplan-ransomware"><span><strong>Notfallplan für Ransomware</strong><small>Die ersten 24 Stunden</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/isms-einfuehren-6-schritte"><span><strong>ISMS einführen in 6 Schritten</strong><small>Notfallmanagement im ISMS</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video. Die <a href="/#software">ISMS-Suite</a> können Sie schon vorher kostenlos ausprobieren.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="/#check">Cyber-Check starten</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
+      <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+    </div>
+      <nav aria-label="Themen"><h2>Themen</h2><ul><li><a href="/iso-27001-beratung-muenchen">ISO 27001 Beratung</a></li><li><a href="/nis2-beratung-muenchen">NIS2 Beratung</a></li><li><a href="/#software">ISMS-Suite</a></li><li><a href="/#check">Cyber-Check</a></li></ul></nav>
+      <nav aria-label="Leistungen"><h2>Leistungen</h2><ul><li><a href="/leistungen/isms-einfuehrung">ISMS-Einführung</a></li><li><a href="/leistungen/externer-ciso">Externer CISO und ISB</a></li><li><a href="/leistungen/sicherheitsanalysen">Sicherheitsanalysen</a></li><li><a href="/leistungen/din-spec-27076">CyberRisikoCheck (DIN SPEC 27076)</a></li><li><a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a></li><li><a href="/leistungen/security-awareness">Security Awareness</a></li></ul></nav>
+      <nav aria-label="Ratgeber"><h2>Ratgeber</h2><ul><li><a href="/ratgeber/">Alle Artikel</a></li><li><a href="/ratgeber/nis2-betroffenheit">NIS2: Bin ich betroffen?</a></li><li><a href="/ratgeber/nis2-meldepflichten">NIS2-Meldepflichten</a></li><li><a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO 27001: Ablauf und Dauer</a></li><li><a href="/ratgeber/isms-einfuehren-6-schritte">ISMS einführen in 6 Schritten</a></li></ul></nav>
+  </div>
+  <div class="wrap footer-base">
+    <span>© 2026 CyberSecCheck · Diese Seite setzt keine Tracking-Cookies.</span>
+    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+  </div>
+</footer>
+</body>
+</html>

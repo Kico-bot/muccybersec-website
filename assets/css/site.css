@@ -366,3 +366,6 @@ footer a:hover { color: var(--ink); }
 .topics-more { margin-top: 1.5rem; color: var(--muted); }
 .topics-more a, .creds a { color: var(--accent-strong); }
 .sub-hero h1 { hyphens: auto; overflow-wrap: break-word; }
+.topic-head { font-size: clamp(1.4rem, 1.2rem + .8vw, 1.8rem); font-weight: 400; margin: 2.5rem 0 1.2rem; }
+.topic-head:first-child { margin-top: 0; }
+.crumbs a, .crumbs span { overflow-wrap: anywhere; min-width: 0; }

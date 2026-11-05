@@ -179,6 +179,7 @@ ISO_VS_GS = dict(
         ("p", "Für viele Mittelständler ist ein Mittelweg sinnvoll: ein ISMS nach ISO 27001, bei dem die Bausteine des IT-Grundschutz-Kompendiums als Nachschlagewerk für die konkrete Ausgestaltung dienen. So nutzen Sie die Erfahrung des BSI, ohne sich an die volle Methodik zu binden."),
         ("h3", "Dokumentation"),
         ("p", "Beide Wege verlangen dokumentierte Entscheidungen. Bei ISO 27001 ist die Erklärung zur Anwendbarkeit das zentrale Dokument: Für jede der 93 Maßnahmen aus Anhang A steht dort, ob sie umgesetzt wird und warum. Beim IT-Grundschutz kommen Strukturanalyse, Schutzbedarfsfeststellung, Modellierung und der IT-Grundschutz-Check hinzu. Der Umfang ist dadurch meist größer, dafür ist die Struktur fest vorgegeben."),
+        ("p", "Ein Hinweis zur Zuordnung: Das BSI veröffentlicht eine Zuordnungstabelle zwischen ISO 27001, ISO 27002 und dem IT-Grundschutz. Sie zeigt, welche Bausteine und Anforderungen des Kompendiums zu welchen Abschnitten und Maßnahmen der Norm passen. Wer beide Welten verbinden will, findet dort einen guten Ausgangspunkt."),
         ("h2", "Kann man später wechseln?"),
         ("p", "Ja, und die Arbeit ist nicht verloren. Risikoanalyse, Leitlinie, Rollen, Notfallplan und viele technische Maßnahmen sind in beiden Welten gleich. Wer mit einer nativen ISO 27001 beginnt und später den Weg über IT-Grundschutz gehen muss, etwa wegen eines öffentlichen Auftraggebers, ergänzt vor allem die Modellierung und den IT-Grundschutz-Check. Umgekehrt lässt sich ein Grundschutz-ISMS gut in eine native ISO-27001-Zertifizierung überführen."),
         ("p", "Wichtig ist nur, die Maßnahmen von Anfang an so zu dokumentieren, dass erkennbar ist, welche Anforderung sie erfüllen. Dann lässt sich jede Anforderung in beiden Regelwerken an derselben Maßnahme festmachen."),
@@ -305,3 +306,10 @@ NIS2_MELDUNG = dict(
 )
 
 ARTICLES = [NIS2_BETROFFEN, ISO_ABLAUF, ISO_VS_GS, ISMS_6, NIS2_MELDUNG]
+
+from content.ratgeber_mehr import MORE  # noqa: E402
+
+ARTICLES = ARTICLES + MORE
+# Im Footer verlinkt: die Einstiegsartikel je Schwerpunkt.
+FEATURED = [NIS2_BETROFFEN, NIS2_MELDUNG, ISO_ABLAUF, ISMS_6]
+TOPICS = ["NIS2", "ISO 27001", "ISMS", "Notfallmanagement", "Awareness"]
