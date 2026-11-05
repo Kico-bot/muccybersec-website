@@ -309,7 +309,9 @@ ARTICLES = [NIS2_BETROFFEN, ISO_ABLAUF, ISO_VS_GS, ISMS_6, NIS2_MELDUNG]
 
 from content.ratgeber_mehr import MORE  # noqa: E402
 
-ARTICLES = ARTICLES + MORE
+from content.ratgeber_mapping import MAPPING  # noqa: E402
+
+ARTICLES = ARTICLES + MORE + MAPPING
 # Im Footer verlinkt: die Einstiegsartikel je Schwerpunkt.
 FEATURED = [NIS2_BETROFFEN, NIS2_MELDUNG, ISO_ABLAUF, ISMS_6]
-TOPICS = ["NIS2", "ISO 27001", "ISMS", "Notfallmanagement", "Awareness"]
+TOPICS = ["NIS2", "ISO 27001", "Regelwerke verbinden", "ISMS", "Notfallmanagement", "Awareness"]

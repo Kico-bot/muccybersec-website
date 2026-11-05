@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ISO 27001 und DSGVO: TOMs belegen | CyberSecCheck</title>
+  <meta name="description" content="Wie ein ISMS nach ISO 27001 die TOMs nach Art. 32 DSGVO belegt, was es nicht abdeckt und wann ISO 27701 sinnvoll ist.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#081326">
+  <!-- Ersatz-CSP für Hosts ohne eigene Header; diese Seite braucht kein JavaScript. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="https://cyber-sec-check.de/ratgeber/iso-27001-dsgvo-tom">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="CyberSecCheck">
+  <meta property="og:title" content="ISO 27001 und DSGVO: TOMs belegen | CyberSecCheck">
+  <meta property="og:description" content="Wie ein ISMS nach ISO 27001 die TOMs nach Art. 32 DSGVO belegt, was es nicht abdeckt und wann ISO 27701 sinnvoll ist.">
+  <meta property="og:url" content="https://cyber-sec-check.de/ratgeber/iso-27001-dsgvo-tom">
+  <meta property="og:image" content="https://cyber-sec-check.de/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="CyberSecCheck: Informationssicherheit für den Mittelstand">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "ISO 27001 und DSGVO: TOMs nach Art. 32 mit dem ISMS belegen",
+      "description": "Wie ein ISMS nach ISO 27001 die TOMs nach Art. 32 DSGVO belegt, was es nicht abdeckt und wann ISO 27701 sinnvoll ist.",
+      "url": "https://cyber-sec-check.de/ratgeber/iso-27001-dsgvo-tom",
+      "mainEntityOfPage": "https://cyber-sec-check.de/ratgeber/iso-27001-dsgvo-tom",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "inLanguage": "de-DE",
+      "image": "https://cyber-sec-check.de/assets/img/og-image.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Cyber Security Check",
+        "url": "https://cyber-sec-check.de/",
+        "description": "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberSecCheck",
+        "url": "https://cyber-sec-check.de/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cyber-sec-check.de/assets/img/logo.svg"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://cyber-sec-check.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ratgeber",
+          "item": "https://cyber-sec-check.de/ratgeber/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ISO 27001 und DSGVO: TOMs",
+          "item": "https://cyber-sec-check.de/ratgeber/iso-27001-dsgvo-tom"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ersetzt ein ISO-27001-Zertifikat den Nachweis der TOMs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es ist ein starkes Indiz, dass angemessene Sicherheitsmaßnahmen bestehen, ersetzt aber nicht die Bewertung für Ihre konkreten Verarbeitungen. Prüfen Sie außerdem, ob der Geltungsbereich des Zertifikats die betreffenden Verarbeitungen umfasst."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche TOMs gehören in den Vertrag zur Auftragsverarbeitung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine Beschreibung der Maßnahmen, die für die konkrete Verarbeitung gelten. Die Liste lässt sich aus dem ISMS ableiten, sollte aber verständlich und auf die Verarbeitung bezogen sein."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="CyberSecCheck, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/iso-27001-beratung-muenchen">ISO 27001</a>
+      <a href="/nis2-beratung-muenchen">NIS2</a>
+      <a href="/ratgeber/" aria-current="page">Ratgeber</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="sub-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/ratgeber/">Ratgeber</a><span aria-hidden="true">/</span><span aria-current="page">ISO 27001 und DSGVO: TOMs</span></nav>
+      <span class="eyebrow">Ratgeber</span>
+      <h1 id="page-title">ISO 27001 und DSGVO: TOMs nach Art. 32 mit dem ISMS belegen</h1>
+      <p class="hero-sub">Die DSGVO verlangt technische und organisatorische Maßnahmen, kurz TOMs, für die Sicherheit personenbezogener Daten. Ein ISMS nach ISO 27001 liefert genau solche Maßnahmen. Wie Sie beides verbinden, ohne zwei Listen zu pflegen, und wo das ISMS an seine Grenzen kommt.</p>
+      <p class="article-meta">Stand: <time datetime="2026-11-05">5. November 2026</time> · Cyber Security Check</p>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="/#check">Cyber-Check in 5 Minuten</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="wrap">
+      <article class="prose article">
+        <div class="keypoints"><h2>Auf einen Blick</h2><ul class="checks"><li>Art. 32 DSGVO verlangt ein dem Risiko angemessenes Schutzniveau mit geeigneten TOMs.</li><li>Viele dieser TOMs sind im Anhang A der ISO 27001 als Maßnahmen beschrieben.</li><li>Ein ISMS deckt aber nicht die übrigen Pflichten der DSGVO ab, etwa Verarbeitungsverzeichnis oder Betroffenenrechte.</li><li>Eine Maßnahmenliste für beide Zwecke spart Pflegeaufwand.</li></ul></div>
+        <h2>Was Art. 32 DSGVO verlangt</h2>
+        <p>Verantwortliche und Auftragsverarbeiter müssen nach Artikel 32 DSGVO geeignete technische und organisatorische Maßnahmen treffen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten. Zu berücksichtigen sind Stand der Technik, Implementierungskosten, Art, Umfang, Umstände und Zwecke der Verarbeitung und das Risiko für die Rechte und Freiheiten der Betroffenen. Ausdrücklich genannt sind:</p>
+        <ol class="list"><li>Pseudonymisierung und Verschlüsselung personenbezogener Daten,</li><li>die Fähigkeit, Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit der Systeme und Dienste auf Dauer sicherzustellen,</li><li>die Fähigkeit, Verfügbarkeit und Zugang bei einem Zwischenfall rasch wiederherzustellen,</li><li>ein Verfahren zur regelmäßigen Überprüfung, Bewertung und Evaluierung der Wirksamkeit der Maßnahmen.</li></ol>
+        <p>Der Ansatz ist derselbe wie bei ISO 27001: vom Risiko ausgehen und angemessene Maßnahmen wählen. Der Unterschied liegt im Blickwinkel. ISO 27001 betrachtet Risiken für das Unternehmen und seine Informationen, Artikel 32 die Risiken für die betroffenen Personen.</p>
+        <h2>Die Anforderungen im Abgleich</h2>
+        <ul class="list"><li><strong>Verschlüsselung und Pseudonymisierung (Abs. 1 a):</strong> Anhang A, Einsatz von Kryptografie (A.8.24) sowie Datenmaskierung (A.8.11).</li><li><strong>Vertraulichkeit, Integrität, Verfügbarkeit, Belastbarkeit (Abs. 1 b):</strong> der Kern des gesamten ISMS, insbesondere Zugangssteuerung (A.5.15 bis A.5.18), sichere Authentisierung (A.8.5), Schutz vor Schadsoftware (A.8.7), Schwachstellenmanagement (A.8.8), Netzsicherheit (A.8.20) und physische Sicherheit (A.7).</li><li><strong>Rasche Wiederherstellung (Abs. 1 c):</strong> Informationssicherheit bei Störungen und IKT-Bereitschaft für Business Continuity (A.5.29, A.5.30) sowie Datensicherung (A.8.13).</li><li><strong>Regelmäßige Überprüfung (Abs. 1 d):</strong> Überwachung und Messung (9.1), internes Audit (9.2), Managementbewertung (9.3), unabhängige Überprüfung der Informationssicherheit (A.5.35) und Einhaltung von Richtlinien, Vorschriften und Normen (A.5.36).</li><li><strong>Datenschutz als Anforderung:</strong> Anhang A enthält eine eigene Maßnahme zu Datenschutz und Schutz personenbezogener Daten (A.5.34).</li></ul>
+        <p>Ein Hinweis zur Qualität der Zuordnung: Für die DSGVO gibt es, anders als für NIS2, keine Zuordnung einer EU-Behörde zu ISO 27001. Verbreitete Zuordnungen unabhängiger Anbieter sind als Orientierung brauchbar, aber lückenhaft. Prüfen Sie die Zuordnung für Ihre eigenen Verarbeitungen.</p>
+        <h2>Was das ISMS nicht abdeckt</h2>
+        <p>Die DSGVO ist viel mehr als Informationssicherheit. Ein ISMS nach ISO 27001 hilft bei Artikel 32, aber nicht bei den übrigen Pflichten, zum Beispiel:</p>
+        <ul class="list"><li><strong>Rechtmäßigkeit der Verarbeitung:</strong> Rechtsgrundlagen nach Artikel 6 und 9, Einwilligungen.</li><li><strong>Verzeichnis von Verarbeitungstätigkeiten (Art. 30):</strong> ISO 27001 kennt ein Inventar der Werte, aber kein Verzeichnis im Sinne der DSGVO.</li><li><strong>Datenschutz-Folgenabschätzung (Art. 35):</strong> Sie bewertet die Risiken einer Verarbeitung für die Betroffenen, nicht für das Unternehmen.</li><li><strong>Auftragsverarbeitung (Art. 28):</strong> Die Lieferantenmaßnahmen der ISO helfen, ersetzen aber nicht den Vertrag zur Auftragsverarbeitung mit seinen Pflichtinhalten.</li><li><strong>Betroffenenrechte:</strong> Auskunft, Berichtigung, Löschung, Datenübertragbarkeit.</li><li><strong>Meldung von Datenpannen (Art. 33, 34):</strong> Das Vorfallmanagement der ISO ist die Grundlage, Schwellen, Fristen und Inhalte der DSGVO müssen ergänzt werden. Dazu der Artikel <a href="/ratgeber/nis2-dsgvo-meldepflichten">NIS2 und DSGVO: Meldepflichten</a>.</li></ul>
+        <h2>Eine Liste statt zwei</h2>
+        <p>In vielen Unternehmen gibt es eine TOM-Liste für den Datenschutz und eine Maßnahmenliste im ISMS, gepflegt von verschiedenen Personen. Das führt zu Widersprüchen: Die eine Liste nennt eine Verschlüsselung, die laut der anderen noch geplant ist. Besser ist eine gemeinsame Maßnahmenliste, bei der jede Maßnahme mit den Anforderungen aus ISO 27001 und Artikel 32 verknüpft ist. Die TOM-Übersicht für Verträge zur Auftragsverarbeitung wird daraus erzeugt, nicht getrennt gepflegt.</p>
+        <p>Die <a href="/#software">ISMS-Suite</a> arbeitet genau so: Die TOMs nach Artikel 32 sind die Maßnahmen des ISMS, verknüpft mit den Verarbeitungstätigkeiten. Das Verzeichnis nach Artikel 30 wird dort ebenfalls geführt und geprüft, etwa ob für jede Verarbeitung eine Rechtsgrundlage angegeben ist.</p>
+        <h2>Wann ISO 27701 sinnvoll ist</h2>
+        <p>Wer den Datenschutz ebenfalls als Managementsystem führen und zertifizieren lassen möchte, findet in ISO/IEC 27701 eine Erweiterung der ISO 27001 um ein Datenschutz-Managementsystem. Die Norm enthält auch eine Zuordnung zur DSGVO. Für die meisten kleinen und mittleren Unternehmen reicht es aber, die DSGVO-Pflichten sauber zu erfüllen und die Sicherheitsmaßnahmen aus dem ISMS zu nutzen.</p>
+        <h2>Zusammenarbeit von ISB und Datenschutzbeauftragtem</h2>
+        <p>Informationssicherheitsbeauftragter und Datenschutzbeauftragter haben unterschiedliche Rollen, arbeiten aber am besten eng zusammen. Bewährt haben sich ein gemeinsamer Termin im Quartal, eine gemeinsame Maßnahmenliste und abgestimmte Prozesse für Vorfälle und Dienstleister. Ich übernehme auf Wunsch die Rolle des <a href="/leistungen/externer-ciso">externen ISB</a> und arbeite mit Ihrem Datenschutzbeauftragten zusammen, übernehme dessen Rolle aber nicht selbst.</p>
+        <p>Ein praktischer Nebeneffekt: Wer die TOMs aus dem ISMS ableitet, hat bei Kundenanfragen und Verträgen zur Auftragsverarbeitung eine Liste, die zum tatsächlichen Stand passt. Das schafft Vertrauen und vermeidet Zusagen, die das Unternehmen nicht einhalten kann.</p>
+        <p class="note">Dieser Artikel gibt einen Überblick und ersetzt keine Rechtsberatung. Für die datenschutzrechtliche Bewertung ist Ihr Datenschutzbeauftragter zuständig.</p>
+        <div class="faq faq-inline">
+        <h2>Häufige Fragen</h2>
+        <details><summary>Ersetzt ein ISO-27001-Zertifikat den Nachweis der TOMs?</summary><div><p>Es ist ein starkes Indiz, dass angemessene Sicherheitsmaßnahmen bestehen, ersetzt aber nicht die Bewertung für Ihre konkreten Verarbeitungen. Prüfen Sie außerdem, ob der Geltungsbereich des Zertifikats die betreffenden Verarbeitungen umfasst.</p></div></details>
+        <details><summary>Welche TOMs gehören in den Vertrag zur Auftragsverarbeitung?</summary><div><p>Eine Beschreibung der Maßnahmen, die für die konkrete Verarbeitung gelten. Die Liste lässt sich aus dem ISMS ableiten, sollte aber verständlich und auf die Verarbeitung bezogen sein.</p></div></details>
+        </div>
+        <div class="sources"><h2>Quellen</h2><ul><li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" rel="noopener">Verordnung (EU) 2016/679 (DSGVO), EUR-Lex</a></li><li><a href="https://www.iso.org/standard/27001" rel="noopener">ISO/IEC 27001:2022, ISO</a></li><li><a href="https://www.iso.org/standard/27701" rel="noopener">ISO/IEC 27701, ISO</a></li></ul>
+          <p>Dieser Artikel ist eine allgemeine Information und keine Rechtsberatung. Maßgeblich ist der jeweils aktuelle Gesetzes- und Normtext.</p>
+        </div>
+      </article>
+      <aside class="author-box" aria-label="Über den Autor">
+        <span class="author-mark" aria-hidden="true">CSC</span>
+        <div>
+          <strong>Cyber Security Check</strong>
+          <p>ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager. Beratung zu Informationssicherheit, ISO 27001 und NIS2 für kleine und mittlere Unternehmen, vor Ort in München und Umgebung, bundesweit per Video.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section mist" aria-labelledby="rel-title">
+    <div class="wrap">
+      <div class="head"><h2 id="rel-title">Weiterlesen</h2></div>
+      <ul class="more-services rel">
+        <li><a href="/leistungen/isms-einfuehrung"><span><strong>ISMS-Einführung</strong><small>Ein ISMS für ISO 27001 und DSGVO</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/nis2-dsgvo-meldepflichten"><span><strong>NIS2 und DSGVO</strong><small>Meldepflichten im Vergleich</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/iso-27001-beratung-muenchen"><span><strong>ISO 27001 Beratung München</strong><small>Begleitung bis zum Zertifikat</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video. Die <a href="/#software">ISMS-Suite</a> können Sie schon vorher kostenlos ausprobieren.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="/#check">Cyber-Check starten</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
+      <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+    </div>
+      <nav aria-label="Themen"><h2>Themen</h2><ul><li><a href="/iso-27001-beratung-muenchen">ISO 27001 Beratung</a></li><li><a href="/nis2-beratung-muenchen">NIS2 Beratung</a></li><li><a href="/#software">ISMS-Suite</a></li><li><a href="/#check">Cyber-Check</a></li></ul></nav>
+      <nav aria-label="Leistungen"><h2>Leistungen</h2><ul><li><a href="/leistungen/isms-einfuehrung">ISMS-Einführung</a></li><li><a href="/leistungen/externer-ciso">Externer CISO und ISB</a></li><li><a href="/leistungen/sicherheitsanalysen">Sicherheitsanalysen</a></li><li><a href="/leistungen/din-spec-27076">CyberRisikoCheck (DIN SPEC 27076)</a></li><li><a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a></li><li><a href="/leistungen/security-awareness">Security Awareness</a></li></ul></nav>
+      <nav aria-label="Ratgeber"><h2>Ratgeber</h2><ul><li><a href="/ratgeber/">Alle Artikel</a></li><li><a href="/ratgeber/nis2-betroffenheit">NIS2: Bin ich betroffen?</a></li><li><a href="/ratgeber/nis2-meldepflichten">NIS2-Meldepflichten</a></li><li><a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO 27001: Ablauf und Dauer</a></li><li><a href="/ratgeber/isms-einfuehren-6-schritte">ISMS einführen in 6 Schritten</a></li></ul></nav>
+  </div>
+  <div class="wrap footer-base">
+    <span>© 2026 CyberSecCheck · Diese Seite setzt keine Tracking-Cookies.</span>
+    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+  </div>
+</footer>
+</body>
+</html>

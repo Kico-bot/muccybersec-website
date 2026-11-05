@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Business Continuity: NIS2 und ISO 22301 | CyberSecCheck</title>
+  <meta name="description" content="Was NIS2, ISO 27001, ISO 22301 und BSI-Standard 200-4 zur Aufrechterhaltung des Betriebs verlangen, wie sie zusammenhängen und was KMU wirklich brauchen.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#081326">
+  <!-- Ersatz-CSP für Hosts ohne eigene Header; diese Seite braucht kein JavaScript. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="https://cyber-sec-check.de/ratgeber/business-continuity-nis2-iso-22301">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="CyberSecCheck">
+  <meta property="og:title" content="Business Continuity: NIS2 und ISO 22301 | CyberSecCheck">
+  <meta property="og:description" content="Was NIS2, ISO 27001, ISO 22301 und BSI-Standard 200-4 zur Aufrechterhaltung des Betriebs verlangen, wie sie zusammenhängen und was KMU wirklich brauchen.">
+  <meta property="og:url" content="https://cyber-sec-check.de/ratgeber/business-continuity-nis2-iso-22301">
+  <meta property="og:image" content="https://cyber-sec-check.de/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="CyberSecCheck: Informationssicherheit für den Mittelstand">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Business Continuity: NIS2, ISO 22301 und BSI-Standard 200-4 zusammen denken",
+      "description": "Was NIS2, ISO 27001, ISO 22301 und BSI-Standard 200-4 zur Aufrechterhaltung des Betriebs verlangen, wie sie zusammenhängen und was KMU wirklich brauchen.",
+      "url": "https://cyber-sec-check.de/ratgeber/business-continuity-nis2-iso-22301",
+      "mainEntityOfPage": "https://cyber-sec-check.de/ratgeber/business-continuity-nis2-iso-22301",
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "inLanguage": "de-DE",
+      "image": "https://cyber-sec-check.de/assets/img/og-image.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Cyber Security Check",
+        "url": "https://cyber-sec-check.de/",
+        "description": "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "CyberSecCheck",
+        "url": "https://cyber-sec-check.de/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cyber-sec-check.de/assets/img/logo.svg"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://cyber-sec-check.de/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ratgeber",
+          "item": "https://cyber-sec-check.de/ratgeber/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Business Continuity: NIS2, ISO 22301, BSI 200-4",
+          "item": "https://cyber-sec-check.de/ratgeber/business-continuity-nis2-iso-22301"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Brauchen wir ein Zertifikat nach ISO 22301?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In den meisten Fällen nicht. Es lohnt sich, wenn Kunden es verlangen oder wenn Ausfälle Ihres Unternehmens besonders schwer wiegen. Für NIS2 und ISO 27001 reicht ein nachvollziehbares Notfallmanagement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist der BSI-Standard 200-4 Pflicht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Er ist ein Leitfaden. Für Behörden und Betreiber kritischer Anlagen ist er verbreitet, für Unternehmen eine gute Orientierung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie hängen Notfallmanagement und Informationssicherheit zusammen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Viele Notfälle entstehen heute durch Cyberangriffe. Informationssicherheit verringert die Wahrscheinlichkeit, Notfallmanagement die Auswirkungen. Beides sollte abgestimmt sein, etwa beim Vorfallprozess und bei der Datensicherung."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="CyberSecCheck, zur Startseite"><span class="brand-word">CyberSec<span class="brand-accent">Check</span></span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/iso-27001-beratung-muenchen">ISO 27001</a>
+      <a href="/nis2-beratung-muenchen">NIS2</a>
+      <a href="/ratgeber/" aria-current="page">Ratgeber</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a class="btn btn-sm" href="/#check">Cyber-Check</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="sub-hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a><span aria-hidden="true">/</span><a href="/ratgeber/">Ratgeber</a><span aria-hidden="true">/</span><span aria-current="page">Business Continuity: NIS2, ISO 22301, BSI 200-4</span></nav>
+      <span class="eyebrow">Ratgeber</span>
+      <h1 id="page-title">Business Continuity: NIS2, ISO 22301 und BSI-Standard 200-4 zusammen denken</h1>
+      <p class="hero-sub">NIS2 verlangt, den Betrieb auch im Notfall aufrechtzuerhalten. ISO 27001 enthält dazu zwei Maßnahmen, ISO 22301 und der BSI-Standard 200-4 beschreiben ein vollständiges Business Continuity Management. Wie die Regelwerke zusammenhängen und wie viel davon ein mittelständisches Unternehmen braucht.</p>
+      <p class="article-meta">Stand: <time datetime="2026-11-05">5. November 2026</time> · Cyber Security Check</p>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Kostenloses Erstgespräch <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="/#check">Cyber-Check in 5 Minuten</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section article-section">
+    <div class="wrap">
+      <article class="prose article">
+        <div class="keypoints"><h2>Auf einen Blick</h2><ul class="checks"><li>NIS2 nennt Backup-Management, Wiederherstellung nach einem Notfall und Krisenmanagement als Pflichtmaßnahme.</li><li>ISO 27001 deckt das mit den Maßnahmen A.5.29, A.5.30, A.8.13 und A.8.14 ab.</li><li>ISO 22301 und BSI-Standard 200-4 beschreiben ein vollständiges BCMS.</li><li>Das Stufenmodell des BSI erlaubt einen schrittweisen Einstieg.</li></ul></div>
+        <h2>Was NIS2 verlangt</h2>
+        <p>Artikel 21 Absatz 2 Buchstabe c der NIS2-Richtlinie nennt die Aufrechterhaltung des Betriebs, wie Backup-Management und Wiederherstellung nach einem Notfall, und Krisenmanagement. In Deutschland steht das in § 30 BSIG. Die Richtlinie sagt nicht, wie das umgesetzt werden muss. Der Maßstab sind der Stand der Technik und die Verhältnismäßigkeit.</p>
+        <p>Nach der Zuordnung der ENISA entspricht Buchstabe c in ISO 27001 vor allem diesen Maßnahmen: Informationssicherheit bei Störungen (A.5.29), IKT-Bereitschaft für Business Continuity (A.5.30), Reaktion auf Vorfälle (A.5.26), Datensicherung (A.8.13) und Redundanz von Informationsverarbeitungseinrichtungen (A.8.14).</p>
+        <h2>Drei Regelwerke, ein Thema</h2>
+        <h3>ISO 27001: Informationssicherheit auch im Notfall</h3>
+        <p>ISO 27001 betrachtet Business Continuity aus Sicht der Informationssicherheit. Die Maßnahmen verlangen, dass die Informationssicherheit bei Störungen aufrechterhalten wird und die IT so vorbereitet ist, dass sie die Anforderungen an die Betriebskontinuität erfüllt. Die Norm verlangt aber kein vollständiges Managementsystem für Business Continuity.</p>
+        <h3>ISO 22301: das vollständige BCMS</h3>
+        <p>ISO 22301 ist die internationale Norm für Business-Continuity-Managementsysteme. Sie folgt derselben Struktur wie ISO 27001, mit Kontext, Führung, Planung, Unterstützung, Betrieb, Bewertung und Verbesserung. Der Kern liegt in Abschnitt 8: Business-Impact-Analyse und Risikobeurteilung, Strategien und Lösungen zur Aufrechterhaltung der Betriebsfähigkeit, Pläne und Verfahren mit Reaktionsstruktur, Warnung und Kommunikation, ein Übungsprogramm und die Bewertung der Dokumentation und Fähigkeiten. Wer ein ISMS nach ISO 27001 hat, kann ein BCMS nach ISO 22301 gut daneben aufbauen.</p>
+        <h3>BSI-Standard 200-4: der deutsche Leitfaden</h3>
+        <p>Der BSI-Standard 200-4 beschreibt, wie ein Business Continuity Management aufgebaut und betrieben wird, und bietet nach Aussage des BSI eine Anleitung für ein zur ISO 22301:2019 konformes BCM. Seine Besonderheit ist ein Stufenmodell, das einen schrittweisen Einstieg erlaubt.</p>
+        <h2>Das Stufenmodell des BSI</h2>
+        <ul class="list"><li><strong>Reaktiv-BCMS:</strong> Für Organisationen, die sich möglichst schnell in die Lage versetzen wollen, auf Notfälle angemessen zu reagieren. Es nutzt vorhandene Sicherheits- und Vorsorgemaßnahmen und betrachtet nur ausgewählte zeitkritische Geschäftsprozesse.</li><li><strong>Aufbau-BCMS:</strong> Die zeitkritischen Geschäftsprozesse werden schrittweise und systematischer abgesichert, einschließlich ihrer Abhängigkeiten.</li><li><strong>Standard-BCMS:</strong> Ein vollständiges und angemessenes BCMS. Alle Geschäftsprozesse im Geltungsbereich werden analysiert, die zeitkritischen entsprechend ihrem Ausfallrisiko abgesichert.</li></ul>
+        <p>Das BSI empfiehlt, als Ziel ein Standard-BCMS zu erreichen. Reaktiv- und Aufbau-BCMS sind ausdrücklich als Einstiegsstufen gedacht.</p>
+        <h2>Was mittelständische Unternehmen wirklich brauchen</h2>
+        <p>Für die meisten kleinen und mittleren Unternehmen ist ein zertifiziertes BCMS nach ISO 22301 nicht nötig. Was aber jedes Unternehmen unter NIS2 braucht und was ISO 27001 verlangt, ist ein nachvollziehbarer Weg, den Betrieb im Notfall aufrechtzuerhalten. Ein pragmatischer Kern:</p>
+        <ol class="list"><li><strong>Eine Business-Impact-Analyse</strong> für die wichtigsten Geschäftsprozesse mit maximal tolerierbarer Ausfallzeit, Wiederanlaufzeit und tolerierbarem Datenverlust. Wie das an einem Tag gelingt, zeigt der Artikel <a href="/ratgeber/business-impact-analyse">Business-Impact-Analyse</a>.</li><li><strong>Eine Datensicherung,</strong> die zu den Anforderungen aus der BIA passt, mit einer vom Netz getrennten Kopie und regelmäßig getesteter Wiederherstellung.</li><li><strong>Einen Notfallplan</strong> mit Rollen, Alarmierung, ersten Schritten, Wiederanlaufreihenfolge und Kommunikation. Ein Beispiel für den Ernstfall gibt der Artikel <a href="/ratgeber/notfallplan-ransomware">Notfallplan für Ransomware</a>.</li><li><strong>Ein Krisenmanagement:</strong> Wer entscheidet, wenn der Notfall zur Krise wird, und wie arbeitet der Krisenstab?</li><li><strong>Übungen,</strong> mindestens einmal im Jahr, und eine Auswertung, die in den Plan zurückfließt.</li></ol>
+        <p>Das entspricht in etwa einem Reaktiv- bis Aufbau-BCMS nach BSI-Standard 200-4 und erfüllt die Anforderungen aus ISO 27001 A.5.29 und A.5.30. Wer später mehr will, baut von dort aus zum Standard-BCMS oder zu ISO 22301 aus.</p>
+        <h2>Eine Maßnahme, drei Nachweise</h2>
+        <p>Der Vorteil eines abgestimmten Vorgehens: Dieselbe BIA, derselbe Notfallplan und dieselbe Übung dienen als Nachweis für NIS2, für ISO 27001 und gegebenenfalls für ISO 22301. Halten Sie in Ihrer Maßnahmenliste fest, welche Anforderungen eine Maßnahme erfüllt. Die <a href="/#software">ISMS-Suite</a> bildet das ab: Die BIA hängt an den Geschäftsprozessen, prüft, ob Wiederanlaufzeiten und Auswirkungen zusammenpassen, und ein Notfallplan wird erst aktiv, wenn er einmal geübt wurde.</p>
+        <p>Wie ich Sie bei BIA, Notfallplan und Übung unterstütze, steht auf der Seite <a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a>.</p>
+        <h2>Häufige Lücken in der Praxis</h2>
+        <ul class="list"><li><strong>Backups ohne Wiederherstellungstest:</strong> Die Sicherung läuft, aber niemand weiß, wie lange die Wiederherstellung dauert.</li><li><strong>IT-Notfallplan ohne Fachbereiche:</strong> Die IT weiß, was zu tun ist, aber nicht, welcher Geschäftsprozess zuerst laufen muss.</li><li><strong>Kein Notbetrieb:</strong> Es gibt keinen Plan, wie wichtige Prozesse ohne IT weiterlaufen, etwa mit Papierformularen.</li><li><strong>Dienstleister nicht einbezogen:</strong> Verträge regeln Reaktionszeiten, aber keine Wiederherstellungszeiten.</li><li><strong>Nie geübt:</strong> Der Plan existiert, wurde aber nie durchgespielt.</li></ul>
+        <p>Diese Lücken lassen sich mit überschaubarem Aufwand schließen und sind zugleich die Punkte, nach denen Auditoren und Behörden zuerst fragen.</p>
+        <div class="faq faq-inline">
+        <h2>Häufige Fragen</h2>
+        <details><summary>Brauchen wir ein Zertifikat nach ISO 22301?</summary><div><p>In den meisten Fällen nicht. Es lohnt sich, wenn Kunden es verlangen oder wenn Ausfälle Ihres Unternehmens besonders schwer wiegen. Für NIS2 und ISO 27001 reicht ein nachvollziehbares Notfallmanagement.</p></div></details>
+        <details><summary>Ist der BSI-Standard 200-4 Pflicht?</summary><div><p>Nein. Er ist ein Leitfaden. Für Behörden und Betreiber kritischer Anlagen ist er verbreitet, für Unternehmen eine gute Orientierung.</p></div></details>
+        <details><summary>Wie hängen Notfallmanagement und Informationssicherheit zusammen?</summary><div><p>Viele Notfälle entstehen heute durch Cyberangriffe. Informationssicherheit verringert die Wahrscheinlichkeit, Notfallmanagement die Auswirkungen. Beides sollte abgestimmt sein, etwa beim Vorfallprozess und bei der Datensicherung.</p></div></details>
+        </div>
+        <div class="sources"><h2>Quellen</h2><ul><li><a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" rel="noopener">Richtlinie (EU) 2022/2555 (NIS2), EUR-Lex</a></li><li><a href="https://www.enisa.europa.eu/publications/nis2-technical-implementation-guidance" rel="noopener">ENISA: NIS2 Technical Implementation Guidance</a></li><li><a href="https://www.iso.org/standard/27001" rel="noopener">ISO/IEC 27001:2022, ISO</a></li><li><a href="https://www.iso.org/standard/75106.html" rel="noopener">ISO 22301:2019, ISO</a></li><li><a href="https://www.bsi.bund.de/dok/bsi-standard-200-4" rel="noopener">BSI-Standard 200-4: Business Continuity Management</a></li></ul>
+          <p>Dieser Artikel ist eine allgemeine Information und keine Rechtsberatung. Maßgeblich ist der jeweils aktuelle Gesetzes- und Normtext.</p>
+        </div>
+      </article>
+      <aside class="author-box" aria-label="Über den Autor">
+        <span class="author-mark" aria-hidden="true">CSC</span>
+        <div>
+          <strong>Cyber Security Check</strong>
+          <p>ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager. Beratung zu Informationssicherheit, ISO 27001 und NIS2 für kleine und mittlere Unternehmen, vor Ort in München und Umgebung, bundesweit per Video.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section mist" aria-labelledby="rel-title">
+    <div class="wrap">
+      <div class="head"><h2 id="rel-title">Weiterlesen</h2></div>
+      <ul class="more-services rel">
+        <li><a href="/leistungen/notfallmanagement"><span><strong>Notfall- und Krisenmanagement</strong><small>BIA, Notfallplan, Übung</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/business-impact-analyse"><span><strong>Business-Impact-Analyse</strong><small>In einem Tag</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/ratgeber/iso-27001-nis2-mapping"><span><strong>ISO 27001 und NIS2</strong><small>Alle zehn Maßnahmen im Abgleich</small></span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div>
+        <h2 id="cta-title">Lassen Sie uns sprechen</h2>
+        <p>30 Minuten, kostenlos und unverbindlich. Vor Ort in München und Umgebung oder per Video. Die <a href="/#software">ISMS-Suite</a> können Sie schon vorher kostenlos ausprobieren.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/#kontakt">Erstgespräch anfragen <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline" href="/#check">Cyber-Check starten</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
+      <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+    </div>
+      <nav aria-label="Themen"><h2>Themen</h2><ul><li><a href="/iso-27001-beratung-muenchen">ISO 27001 Beratung</a></li><li><a href="/nis2-beratung-muenchen">NIS2 Beratung</a></li><li><a href="/#software">ISMS-Suite</a></li><li><a href="/#check">Cyber-Check</a></li></ul></nav>
+      <nav aria-label="Leistungen"><h2>Leistungen</h2><ul><li><a href="/leistungen/isms-einfuehrung">ISMS-Einführung</a></li><li><a href="/leistungen/externer-ciso">Externer CISO und ISB</a></li><li><a href="/leistungen/sicherheitsanalysen">Sicherheitsanalysen</a></li><li><a href="/leistungen/din-spec-27076">CyberRisikoCheck (DIN SPEC 27076)</a></li><li><a href="/leistungen/notfallmanagement">Notfall- und Krisenmanagement</a></li><li><a href="/leistungen/security-awareness">Security Awareness</a></li></ul></nav>
+      <nav aria-label="Ratgeber"><h2>Ratgeber</h2><ul><li><a href="/ratgeber/">Alle Artikel</a></li><li><a href="/ratgeber/nis2-betroffenheit">NIS2: Bin ich betroffen?</a></li><li><a href="/ratgeber/nis2-meldepflichten">NIS2-Meldepflichten</a></li><li><a href="/ratgeber/iso-27001-zertifizierung-ablauf">ISO 27001: Ablauf und Dauer</a></li><li><a href="/ratgeber/isms-einfuehren-6-schritte">ISMS einführen in 6 Schritten</a></li></ul></nav>
+  </div>
+  <div class="wrap footer-base">
+    <span>© 2026 CyberSecCheck · Diese Seite setzt keine Tracking-Cookies.</span>
+    <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav>
+  </div>
+</footer>
+</body>
+</html>
