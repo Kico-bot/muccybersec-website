@@ -369,3 +369,5 @@ footer a:hover { color: var(--ink); }
 .topic-head { font-size: clamp(1.4rem, 1.2rem + .8vw, 1.8rem); font-weight: 400; margin: 2.5rem 0 1.2rem; }
 .topic-head:first-child { margin-top: 0; }
 .crumbs a, .crumbs span { overflow-wrap: anywhere; min-width: 0; }
+.head h2.eyebrow { font-size: .78rem; font-weight: 700; line-height: 1.4; }
+.topics .head { margin-bottom: 1.2rem; }
