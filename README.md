@@ -17,7 +17,8 @@ assets/scripts/check.js      Fragebogen und Auswertung, baut DOM ohne innerHTML
 assets/scripts/questions.js  27 Fragen, Bewertung als reine Funktion
 assets/scripts/forms.js      Formularprüfung, Honeypot, Zeitsperre, Versand an den Cloudflare Worker
 assets/scripts/dom.js        DOM-Helfer, sessionStorage-Wrapper
-assets/img/logo.svg     Wortmarke, favicon.svg das Kürzel M
+assets/img/logo.svg     Wortmarke; favicon.svg das Kürzel C, dazu favicon-192.png, favicon-48.png,
+                        apple-touch-icon.png und /favicon.ico (Rastergrafiken für Google und iOS)
 assets/video/           Erklärvideo zur ISMS-Suite (MP4, 720p), Vorschaubild in assets/img/
 assets/fonts/           Manrope, selbst gehostet (SIL OFL)
 _headers                Security-Header für Netlify / Cloudflare Pages
