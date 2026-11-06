@@ -13,7 +13,7 @@
 - ISMS-Einführung: Managementsystem nach ISO/IEC 27001 oder BSI IT-Grundschutz, mit oder ohne Zertifikat.
 - Externer CISO und ISB: Leitung der Informationssicherheit als externer CISO oder Informationssicherheitsbeauftragter (ISB), auf Zeit oder dauerhaft, auf Wunsch mit Begleitung von SIEM und SOC.
 - Sicherheitsanalysen: Risikoanalysen, Gap-Analysen, Schwachstellenmanagement, Maßnahmenliste nach Dringlichkeit.
-- CyberRisikoCheck nach DIN SPEC 27076: kompakter Sicherheitscheck für kleine und Kleinstunternehmen.
+- Gap-Analyse: Soll-Ist-Vergleich gegenüber ISO 27001, NIS2, BSI IT-Grundschutz oder Kundenanforderungen, mit Fahrplan.
 - Notfall- und Krisenmanagement: Business-Impact-Analyse, Notfallpläne, Wiederanlauf nach einem Angriff, Notfallübungen.
 - Security Awareness: Awareness-Programm mit Online-Schulungen und Phishing-Simulationen samt Auswertung; deckt auch die Schulung der Geschäftsleitung nach NIS2 ab.
 - Preise: Beratung auf Anfrage mit individuellem Angebot, externer CISO oder Informationssicherheitsbeauftragter zum monatlichen Festpreis.
@@ -35,7 +35,7 @@
 - [ISMS-Einführung](https://cyber-sec-check.de/leistungen/isms-einfuehrung)
 - [Externer CISO und ISB](https://cyber-sec-check.de/leistungen/externer-ciso)
 - [Sicherheitsanalysen](https://cyber-sec-check.de/leistungen/sicherheitsanalysen)
-- [CyberRisikoCheck nach DIN SPEC 27076](https://cyber-sec-check.de/leistungen/din-spec-27076)
+- [Gap-Analyse](https://cyber-sec-check.de/leistungen/gap-analyse)
 - [Notfall- und Krisenmanagement](https://cyber-sec-check.de/leistungen/notfallmanagement)
 - [Security Awareness](https://cyber-sec-check.de/leistungen/security-awareness)
 

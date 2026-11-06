@@ -27,7 +27,7 @@ ISO = dict(
                 "Sie bieten IT- oder Cloud-Dienste an und Ihre Kunden lagern Daten zu Ihnen aus.",
                 "Ihre Kunden fallen unter NIS2 und müssen die Sicherheit ihrer Lieferkette belegen.",
                 "Sie wollen gegenüber Versicherern, Banken oder Investoren zeigen, dass Sie Risiken im Griff haben."]),
-        ("p", "Wenn kein Nachweis gefordert ist, reicht oft ein ISMS ohne Zertifikat. Wie das aussieht, beschreibe ich auf der Seite zur [ISMS-Einführung](/leistungen/isms-einfuehrung). Für sehr kleine Betriebe kann auch ein [CyberRisikoCheck nach DIN SPEC 27076](/leistungen/din-spec-27076) der bessere Einstieg sein."),
+        ("p", "Wenn kein Nachweis gefordert ist, reicht oft ein ISMS ohne Zertifikat. Wie das aussieht, beschreibe ich auf der Seite zur [ISMS-Einführung](/leistungen/isms-einfuehrung). Wo Sie heute stehen, zeigt eine [Gap-Analyse](/leistungen/gap-analyse)."),
         ("h2", "Wie ich Sie begleite"),
         ("p", "Ich arbeite als ISO/IEC 27001 Lead Implementer und ISO/IEC 27005 Risk Manager. Das heißt für Sie: Ich kenne die Norm aus Sicht derer, die sie umsetzen, und ich weiß, worauf Auditoren achten. Mein Ziel ist ein Managementsystem, das Ihre Leute im Alltag pflegen können, ohne dass dafür eine eigene Abteilung entsteht."),
         ("p", "Konkret heißt das: so wenig Dokumente wie möglich, aber jedes mit einem Zweck. Eine Leitlinie, die die Geschäftsführung wirklich unterschreibt. Eine Risikoanalyse, die von Ihren Geschäftsprozessen ausgeht und nicht von einer Liste aus dem Internet. Eine Erklärung zur Anwendbarkeit, in der jede der 93 Maßnahmen begründet ist. Dazu interne Audits und eine Managementbewertung, die vor dem Zertifizierungsaudit mindestens einmal gelaufen sein müssen."),

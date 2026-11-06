@@ -1,3 +1,5 @@
 # Cloudflare Pages: alte Adressen dauerhaft auf die neuen umleiten.
 /leistungen/isms-zertifizierung       /leistungen/isms-einfuehrung  301
 /leistungen/isms-zertifizierung.html  /leistungen/isms-einfuehrung  301
+/leistungen/din-spec-27076       /leistungen/gap-analyse  301
+/leistungen/din-spec-27076.html  /leistungen/gap-analyse  301
