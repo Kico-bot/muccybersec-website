@@ -55,7 +55,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 h1, h2, h3 { font-family: var(--f-head); margin: 0; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; overflow-wrap: break-word; hyphens: auto; }
 p { margin: 0; }
 /* Lange deutsche Komposita (Informationssicherheitsbeauftragter) dürfen am Handy trennen */
-p, li, summary { overflow-wrap: break-word; hyphens: auto; }
+p, li, summary { overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
@@ -365,9 +365,16 @@ footer a:hover { color: var(--ink); }
 .topics { padding-top: 0; }
 .topics-more { margin-top: 1.5rem; color: var(--muted); }
 .topics-more a, .creds a { color: var(--accent-strong); }
-.sub-hero h1 { hyphens: auto; overflow-wrap: break-word; }
+.sub-hero h1 { -webkit-hyphens: auto; hyphens: auto; overflow-wrap: anywhere; }
 .topic-head { font-size: clamp(1.4rem, 1.2rem + .8vw, 1.8rem); font-weight: 400; margin: 2.5rem 0 1.2rem; }
 .topic-head:first-child { margin-top: 0; }
 .crumbs a, .crumbs span { overflow-wrap: anywhere; min-width: 0; }
 .head h2.eyebrow { font-size: .78rem; font-weight: 700; line-height: 1.4; }
 .topics .head { margin-bottom: 1.2rem; }
+/* Schmale Handys (320 px): lange deutsche Wörter dürfen umbrechen, Spalten dürfen schmaler als das längste Wort werden */
+h1, h2, h3, summary { overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: auto; }
+@media (max-width: 860px) { .sub-grid { grid-template-columns: minmax(0, 1fr); } }
+.article-section .wrap { grid-template-columns: minmax(0, 1fr); }
+.keypoints, .author-box, .sources { min-width: 0; }
+.hero .wrap, .sub-hero .wrap, .prose, .legal { grid-template-columns: minmax(0, 1fr); }
+.checks li { grid-template-columns: 1.3rem minmax(0, 1fr); }

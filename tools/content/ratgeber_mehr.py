@@ -156,7 +156,7 @@ RISIKO = dict(
          ("Brauche ich dafür eine spezielle Software?", "Nein. Eine Tabelle genügt für den Anfang. Eine Software hilft, sobald Maßnahmen, Fristen und Nachweise dazukommen.")],
     sources=[ISO, ("ISO/IEC 27005:2022, ISO", "https://www.iso.org/standard/80585.html"), BSI_200_3],
     related=[("ISMS-Einführung", "/leistungen/isms-einfuehrung", "Risikoanalyse als Teil des ISMS"),
-             ("Sicherheitsanalysen", "/leistungen/sicherheitsanalysen", "Risikoanalyse mit Begleitung"),
+             ("Risikomanagement", "/leistungen/risikomanagement", "Risikoanalyse mit Begleitung"),
              ("Erklärung zur Anwendbarkeit", "/ratgeber/erklaerung-zur-anwendbarkeit-soa", "Der nächste Schritt")],
 )
 
@@ -464,7 +464,7 @@ VERSICHERUNG = dict(
     keyword="Cyberversicherung Anforderungen",
     title="Cyberversicherung: Was Versicherer erwarten | CyberSecCheck",
     desc="Welche Sicherheitsmaßnahmen Cyberversicherer typischerweise abfragen, warum ehrliche Antworten wichtig sind und wie ein ISMS den Antrag erleichtert.",
-    h1="Cyberversicherung: Welche Sicherheits\u00admaßnahmen Versicherer erwarten",
+    h1="Cyber\u00adversicherung: Welche Sicherheits\u00admaßnahmen Versicherer erwarten",
     lead="Eine Cyberversicherung kann im Ernstfall viel abfedern. Doch Versicherer prüfen genau, wen sie versichern. Wer den Antrag stellt, beantwortet einen Fragebogen zur IT-Sicherheit. Was dort typischerweise gefragt wird und warum die Antworten so wichtig sind.",
     date=DATE,
     key=["Versicherer fragen vor Vertragsschluss den Stand der IT-Sicherheit ab.",
@@ -499,7 +499,7 @@ VERSICHERUNG = dict(
     faq=[("Brauchen wir eine Cyberversicherung, wenn wir ein ISMS haben?", "Das ist eine unternehmerische Entscheidung. Ein ISMS senkt die Wahrscheinlichkeit und die Folgen eines Vorfalls, eine Versicherung federt die finanziellen Folgen ab. Beides ergänzt sich."),
          ("Hilft uns ein ISO-27001-Zertifikat beim Abschluss?", "Es kann helfen, weil es viele Fragen auf einmal beantwortet. Ob und wie Versicherer es berücksichtigen, ist unterschiedlich.")],
     sources=[ISO, EURLEX_NIS2],
-    related=[("Sicherheitsanalysen", "/leistungen/sicherheitsanalysen", "Den eigenen Stand kennen"),
+    related=[("Gap- und Betroffenheitsanalyse", "/leistungen/gap-analyse", "Den eigenen Stand kennen"),
              ("MFA einführen", "/ratgeber/multi-faktor-authentifizierung-einfuehren", "Die wichtigste Einzelmaßnahme"),
              ("Notfallplan für Ransomware", "/ratgeber/notfallplan-ransomware", "Versicherung im Ernstfall")],
 )

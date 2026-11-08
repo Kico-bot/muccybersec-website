@@ -342,7 +342,7 @@ def ratgeber_index():
       </ul>''')
     cards = "\n".join(groups)
     ld = [{"@type": "CollectionPage", "name": p["h1"].replace("\u00ad", ""), "description": p["desc"], "url": url("ratgeber/"),
-           "hasPart": [{"@type": "Article", "headline": a["h1"], "url": url(a["slug"])} for a in ratgeber.ARTICLES]},
+           "hasPart": [{"@type": "Article", "headline": a["h1"].replace("\u00ad", ""), "url": url(a["slug"])} for a in ratgeber.ARTICLES]},
           breadcrumb_ld(p["crumbs"])]
     main = f'''{hero(p)}
 
