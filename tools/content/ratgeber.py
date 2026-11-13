@@ -313,5 +313,7 @@ from content.ratgeber_mapping import MAPPING  # noqa: E402
 
 ARTICLES = ARTICLES + MORE + MAPPING
 # Im Footer verlinkt: die Einstiegsartikel je Schwerpunkt.
+import content.seo  # noqa: E402,F401  (ergänzt die Artikel oben: Titel, Tabellen, SoA-Vorlage)
+
 FEATURED = [NIS2_BETROFFEN, NIS2_MELDUNG, ISO_ABLAUF, ISMS_6]
 TOPICS = ["NIS2", "ISO 27001", "Regelwerke verbinden", "ISMS", "Notfallmanagement", "Awareness"]

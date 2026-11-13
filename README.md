@@ -25,6 +25,9 @@ _headers                Security-Header für Netlify / Cloudflare Pages
 robots.txt, sitemap.xml, llms.txt   SEO und KI-Crawler
 tools/build.py          erzeugt Landingpages, Leistungen, Ratgeber und sitemap.xml; setzt Navigation und Fuß auch in Startseite und Rechtstexte
 tools/content/*.py      Inhalte der erzeugten Seiten (Text mit [Link](/pfad) und **fett**)
+tools/content/seo.py    Suchoptimierung an einer Stelle: Titel nach Search-Console-Anfragen, Tabellen, SoA-Vorlage
+downloads/              Vorlagen zum Herunterladen (von build.py erzeugt, z. B. SoA-Vorlage als CSV)
+tools/indexnow.py       meldet geänderte Seiten nach dem Deploy an Bing (IndexNow), Schlüsseldatei im Wurzelverzeichnis
 tools/serve.py          lokaler Server, löst Adressen ohne .html auf wie Cloudflare Pages
 tools/check_links.py    prüft interne Links, Anker und JSON-LD
 ```
@@ -32,6 +35,11 @@ tools/check_links.py    prüft interne Links, Anker und JSON-LD
 Lokal ansehen: `python3 tools/serve.py`, dann <http://localhost:8000>.
 Nach Änderungen an Unterseiten: Text in `tools/content/` ändern, dann `python3 tools/build.py` und
 `python3 tools/check_links.py`. Die erzeugten HTML-Dateien werden mit committet, Cloudflare baut nichts.
+Nach dem Deploy: `python3 tools/indexnow.py` meldet die Seiten aus dem letzten Commit an Bing.
+
+`build.py` schreibt auch `sitemap.xml` (lastmod ändert sich nur bei Seiten, die sich seit dem letzten
+Commit geändert haben; Impressum und Datenschutz fehlen, weil sie auf noindex stehen) und den
+Ratgeber-Abschnitt in `llms.txt` zwischen den Markierungen `ratgeber:start` und `ratgeber:end`.
 
 Adressen: Cloudflare Pages liefert `impressum.html` unter `/impressum` aus und leitet die
 `.html`-Adresse dorthin um. Links, Canonicals und Sitemap nutzen deshalb die Adresse ohne Endung.

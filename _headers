@@ -30,3 +30,9 @@
 
 /assets/video/*
   Cache-Control: public, max-age=86400
+
+# Vorlagen zum Herunterladen: als Datei speichern statt im Browser anzeigen
+/downloads/*
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: noindex

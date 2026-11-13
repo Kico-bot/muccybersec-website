@@ -1,16 +1,20 @@
 # Erzeugt alle Unterseiten (Landingpages, Leistungen, Ratgeber) und die Sitemap aus den
 # Inhaltsdateien in tools/content/. Kopf, Fuß, Navigation und JSON-LD kommen so von einer Stelle.
 # Start: python3 tools/build.py   Danach: python3 tools/check_links.py
-import datetime, html, json, os, re, sys
+import datetime, html, json, os, re, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, ".."))
 sys.path.insert(0, HERE)
-from content import landing, leistungen, ratgeber  # noqa: E402
+from content import landing, leistungen, ratgeber, seo  # noqa: E402
 
 DOMAIN = "https://cyber-sec-check.de"
 BRAND = "CyberSecCheck"
-AUTHOR = "Cyber Security Check"
+ALT_NAME = "Cyber Security Check"   # so wird die Marke auch gesucht; im Schema als alternateName
+AUTHOR = BRAND
+ORG = {"@type": "Organization", "@id": "https://cyber-sec-check.de/#business", "name": BRAND, "alternateName": ALT_NAME,
+       "url": "https://cyber-sec-check.de/", "logo": {"@type": "ImageObject", "url": "https://cyber-sec-check.de/assets/img/logo.svg"}}
+INDEXNOW_KEY = "5f0c8a3e9b2d4c7a8e1f6b3d2a9c4e70"
 CREDS = "ISO/IEC 27001 Lead Implementer · ISO/IEC 27005 Risk Manager"
 TODAY = datetime.date.today().isoformat()
 ARROW = '<svg aria-hidden="true"><use href="#i-arrow"/></svg>'
@@ -51,6 +55,12 @@ def blocks(items, indent="        "):
             out.append(f'{indent}<{kind} class="list">{li}</{kind}>')
         elif kind == "note":
             out.append(f'{indent}<p class="note">{t(val)}</p>')
+        elif kind == "table":
+            head = "".join(f'<th scope="col">{t(h)}</th>' for h in val["head"])
+            rows = "".join("<tr>" + f'<th scope="row">{t(r[0])}</th>' + "".join(f"<td>{t(c)}</td>" for c in r[1:]) + "</tr>"
+                           for r in val["rows"])
+            out.append(f'{indent}<div class="table-wrap" role="region" aria-label="{html.escape(val["caption"])}" tabindex="0">'
+                       f'<table><caption>{t(val["caption"])}</caption><thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div>')
         elif kind == "todo":
             out.append(f"{indent}<!-- TODO: {val} -->")
         else:
@@ -219,7 +229,7 @@ def offer_page(p):
            "url": url(p["slug"]), "provider": {"@id": DOMAIN + "/#business"},
            "areaServed": [{"@type": "City", "name": "München"}, {"@type": "State", "name": "Bayern"},
                           {"@type": "Country", "name": "Deutschland"}]},
-          {"@type": "ProfessionalService", "@id": DOMAIN + "/#business", "name": BRAND, "url": DOMAIN + "/"},
+          {"@type": "ProfessionalService", "@id": DOMAIN + "/#business", "name": BRAND, "alternateName": ALT_NAME, "url": DOMAIN + "/"},
           breadcrumb_ld(p["crumbs"]), faq_ld(p["faq"])]
     steps = "\n".join(f"        <li><h3>{e(a)}</h3><p>{t(b)}</p></li>" for a, b in p["steps"])
     main = f'''{hero(p)}
@@ -287,9 +297,7 @@ def article_page(a):
     ld = [{"@type": "Article", "headline": a["h1"].replace("\u00ad", ""), "description": a["desc"], "url": url(a["slug"]),
            "mainEntityOfPage": url(a["slug"]), "datePublished": a["date"], "dateModified": a.get("updated", a["date"]),
            "inLanguage": "de-DE", "image": DOMAIN + "/assets/img/og-image.jpg",
-           "author": {"@type": "Organization", "name": AUTHOR, "url": DOMAIN + "/", "description": CREDS},
-           "publisher": {"@type": "Organization", "name": BRAND, "url": DOMAIN + "/",
-                         "logo": {"@type": "ImageObject", "url": DOMAIN + "/assets/img/logo.svg"}}},
+           "author": dict(ORG, description=CREDS), "publisher": ORG},
           breadcrumb_ld(a["crumbs"])]
     if a.get("faq"):
         ld.append(faq_ld(a["faq"]))
@@ -374,13 +382,58 @@ def inject_footer(path):
         write(path, s2)
 
 
+def file_for(path):
+    return "index.html" if path == "" else path + ("index.html" if path.endswith("/") else ".html")
+
+
+def changed_since_commit(rel):
+    """True, wenn die Datei neu ist oder sich gegenüber dem letzten Commit geändert hat."""
+    try:
+        old = subprocess.run(["git", "show", f"HEAD:{rel}"], cwd=ROOT, capture_output=True, check=True).stdout
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return True
+    return old != open(os.path.join(ROOT, rel), "rb").read()
+
+
 def sitemap(paths):
-    rows = "\n".join(f"  <url><loc>{url(p)}</loc><lastmod>{TODAY}</lastmod></url>" for p in paths)
+    """lastmod ändert sich nur bei Seiten, deren Inhalt sich geändert hat. Ein lastmod, das bei jedem
+    Build auf heute springt, ignoriert Google, und dann fehlt das Signal auch bei echten Änderungen."""
+    old = {}
+    try:
+        old = dict(re.findall(r"<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>", open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read()))
+    except FileNotFoundError:
+        pass
+    def lastmod(p):
+        return TODAY if changed_since_commit(file_for(p)) else old.get(url(p), TODAY)
+    rows = "\n".join(f"  <url><loc>{url(p)}</loc><lastmod>{lastmod(p)}</lastmod></url>" for p in paths)
     return f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {rows}
 </urlset>
 '''
+
+
+def llms_txt():
+    """Ersetzt in llms.txt den Abschnitt zwischen den Markierungen durch die aktuelle Artikelliste."""
+    full = os.path.join(ROOT, "llms.txt")
+    s = open(full, encoding="utf-8").read()
+    groups = []
+    for topic in ratgeber.TOPICS:
+        items = [a for a in ratgeber.ARTICLES if a["topic"] == topic]
+        if items:
+            groups.append(f"### {topic}\n\n" + "\n".join(
+                f"- [{a['h1'].replace(chr(173), '')}]({url(a['slug'])}): {plain(a['desc'])}" for a in items))
+    block = ("<!-- ratgeber:start (wird von tools/build.py erzeugt) -->\n## Ratgeber\n\n"
+             f"Stand: {de_date(max(x.get('updated', x['date']) for x in ratgeber.ARTICLES))}. Jeder Artikel nennt seine Primärquellen (Gesetz, BSI, Normgeber).\n\n"
+             + "\n\n".join(groups)
+             + f"\n\n### Vorlagen\n\n- [Erklärung zur Anwendbarkeit (SoA), Vorlage mit allen 93 Maßnahmen aus Anhang A, CSV]({DOMAIN}{seo.SOA_CSV})"
+             + "\n<!-- ratgeber:end -->")
+    if "<!-- ratgeber:start" in s:
+        s2 = re.sub(r"<!-- ratgeber:start.*?<!-- ratgeber:end -->", lambda m: block, s, flags=re.S)
+    else:
+        s2 = s.replace("\n## Links", "\n" + block + "\n\n## Links", 1)
+    if s2 != s:
+        write("llms.txt", s2)
 
 
 if __name__ == "__main__":
@@ -392,5 +445,9 @@ if __name__ == "__main__":
         write(a["slug"] + ".html", article_page(a)); built.append(a["slug"])
     for page in ("index.html", "impressum.html", "datenschutz.html"):
         inject_footer(page)
-    write("sitemap.xml", sitemap([""] + built + ["impressum", "datenschutz"]))
+    write(seo.SOA_CSV.lstrip("/"), seo.soa_csv())
+    write(INDEXNOW_KEY + ".txt", INDEXNOW_KEY + "\n")
+    llms_txt()
+    # Impressum und Datenschutz stehen auf noindex und gehören deshalb nicht in die Sitemap.
+    write("sitemap.xml", sitemap([""] + built))
     print("\n".join(built))

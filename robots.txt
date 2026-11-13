@@ -1,16 +1,22 @@
 User-agent: *
 Allow: /
 
-# KI-Crawler:
-User-agent: GPTBot
-Allow: /
+# KI-Suche und KI-Assistenten: ausdrücklich erlaubt, damit die Seite in Antworten zitiert werden kann.
+# Crawler für das Training (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot) ebenfalls erlaubt.
 User-agent: OAI-SearchBot
-Allow: /
-User-agent: PerplexityBot
-Allow: /
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 User-agent: ClaudeBot
-Allow: /
+User-agent: PerplexityBot
+User-agent: Perplexity-User
 User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://cyber-sec-check.de/sitemap.xml
