@@ -33,7 +33,7 @@ ISMS = dict(
                 "**Regelmäßige Überprüfung:** Interne Audits und eine Managementbewertung, mindestens einmal im Jahr."]),
         ("h2", "Schlank statt bürokratisch"),
         ("p", "Der häufigste Fehler bei ISMS-Projekten ist zu viel Papier. Dutzende Richtlinien, die niemand liest, und eine Risikoanalyse, die nach dem Audit verstaubt. Ich setze auf wenige Dokumente, die gelesen werden, und auf Abläufe, die in den Arbeitsalltag passen. Ein Beispiel: Statt einer zwanzigseitigen Passwortrichtlinie reicht oft eine Seite mit klaren Regeln, dazu technisch erzwungene Mindestanforderungen und Multi-Faktor-Authentifizierung."),
-        ("p", "Für den Betrieb bekommen Sie die [ISMS-Suite](/#software) kostenlos dazu. Sie bildet alle 123 prüfbaren Punkte der ISO 27001 ab und kann zusätzlich NIS2, DSGVO und BSI IT-Grundschutz an denselben Maßnahmen festmachen. Eine Maßnahme wie Multi-Faktor-Authentifizierung pflegen Sie einmal und sehen, welche Anforderungen sie in welchem Regelwerk erfüllt."),
+        ("p", "Für den Betrieb bekommen Sie die [ISMS-Suite](/#software) kostenlos dazu. Sie bildet alle 123 prüfbaren Punkte der ISO 27001 ab und kann zusätzlich NIS2, DSGVO und den EU AI Act an denselben Maßnahmen festmachen. Eine Maßnahme wie Multi-Faktor-Authentifizierung pflegen Sie einmal und sehen, welche Anforderungen sie in welchem Regelwerk erfüllt."),
         ("p", "Die Schritte im Einzelnen beschreibt der Ratgeber: [ISMS einführen in 6 Schritten](/ratgeber/isms-einfuehren-6-schritte)."),
     ],
     get=["Ein ISMS nach ISO 27001 oder BSI IT-Grundschutz, passend zu Ihrer Größe",

@@ -185,7 +185,7 @@ ISO_VS_GS = dict(
         ("p", "Wichtig ist nur, die Maßnahmen von Anfang an so zu dokumentieren, dass erkennbar ist, welche Anforderung sie erfüllen. Dann lässt sich jede Anforderung in beiden Regelwerken an derselben Maßnahme festmachen."),
         ("h2", "Und NIS2?"),
         ("p", "NIS2 schreibt keinen der beiden Wege vor. Beide decken die zehn Bereiche aus § 30 BSIG gut ab. Entscheidend ist, dass die Maßnahmen dem Stand der Technik entsprechen und Sie das nachweisen können. Mehr dazu auf der Seite zur [NIS2-Beratung](/nis2-beratung-muenchen)."),
-        ("p", "Die [ISMS-Suite](/#software) unterstützt beide Wege: die Erklärung zur Anwendbarkeit nach ISO 27001 ebenso wie Modellierung und IT-Grundschutz-Check. Eine Maßnahme pflegen Sie einmal und sehen, welche Anforderungen sie in beiden Regelwerken erfüllt."),
+        ("p", "Die [ISMS-Suite](/#software) bildet den Weg nach ISO 27001 ab: Die Erklärung zur Anwendbarkeit entsteht aus den Maßnahmen. Eine Maßnahme pflegen Sie einmal und sehen, welche Anforderungen sie erfüllt, auch für NIS2."),
     ],
     faq=[("Ist IT-Grundschutz nur für Behörden?", "Nein. Der IT-Grundschutz richtet sich an alle Organisationen. In Behörden ist er verbreiteter, aber auch Unternehmen nutzen ihn, vor allem wenn sie für die öffentliche Hand arbeiten."),
          ("Kann ein kleines Unternehmen IT-Grundschutz anwenden?", "Ja. Für den Einstieg eignet sich die Basis-Absicherung. Für ein Zertifikat ist allerdings die Standard- oder Kern-Absicherung nötig, und der Aufwand dafür ist nicht zu unterschätzen.")],

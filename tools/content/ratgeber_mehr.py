@@ -97,7 +97,7 @@ SOA = dict(
         ("p", "Wie eine schlanke Risikobeurteilung aussieht, beschreibt der Artikel [Risikoanalyse für KMU](/ratgeber/risikoanalyse-kmu)."),
         ("h2", "Die SoA aktuell halten"),
         ("p", "Die SoA ist kein einmaliges Dokument. Sie ändert sich, wenn neue Risiken auftauchen, Maßnahmen umgesetzt werden oder sich der Geltungsbereich ändert. Prüfen Sie sie mindestens vor jedem internen Audit und vor der Managementbewertung. Geben Sie ihr eine Versionsnummer und ein Datum, damit klar ist, welcher Stand gilt."),
-        ("p", "In der [ISMS-Suite](/#software) ist die SoA keine eigene Tabelle, die man pflegen muss, sondern eine Auswertung: Sie entsteht aus den Maßnahmen und ihrer Zuordnung zu den Anforderungen. So bleibt sie automatisch aktuell. Wer neben ISO 27001 auch NIS2 oder IT-Grundschutz erfüllen muss, sieht an derselben Stelle, welche Anforderungen dort abgedeckt sind."),
+        ("p", "In der [ISMS-Suite](/#software) ist die SoA keine eigene Tabelle, die man pflegen muss, sondern eine Auswertung: Sie entsteht aus den Maßnahmen und ihrer Zuordnung zu den Anforderungen. So bleibt sie automatisch aktuell. Wer neben ISO 27001 auch NIS2 erfüllen muss, sieht an derselben Stelle, welche Anforderungen dort abgedeckt sind."),
         ("h2", "Was Auditoren fragen"),
         ("ul", ["Warum ist diese Maßnahme nicht anwendbar?",
                 "Wo ist diese Maßnahme umgesetzt, und können Sie mir das zeigen?",

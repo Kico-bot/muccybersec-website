@@ -129,7 +129,7 @@ ISO_GS = dict(
         ("ul", ["**Kein Ersatz für die Methode:** Wer ein Zertifikat auf Basis von IT-Grundschutz will, muss die Vorgehensweise nach BSI-Standard 200-2 vollständig anwenden: Strukturanalyse, Schutzbedarfsfeststellung, Modellierung und IT-Grundschutz-Check.",
                 "**Unterschiedliche Tiefe:** Eine Zuordnung heißt nicht, dass ISO-Maßnahme und Baustein denselben Umfang haben. Ein Baustein enthält oft deutlich mehr Anforderungen.",
                 "**Versionen beachten:** Die Tabelle bezieht sich auf bestimmte Fassungen von Norm und Kompendium. Bei neuen Editionen kann sich die Zuordnung ändern."]),
-        ("p", "Wann sich welcher Weg lohnt, beschreibt der Artikel [ISO 27001 oder BSI IT-Grundschutz](/ratgeber/iso-27001-oder-it-grundschutz). In der [ISMS-Suite](/#software) lassen sich ISO-27001-Maßnahmen und modellierte Grundschutz-Bausteine an denselben Maßnahmen festmachen, ohne doppelte Pflege."),
+        ("p", "Wann sich welcher Weg lohnt, beschreibt der Artikel [ISO 27001 oder BSI IT-Grundschutz](/ratgeber/iso-27001-oder-it-grundschutz). In der [ISMS-Suite](/#software) hängen die Anforderungen der ISO 27001 an Maßnahmen, die Sie nur einmal pflegen."),
     ],
     faq=[("Ersetzt ein ISO-27001-Zertifikat ein Grundschutz-Zertifikat?", "Nein. Beide sind ISO-27001-Zertifikate, aber auf unterschiedlichen Wegen. Wenn ein Auftraggeber ausdrücklich ein Zertifikat auf Basis von IT-Grundschutz verlangt, reicht ein natives Zertifikat in der Regel nicht."),
          ("Muss ich für die Nutzung der Bausteine IT-Grundschutz einführen?", "Nein. Sie können die Bausteine als Nachschlagewerk nutzen, ohne die Grundschutz-Methodik anzuwenden."),
