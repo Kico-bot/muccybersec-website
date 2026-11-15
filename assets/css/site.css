@@ -379,3 +379,14 @@ h1, h2, h3, summary { overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: a
 .keypoints, .author-box, .sources { min-width: 0; }
 .hero .wrap, .sub-hero .wrap, .prose, .legal { grid-template-columns: minmax(0, 1fr); }
 .checks li { grid-template-columns: 1.3rem minmax(0, 1fr); }
+
+/* Einstieg: kurze Zeilen ohne Silbentrennung, auf dem Handy ist der Cyber-Check ohne Scrollen zu sehen. */
+.hero h1, .hero-sub, .hero-checks li { -webkit-hyphens: manual; hyphens: manual; overflow-wrap: normal; }
+.hero-eyebrow { display: block; margin-bottom: .9rem; line-height: 1.4; }
+.hero-accent { display: block; color: var(--accent-strong); }
+.hero-checks { color: var(--ink); font-size: clamp(1.02rem, .98rem + .3vw, 1.15rem); gap: .45rem; }
+@media (max-width: 560px) {
+  .hero .wrap { padding-block: 2rem 3rem; gap: 1.05rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero-eyebrow { margin-bottom: .6rem; }
+}
