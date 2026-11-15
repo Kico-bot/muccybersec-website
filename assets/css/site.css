@@ -390,3 +390,10 @@ h1, h2, h3, summary { overflow-wrap: anywhere; -webkit-hyphens: auto; hyphens: a
   .hero h1 { font-size: 2rem; }
   .hero-eyebrow { margin-bottom: .6rem; }
 }
+
+/* Ratgeber auf der Startseite und E-Mail im Fuß */
+.ratgeber-all { margin-top: 1.8rem; }
+.mist .article-list a { background: var(--paper); }
+.footer-brand a { color: var(--accent-strong); font-weight: 600; text-decoration: none; }
+.footer-brand a:hover { text-decoration: underline; }
+.contact-facts a { color: var(--accent-strong); }

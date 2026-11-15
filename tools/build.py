@@ -91,6 +91,7 @@ def footer():
     <div class="footer-brand">
       <span class="brand-word">CyberSec<span class="brand-accent">Check</span></span>
       <p>Informationssicherheit für den Mittelstand. Vor Ort in München und Umgebung, bundesweit per Video.</p>
+      <p><a href="mailto:kontakt@cyber-sec-check.de">kontakt@cyber-sec-check.de</a></p>
     </div>
 {col("Themen", [(p["nav"], "/" + p["slug"]) for p in landing.PAGES] + [("ISMS-Suite", "/#software"), ("Cyber-Check", "/#check")])}
 {col("Leistungen", [(p["nav"], "/" + p["slug"]) for p in leistungen.PAGES])}
