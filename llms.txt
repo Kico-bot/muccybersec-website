@@ -20,7 +20,7 @@
 
 ## Kostenlose ISMS-Suite
 
-- Software für Informationssicherheit nach ISO 27001, mit NIS2, DSGVO und EU AI Act. Kostenlos, Quellcode offen auf GitHub, Betrieb mit Docker auf eigenen Servern, ohne Beratung nutzbar: https://github.com/Kico-bot/ISMS_SaaS
+- Software für Informationssicherheit nach ISO 27001 und NIS2, DSGVO und EU AI Act zuschaltbar. Kostenlos, Quellcode offen auf GitHub, Betrieb mit Docker auf eigenen Servern, ohne Beratung nutzbar: https://github.com/Kico-bot/ISMS_SaaS
 
 ## Erfahrung
 
